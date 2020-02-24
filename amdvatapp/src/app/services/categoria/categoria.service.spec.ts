@@ -26,4 +26,12 @@ describe('CategoriaService', () => {
             });
     });
 
+    it('Respuesta Valida, Categorias', (done: DoneFn) => {
+        categoriaService.getCategorias()
+            .subscribe(res => {
+                expect(res.length).toEqual(5);
+                done();
+            });
+    });
+
 });
