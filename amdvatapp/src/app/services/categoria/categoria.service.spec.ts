@@ -1,21 +1,20 @@
 import {TestBed} from '@angular/core/testing';
 
 import {CategoriaService} from './categoria.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 describe('CategoriaService', () => {
     let categoriaService: CategoriaService;
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [HttpClient],
+            imports: [HttpClientModule],
             providers: [CategoriaService]
         });
 
         categoriaService = TestBed.get(CategoriaService);
     });
 
-    it('should be created', () => {
-        const service: CategoriaService = TestBed.get(CategoriaService);
-        expect(service).toBeTruthy();
+    it('Creacion de instancia de Servicio - Categoria', () => {
+        expect(categoriaService).toBeTruthy();
     });
 });
