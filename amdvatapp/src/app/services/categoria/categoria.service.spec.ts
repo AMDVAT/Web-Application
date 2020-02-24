@@ -17,4 +17,13 @@ describe('CategoriaService', () => {
     it('Creacion de instancia de Servicio - Categoria', () => {
         expect(categoriaService).toBeTruthy();
     });
+
+    it('Respuesta Valida, Categoria', (done: DoneFn) => {
+        categoriaService.getCategoria(1)
+            .subscribe(res => {
+                expect(res).toBeTruthy();
+                done();
+            });
+    });
+
 });
