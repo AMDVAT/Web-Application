@@ -10,11 +10,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { FormsModule } from '@angular/forms';
+import {CategoriasComponent} from './components/categorias/categorias.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogInComponent
+    LogInComponent,
+    CategoriasComponent
   ],
   entryComponents: [],
   imports: [
