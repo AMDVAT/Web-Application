@@ -16,7 +16,13 @@ export class AppComponent implements OnInit {
       title: 'Productos',
       url: '/productos',
       icon: 'cube'
-    },{
+    },
+    {
+      title: 'Categorias',
+      url: '/categorias',
+      icon: 'apps'
+    },
+    {
       title: 'Log In',
       url: '/login',
       icon: 'log-in'
