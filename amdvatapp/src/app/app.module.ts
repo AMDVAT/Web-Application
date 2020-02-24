@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import {CategoriasComponent} from './components/categorias/categorias.component';
 import { HomeComponent } from './components/home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
