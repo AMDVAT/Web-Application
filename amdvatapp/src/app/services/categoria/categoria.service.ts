@@ -12,11 +12,11 @@ export class CategoriaService {
     constructor() {
     }
 
-    getCategoria(id: number): Observable<Categoria> {
-        return of(categoria);
+    getCategoria(id: number): Categoria {
+        return categoria;
     }
 
-    getCategorias(): Observable<Categoria[]> {
-        return of(categorias);
+    getCategorias(): Categoria[] {
+        return categorias;
     }
 }
