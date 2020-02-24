@@ -14,9 +14,13 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Productos',
-      url: '',
-      icon: 'cube-sharp'
-    },
+      url: '/productos',
+      icon: 'log-in'
+    },{
+      title: 'Log In',
+      url: '/login',
+      icon: 'log-in'
+    }
   ];
 
   constructor(
