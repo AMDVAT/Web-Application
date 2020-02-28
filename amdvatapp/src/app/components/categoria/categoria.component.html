@@ -19,6 +19,8 @@
     </ion-card-header>
     <ion-card-content>
       <p>{{producto.descripcion}}</p>
+      <br>
+      Valoracion <app-valoration [valoration]="producto.calificacion"></app-valoration>
     </ion-card-content>
   </ion-card>
 </ion-content>
