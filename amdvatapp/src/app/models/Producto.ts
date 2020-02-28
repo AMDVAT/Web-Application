@@ -6,5 +6,6 @@ export class Producto {
     descripcion: string;
     precioOferta: number;
     calificacion: number;
+    categoria: number;
     status: number;
 }
