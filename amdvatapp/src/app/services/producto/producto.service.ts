@@ -13,4 +13,8 @@ export class ProductoService {
   getProducto(id: number): Producto {
     return productos.find(prod => prod.idProducto === id);
   }
+
+  getProductos(cateoria: number): Producto [] {
+    return productos;
+  }
 }
