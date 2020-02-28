@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Categoria} from "../../models/Categoria";
+import {Categoria} from '../../models/Categoria';
 
 @Component({
     selector: 'app-categoria',
@@ -7,8 +7,6 @@ import {Categoria} from "../../models/Categoria";
     styleUrls: ['./categoria.component.scss'],
 })
 export class CategoriaComponent implements OnInit {
-    @Input()
-    categoria: Categoria;
 
     constructor() {
     }
