@@ -9,6 +9,7 @@ export const productos: Array<Producto> = [
         foto: '',
         precio: 50.50,
         precioOferta: 20.20,
+        categoria: 1,
         status: 0
     },
     {
@@ -19,6 +20,7 @@ export const productos: Array<Producto> = [
         foto: '',
         precio: 150.50,
         precioOferta: 90.20,
+        categoria: 2,
         status: 0
     },
     {
@@ -29,6 +31,7 @@ export const productos: Array<Producto> = [
         foto: '',
         precio: 20.20,
         precioOferta: 40.20,
+        categoria: 3,
         status: 0
     },
     {
@@ -39,6 +42,7 @@ export const productos: Array<Producto> = [
         foto: '',
         precio: 160.99,
         precioOferta: 150.20,
+        categoria: 4,
         status: 0
     },
     {
@@ -49,6 +53,7 @@ export const productos: Array<Producto> = [
         foto: '',
         precio: 150.60,
         precioOferta: 40.20,
+        categoria: 5,
         status: 0
     }
 ];
