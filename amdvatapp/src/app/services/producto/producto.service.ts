@@ -15,6 +15,6 @@ export class ProductoService {
   }
 
   getProductos(cateoria: number): Producto [] {
-    return productos;
+    return productos.filter(prod => prod.categoria === cateoria);
   }
 }
