@@ -12,6 +12,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { FormsModule } from '@angular/forms';
 import {CategoriasComponent} from './components/categorias/categorias.component';
 import { HomeComponent } from './components/home/home.component';
+import {CategoriaComponent} from './components/categoria/categoria.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     LogInComponent,
     CategoriasComponent,
-    HomeComponent
+    HomeComponent,
+    CategoriaComponent
   ],
   entryComponents: [],
   imports: [

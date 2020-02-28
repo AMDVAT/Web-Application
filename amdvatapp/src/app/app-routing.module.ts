@@ -3,6 +3,7 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {LogInComponent} from './components/log-in/log-in.component';
 import {CategoriasComponent} from './components/categorias/categorias.component';
 import { HomeComponent } from './components/home/home.component';
+import {CategoriaComponent} from "./components/categoria/categoria.component";
 
 
 const routes: Routes = [
@@ -20,6 +21,9 @@ const routes: Routes = [
     }, {
         path: 'categorias',
         component: CategoriasComponent
+    }, {
+        path: 'categoria',
+        component: CategoriaComponent
     }
 ];
 
