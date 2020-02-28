@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import {CategoriasComponent} from './components/categorias/categorias.component';
 import { HomeComponent } from './components/home/home.component';
 import {CategoriaComponent} from './components/categoria/categoria.component';
+import {ValorationComponent} from './components/categoria/valoration/valoration.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {CategoriaComponent} from './components/categoria/categoria.component';
     LogInComponent,
     CategoriasComponent,
     HomeComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    ValorationComponent
   ],
   entryComponents: [],
   imports: [
