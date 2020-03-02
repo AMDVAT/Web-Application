@@ -8,14 +8,29 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { FormsModule } from '@angular/forms';
+import {CategoriasComponent} from './components/categorias/categorias.component';
+import { HomeComponent } from './components/home/home.component';
+import {CategoriaComponent} from './components/categoria/categoria.component';
+import {ValorationComponent} from './components/categoria/valoration/valoration.component';
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    LogInComponent,
+    CategoriasComponent,
+    HomeComponent,
+    CategoriaComponent,
+    ValorationComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
