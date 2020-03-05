@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Usuarios',
-      url: 'usuario',
+      url: 'usuario/lista',
       icon: 'person'
     },
     {

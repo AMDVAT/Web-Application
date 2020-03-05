@@ -30,6 +30,9 @@ const routes: Routes = [
     }, {
         path: 'producto/:id',
         component: ProductoComponent
+    },{
+        path: 'usuario/lista',
+        component: LogInComponent
     }
 ];
 
