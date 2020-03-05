@@ -34,17 +34,17 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Usuarios',
-      url: 'usuario/lista',
+      url: 'gestion/usuario/lista',
       icon: 'person'
     },
     {
       title: 'Productos',
-      url: 'producto',
+      url: 'gestion/producto/lista',
       icon: 'rocket'
     },
     {
       title: 'Sucursales',
-      url: 'sucursal',
+      url: 'gestion/sucursal/lista',
       icon: 'business'
     }
   ];

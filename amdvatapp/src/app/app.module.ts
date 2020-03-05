@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import {CategoriaComponent} from './components/categoria/categoria.component';
 import {ValorationComponent} from './components/categoria/valoration/valoration.component';
 import {ProductoComponent} from './components/producto/producto.component';
+import {ListaUsuariosComponent} from './components/lista-usuarios/lista-usuarios.component'
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {ProductoComponent} from './components/producto/producto.component';
     HomeComponent,
     CategoriaComponent,
     ValorationComponent,
-    ProductoComponent
+    ProductoComponent,
+    ListaUsuariosComponent
   ],
   entryComponents: [],
   imports: [
