@@ -17,6 +17,10 @@ import {ValorationComponent} from './components/categoria/valoration/valoration.
 import {ProductoComponent} from './components/producto/producto.component';
 import {ListaUsuariosComponent} from './components/lista-usuarios/lista-usuarios.component';
 import {UsuarioSimpleComponent} from './components/usuario-simple/usuario-simple.component';
+import {SucursalListaComponent} from './components/sucursal-lista/sucursal-lista.component';
+import {SucursalSimpleComponent} from './components/sucursal-simple/sucursal-simple.component';
+import {ProductoListaComponent} from './components/producto-lista/producto-lista.component';
+import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import {UsuarioSimpleComponent} from './components/usuario-simple/usuario-simple
     ValorationComponent,
     ProductoComponent,
     ListaUsuariosComponent,
-    UsuarioSimpleComponent
+    UsuarioSimpleComponent,
+    SucursalListaComponent,
+    SucursalSimpleComponent,
+    ProductoListaComponent,
+    ProductoSimpleComponent
   ],
   entryComponents: [],
   imports: [

@@ -7,6 +7,10 @@ import {CategoriaComponent} from './components/categoria/categoria.component';
 import {ProductoComponent} from './components/producto/producto.component';
 import {ListaUsuariosComponent} from './components/lista-usuarios/lista-usuarios.component';
 import {UsuarioSimpleComponent} from './components/usuario-simple/usuario-simple.component';
+import {SucursalListaComponent} from './components/sucursal-lista/sucursal-lista.component';
+import {SucursalSimpleComponent} from './components/sucursal-simple/sucursal-simple.component';
+import {ProductoListaComponent} from './components/producto-lista/producto-lista.component';
+import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
 import { from } from 'rxjs';
 
 
@@ -39,10 +43,17 @@ const routes: Routes = [
         component: UsuarioSimpleComponent
     },{
         path: 'gestion/producto/lista',
-        component: UsuarioSimpleComponent
+        component: ProductoListaComponent
+    },{
+        path: 'gestion/producto/lista/datos',
+        component: ProductoSimpleComponent
+
     },{
         path: 'gestion/sucursal/lista',
-        component: ListaUsuariosComponent
+        component: SucursalListaComponent
+    },{
+        path: 'gestion/sucursal/lista/datos',
+        component: SucursalSimpleComponent
     }
 ];
 
