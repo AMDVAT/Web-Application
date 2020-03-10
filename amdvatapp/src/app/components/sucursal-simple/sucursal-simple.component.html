@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Datos Sucursal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-content>
+
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title >
+          Datos de la sucursal
+        </ion-card-title>
+
+        <ion-card-content>
+          <form>
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input required type="text" name="Name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Apellido</ion-label>
+              <ion-input required type="text" name="apellido"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input required type="email" name="email"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input required type="password" name="password"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Direccion</ion-label>
+              <ion-input required type="text" name="direccion"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Telefono</ion-label>
+              <ion-input required type="password" name="telefono"></ion-input>
+            </ion-item>
+  
+  
+          </form> 
+        </ion-card-content>
+
+        <ion-button expand= "full" (click)= "save()"> 
+          Guardar
+        </ion-button>
+      </ion-card-header>
+    </ion-card>
+  
+  </div>
+
+
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger">
+    <ion-fab-button color = "danger" routerLink = ".." >
+      <ion-icon name = "trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
