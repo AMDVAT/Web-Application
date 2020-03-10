@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Datos Producto</ion-title>
+    <ion-title>Datos Sucursal</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,39 +15,32 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title >
-          Datos del producto
+          Datos de la sucursal
         </ion-card-title>
 
         <ion-card-content>
           <form>
             <ion-item>
-              <ion-label position="floating">Nombre</ion-label>
+              <ion-label position="floating">Nombre del producto</ion-label>
               <ion-input required type="text" name="Name"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label position="floating">Apellido</ion-label>
-              <ion-input required type="text" name="apellido"></ion-input>
-            </ion-item>
-
-            <ion-item>
-              <ion-label position="floating">Email</ion-label>
-              <ion-input required type="email" name="email"></ion-input>
+              <ion-label position="floating">Descripcion</ion-label>
+              <ion-input required type="text" name="descripcion"></ion-input>
             </ion-item>
   
             <ion-item>
-              <ion-label position="floating">Password</ion-label>
-              <ion-input required type="password" name="password"></ion-input>
+              <ion-label position="floating">Precio</ion-label>
+              <ion-input required type="text" name="precio"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label position="floating">Direccion</ion-label>
-              <ion-input required type="text" name="direccion"></ion-input>
-            </ion-item>
-
-            <ion-item>
-              <ion-label position="floating">Telefono</ion-label>
-              <ion-input required type="password" name="telefono"></ion-input>
+              <ion-label>Categoria</ion-label>
+              <ion-select placeholder="Seleccione una categoria">
+                <ion-select-option value="f">Audifonos</ion-select-option>
+                <ion-select-option value="m">Telefonos</ion-select-option>
+              </ion-select>
             </ion-item>
   
   
