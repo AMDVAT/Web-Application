@@ -12,6 +12,7 @@ import {SucursalSimpleComponent} from './components/sucursal-simple/sucursal-sim
 import {ProductoListaComponent} from './components/producto-lista/producto-lista.component';
 import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
 import { from } from 'rxjs';
+import {ProductosComponent} from './components/productos/productos.component';
 
 
 const routes: Routes = [
@@ -54,6 +55,9 @@ const routes: Routes = [
     },{
         path: 'gestion/sucursal/lista/datos',
         component: SucursalSimpleComponent
+    },{
+        path: 'productos',
+        component: ProductosComponent
     }
 ];
 
