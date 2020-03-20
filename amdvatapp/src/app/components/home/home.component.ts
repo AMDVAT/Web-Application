@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Categoria} from '../../models/Categoria';
+import {CategoriaService} from '../../services/categoria/categoria.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ProductoService} from '../../services/producto/producto.service';
+import {Producto} from '../../models/Producto';
 
 @Component({
   selector: 'app-home',
@@ -51,8 +56,30 @@ export class HomeComponent implements OnInit {
       precio: 'Q 2,849.00'
     }
   ];
-  constructor() { }
 
-  ngOnInit() {}
+  categorias: Array<Categoria> = [];
+  categoria: Categoria;
+  productos: Array<Producto>;
 
+  constructor(
+      private route: ActivatedRoute,
+      private router: Router,
+      private categoriaService: CategoriaService,
+      private productoService: ProductoService
+  ) {
+  }
+
+  ngOnInit() {
+    this.categorias = this.categoriaService.getCategorias();
+    const id = 1;
+    this.categoria = this.categoriaService.getCategoria(1);
+    this.productos = this.productoService.getProductos(1);
+  }
+
+
+
+  search(q: string) {
+    console.log(q);
+    this.router.navigate(['productos']);
+  }
 }

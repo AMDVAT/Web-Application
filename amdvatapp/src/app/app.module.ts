@@ -21,6 +21,7 @@ import {SucursalListaComponent} from './components/sucursal-lista/sucursal-lista
 import {SucursalSimpleComponent} from './components/sucursal-simple/sucursal-simple.component';
 import {ProductoListaComponent} from './components/producto-lista/producto-lista.component';
 import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
+import {ProductosComponent} from './components/productos/productos.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {ProductoSimpleComponent} from './components/producto-simple/producto-sim
     SucursalListaComponent,
     SucursalSimpleComponent,
     ProductoListaComponent,
-    ProductoSimpleComponent
+    ProductoSimpleComponent,
+    ProductosComponent
   ],
   entryComponents: [],
   imports: [
