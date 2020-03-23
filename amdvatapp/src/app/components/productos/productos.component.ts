@@ -38,16 +38,6 @@ export class ProductosComponent implements OnInit {
           console.log(this.resProductos);
         }, error => console.log(error)
     );
-
-    this.categoriaService.getCategorias()
-        .subscribe(categorias => {
-          console.log(categorias);
-          this.categoria = categorias.find(cat => cat.id_categoria === 1);
-        });
-    this.productoService.getProductos(1)
-        .subscribe(productos => {
-          this.productos = productos;
-        });
   }
 
 }
