@@ -22,7 +22,6 @@ import {SucursalSimpleComponent} from './components/sucursal-simple/sucursal-sim
 import {ProductoListaComponent} from './components/producto-lista/producto-lista.component';
 import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
 import {ProductosComponent} from './components/productos/productos.component';
-
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -45,6 +44,7 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   entryComponents: [],
   imports: [
+      HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,

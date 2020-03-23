@@ -21,7 +21,10 @@ export class ProductoComponent implements OnInit {
 
     ngOnInit() {
         const id = this.route.snapshot.paramMap.get('id');
-        this.producto = this.productoService.getProducto(parseInt(id, 10));
+        this.productoService.getProducto(parseInt(id, 10))
+            .subscribe(productos => {
+                this.producto = productos[0];
+            });
     }
 
 }

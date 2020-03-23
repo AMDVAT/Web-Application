@@ -38,9 +38,6 @@ export class ProductosComponent implements OnInit {
           console.log(this.resProductos);
         }, error => console.log(error)
     );
-
-    this.categoria = this.categoriaService.getCategoria(1);
-    this.productos = this.productoService.getProductos(1);
   }
 
 }
