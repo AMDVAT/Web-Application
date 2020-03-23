@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import {LogInService} from '../../services/log-in/log-in.service';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-log-in',
@@ -20,11 +21,14 @@ export class LogInComponent implements OnInit {
 
   constructor(
       private nativeStorage: NativeStorage,
-      private loginService: LogInService
+      private loginService: LogInService,
+      public platform: Platform
   ) { }
 
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   login(){
     /*
@@ -35,12 +39,17 @@ export class LogInComponent implements OnInit {
         );*/
     this.loginService.login(this.user.email,this.user.password).subscribe(
         res => {
-          localStorage.setItem('user', JSON.stringify(res));
-          this.nativeStorage.setItem('user', res)
-              .then(
-                  (data) => console.log('Stored first item!', data),
-                  error => console.error('Error storing item', error)
-              );
+          if (this.platform.is('android')) {
+            this.nativeStorage.setItem('user', res)
+                .then(
+                    (data) => console.log('Stored first item!', data),
+                    error => console.error('Error storing item', error)
+                );
+          } else {
+            localStorage.setItem('user', JSON.stringify(res));
+          }
+
+
         },err => console.log(err)
     );
 

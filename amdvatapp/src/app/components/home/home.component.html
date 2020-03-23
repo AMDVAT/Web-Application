@@ -19,10 +19,14 @@
 
     <ion-list id="labels-list">
       <ion-list-header>Buscar Producto</ion-list-header>
-      <ion-searchbar #q
-                     [showCancelButton]="true"
-                     (keyup.enter)="search(q.value)">
-      </ion-searchbar>
+      <ion-toolbar>
+        <ion-searchbar #q
+                       [showCancelButton]="true"(keyup.enter)="search(q.value)"></ion-searchbar>
+        <ion-buttons slot="end">
+          <ion-button type="submit" expand="full" color="primary" (click)="search(q.value)" >Buscar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+
 
     </ion-list>
 
@@ -66,11 +70,11 @@
       </ion-card-header>
       <ion-card-content>
         <ion-slides pager="true">
-          <ion-slide routerLink="/categorias/categoria/{{categoria.categoriaId}}" *ngFor="let categoria of categorias">
+          <ion-slide routerLink="/categorias/categoria/{{categoria.id_categoria}}" *ngFor="let categoria of topCategorias">
            <ion-card>
             <img src="https://st3.depositphotos.com/7109552/12546/v/950/depositphotos_125462500-stock-illustration-minimal-box-square-black-and.jpg">
-            <div class="card-title">{{categoria.categoriaNombre}}</div>
-            <div class="card-subtitle">{{categoria.categoriaNombre}}</div>
+            <div class="card-title">{{categoria.nombre}}</div>
+            <div class="card-subtitle">{{categoria.nombre}}</div>
           </ion-card>
           </ion-slide>
         </ion-slides>      
