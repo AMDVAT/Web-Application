@@ -15,7 +15,7 @@ export class SessionService {
     }
 
     setUser(user: any): void {
-      user = JSON.stringify(user);
+        user = JSON.stringify(user);
         if (this.platform.is('android')) {
             this.nativeStorage.setItem('user', user)
                 .then(
@@ -29,9 +29,12 @@ export class SessionService {
 
     getUser(): any {
       if (this.platform.is('android')) {
-        return this.nativeStorage.getItem('user');
+        return this.nativeStorage.getItem('user')
+            .then(
+                (data) => {return JSON.parse(data);}
+            );
       } else {
-        return localStorage.getItem('user');
+        return JSON.parse(localStorage.getItem('user'));
       }
     }
 }

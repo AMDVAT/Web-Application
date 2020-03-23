@@ -44,7 +44,6 @@ export class LogInComponent implements OnInit {
           this.sessionService.setUser(res);
         },err => console.log(err)
     );
-
   }
 
   ionViewWillEnter() {
