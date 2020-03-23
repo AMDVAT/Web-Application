@@ -5,6 +5,14 @@ import {CategoriasComponent} from './components/categorias/categorias.component'
 import { HomeComponent } from './components/home/home.component';
 import {CategoriaComponent} from './components/categoria/categoria.component';
 import {ProductoComponent} from './components/producto/producto.component';
+import {ListaUsuariosComponent} from './components/lista-usuarios/lista-usuarios.component';
+import {UsuarioSimpleComponent} from './components/usuario-simple/usuario-simple.component';
+import {SucursalListaComponent} from './components/sucursal-lista/sucursal-lista.component';
+import {SucursalSimpleComponent} from './components/sucursal-simple/sucursal-simple.component';
+import {ProductoListaComponent} from './components/producto-lista/producto-lista.component';
+import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
+import { from } from 'rxjs';
+import {ProductosComponent} from './components/productos/productos.component';
 
 
 const routes: Routes = [
@@ -28,6 +36,28 @@ const routes: Routes = [
     }, {
         path: 'producto/:id',
         component: ProductoComponent
+    },{
+        path: 'gestion/usuario/lista',
+        component: ListaUsuariosComponent
+    },{
+        path: 'gestion/usuario/lista/datos',
+        component: UsuarioSimpleComponent
+    },{
+        path: 'gestion/producto/lista',
+        component: ProductoListaComponent
+    },{
+        path: 'gestion/producto/lista/datos',
+        component: ProductoSimpleComponent
+
+    },{
+        path: 'gestion/sucursal/lista',
+        component: SucursalListaComponent
+    },{
+        path: 'gestion/sucursal/lista/datos',
+        component: SucursalSimpleComponent
+    },{
+        path: 'productos/:producto',
+        component: ProductosComponent
     }
 ];
 

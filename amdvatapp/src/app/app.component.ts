@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -18,6 +19,11 @@ export class AppComponent implements OnInit {
     //   icon: 'cube'
     // },
     {
+      title: 'Log In',
+      url: '/login',
+      icon: 'log-in'
+    },
+    {
       title: 'Home',
       url: '/home',
       icon: 'home'
@@ -28,9 +34,19 @@ export class AppComponent implements OnInit {
       icon: 'apps'
     },
     {
-      title: 'Log In',
-      url: '/login',
-      icon: 'log-in'
+      title: 'Usuarios',
+      url: 'gestion/usuario/lista',
+      icon: 'person'
+    },
+    {
+      title: 'Productos',
+      url: 'gestion/producto/lista',
+      icon: 'rocket'
+    },
+    {
+      title: 'Sucursales',
+      url: 'gestion/sucursal/lista',
+      icon: 'business'
     }
   ];
 
