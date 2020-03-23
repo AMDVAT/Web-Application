@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import {CategoriaComponent} from './components/categoria/categoria.component';
 import {ValorationComponent} from './components/categoria/valoration/valoration.component';
 import {ProductoComponent} from './components/producto/producto.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {ProductoComponent} from './components/producto/producto.component';
   ],
   entryComponents: [],
   imports: [
+      HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
