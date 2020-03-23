@@ -21,7 +21,9 @@ import {SucursalListaComponent} from './components/sucursal-lista/sucursal-lista
 import {SucursalSimpleComponent} from './components/sucursal-simple/sucursal-simple.component';
 import {ProductoListaComponent} from './components/producto-lista/producto-lista.component';
 import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
-
+import {ProductosComponent} from './components/productos/productos.component';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,18 +39,22 @@ import {ProductoSimpleComponent} from './components/producto-simple/producto-sim
     SucursalListaComponent,
     SucursalSimpleComponent,
     ProductoListaComponent,
-    ProductoSimpleComponent
+    ProductoSimpleComponent,
+    ProductosComponent
   ],
   entryComponents: [],
   imports: [
+      HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

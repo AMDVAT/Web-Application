@@ -25,8 +25,16 @@ export class CategoriaComponent implements OnInit {
 
     ngOnInit() {
         const id = this.route.snapshot.paramMap.get('id');
-        this.categoria = this.categoriaService.getCategoria(parseInt(id, 10));
-        this.productos = this.productoService.getProductos(parseInt(id, 10));
+        this.categoriaService.getCategorias()
+            .subscribe(categorias => {
+                console.log(categorias);
+                this.categoria = categorias.find(cat => cat.id_categoria === parseInt(id, 10));
+            });
+
+        this.productoService.getProductos(parseInt(id, 10))
+            .subscribe(productos => {
+                this.productos = productos;
+            });
     }
 
 }

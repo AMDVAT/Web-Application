@@ -3,14 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{producto.nombre}}</ion-title>
+    <ion-title *ngIf="producto">{{producto.nombre}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content *ngIf="producto" [fullscreen]="true">
   <img
           class="img-center"
-          src="https://st3.depositphotos.com/7109552/12546/v/950/depositphotos_125462500-stock-illustration-minimal-box-square-black-and.jpg">
+          src="{{this.producto.foto === 'https://st3.depositphotos.com/7109552/12546/v/950/depositphotos_125462500-stock-illustration-minimal-box-square-black-and.jpg' ? '' : this.producto.foto }}">
   <app-valoration
           class="valoration"
           [valoration]="producto.calificacion"
