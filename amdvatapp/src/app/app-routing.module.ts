@@ -56,7 +56,7 @@ const routes: Routes = [
         path: 'gestion/sucursal/lista/datos',
         component: SucursalSimpleComponent
     },{
-        path: 'productos',
+        path: 'productos/:producto',
         component: ProductosComponent
     }
 ];

@@ -15,4 +15,8 @@ export class HomeService {
   getTopCategorias() {
     return this.http.get(`${this.env.API_URI}producto/topCategorias`);
   }
+
+  getTopProductos(){
+    return this.http.get(`${this.env.API_URI}producto/topProductos`);
+  }
 }

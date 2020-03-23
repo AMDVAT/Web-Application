@@ -40,7 +40,7 @@
             <ion-card>
               <img src="https://st3.depositphotos.com/7109552/12546/v/950/depositphotos_125462500-stock-illustration-minimal-box-square-black-and.jpg">
               <div class="card-title">{{producto.nombre}}</div>
-              <div class="card-subtitle">{{producto.precioOferta}}</div>
+              <div class="card-subtitle">Q. {{producto.precioOferta}}</div>
             </ion-card>
           </ion-slide>
         </ion-slides>      
@@ -53,11 +53,11 @@
       </ion-card-header>
       <ion-card-content>
         <ion-slides pager="true">
-          <ion-slide routerLink="/producto/{{producto.idProducto}}" *ngFor="let producto of productos" >
+          <ion-slide routerLink="/producto/{{producto.id_producto}}" *ngFor="let producto of topProductos" >
            <ion-card>
-             <img src="https://st3.depositphotos.com/7109552/12546/v/950/depositphotos_125462500-stock-illustration-minimal-box-square-black-and.jpg">
+             <img src="{{producto.foto}}">
              <div class="card-title">{{producto.nombre}}</div>
-            <div class="card-subtitle">{{producto.precioOferta}}</div>
+            <div class="card-subtitle">{{producto.precio}}</div>
           </ion-card>
           </ion-slide>
         </ion-slides>      

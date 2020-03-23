@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   productos: Array<Producto>;
 
   topCategorias: any = [];
+  topProductos: any = [];
 
   constructor(
       private route: ActivatedRoute,
@@ -29,15 +30,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.categorias = this.categoriaService.getCategorias();
-    const id = 1;
-    this.categoria = this.categoriaService.getCategoria(1);
     this.productos = this.productoService.getProductos(1);
 
+    this.homeService.getTopProductos().subscribe(
+        res => {
+          this.topProductos = res;
+        }, error => console.log(error)
+    );
     this.homeService.getTopCategorias().subscribe(
       res => {
         this.topCategorias = res;
-      }, err => console.log(err)
+      }, error => console.log(error)
     );
   }
 
@@ -45,7 +48,7 @@ export class HomeComponent implements OnInit {
 
   search(q: string) {
     console.log(q);
-    this.router.navigate(['productos']);
+    this.router.navigate([`productos/${q}`]);
   }
 
 }
