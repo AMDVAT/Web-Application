@@ -2,28 +2,28 @@ import {Categoria} from '../models/Categoria';
 
 export const categorias: Array<Categoria> = [
     {
-        categoriaId: 1,
-        categoriaNombre: 'PC\'s',
+        id_categoria: 1,
+        nombre: 'PC\'s',
         categoriaDescripcion: 'Computadores de Escritorio'
     },
     {
-        categoriaId: 2,
-        categoriaNombre: 'Laptop\'s',
+        id_categoria: 2,
+        nombre: 'Laptop\'s',
         categoriaDescripcion: 'Computadores Portátiles'
     },
     {
-        categoriaId: 3,
-        categoriaNombre: 'Celulares',
+        id_categoria: 3,
+        nombre: 'Celulares',
         categoriaDescripcion: 'Teléfonos Móbiles Potátiles'
     },
     {
-        categoriaId: 4,
-        categoriaNombre: 'Tablets',
+        id_categoria: 4,
+        nombre: 'Tablets',
         categoriaDescripcion: 'Tables Multifuncionales'
     },
     {
-        categoriaId: 5,
-        categoriaNombre: 'Smart Watches',
+        id_categoria: 5,
+        nombre: 'Smart Watches',
         categoriaDescripcion: 'Relojes Inteligentes'
     }
 ];

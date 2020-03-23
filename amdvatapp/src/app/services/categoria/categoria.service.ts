@@ -13,7 +13,7 @@ export class CategoriaService {
     }
 
     getCategoria(id: number): Categoria {
-        return categorias.find(cat => cat.categoriaId === id);
+        return categorias.find(cat => cat.id_categoria === id);
     }
 
     getCategorias(): Categoria[] {

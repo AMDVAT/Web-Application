@@ -1,7 +1,7 @@
 import {Categoria} from '../models/Categoria';
 
 export const categoria: Categoria = {
-    categoriaId: 1,
-    categoriaNombre: 'PC\'s',
+    id_categoria: 1,
+    nombre: 'PC\'s',
     categoriaDescripcion: 'Computadores de Escritorio'
 };
