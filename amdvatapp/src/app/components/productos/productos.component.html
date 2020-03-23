@@ -3,16 +3,16 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{categoria.categoriaNombre}}</ion-title>
+    <ion-title>{{productoTitle}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let producto of productos" routerDirection="forward" lines="none" detail="false" [routerLink]="['/', 'producto', producto.idProducto]">
+  <ion-card *ngFor="let producto of resProductos" routerDirection="forward" lines="none" detail="false" [routerLink]="['/', 'producto', producto.id_producto]">
     <ion-card-header>
       <ion-card-title>{{producto.nombre}}</ion-card-title>
       <ion-card-subtitle>
-        <span style="color: red; font-size: 1.4em">Ahora: ${{producto.precioOferta}}</span>
+        <span style="color: red; font-size: 1.4em">Ahora: ${{producto.precio_oferta}}</span>
         <br>
         Antes: $<span style="text-decoration: line-through">{{producto.precio}}</span>
       </ion-card-subtitle>
