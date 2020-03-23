@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import {LogInService} from '../../services/log-in/log-in.service';
 import { Platform } from '@ionic/angular';
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-log-in',
@@ -22,6 +23,7 @@ export class LogInComponent implements OnInit {
   constructor(
       private nativeStorage: NativeStorage,
       private loginService: LogInService,
+      private sessionService: SessionService,
       public platform: Platform
   ) { }
 
@@ -39,20 +41,9 @@ export class LogInComponent implements OnInit {
         );*/
     this.loginService.login(this.user.email,this.user.password).subscribe(
         res => {
-          if (this.platform.is('android')) {
-            this.nativeStorage.setItem('user', res)
-                .then(
-                    (data) => console.log('Stored first item!', data),
-                    error => console.error('Error storing item', error)
-                );
-          } else {
-            localStorage.setItem('user', JSON.stringify(res));
-          }
-
-
+          this.sessionService.setUser(res);
         },err => console.log(err)
     );
-
   }
 
   ionViewWillEnter() {
