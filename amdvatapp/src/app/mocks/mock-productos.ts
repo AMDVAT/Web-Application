@@ -2,443 +2,443 @@ import {Producto} from '../models/Producto';
 
 export const productos: Array<Producto> = [
     {
-        idProducto: 161,
+        id_producto: 161,
         nombre: 'Producto 9',
         descripcion: 'Sed nisl felis, condimentum eget tristique eget, tristique ac sem. Fusce fermentum non dui ut faucibus. Aenean imperdiet consequat elit scelerisque elementum. Donec mattis orci et est dictum semper. Nam ut justo vitae nulla tristique ultrices. ',
         calificacion: 2,
         foto: '',
         precio: 29.75,
-        precioOferta: 44.25,
-        categoria: 3,
-        status: 0
+        precio_oferta: 44.25,
+        id_categoria: 3,
+        estado: 0
     },
     {
-        idProducto: 98,
+        id_producto: 98,
         nombre: 'Producto 4',
         descripcion: 'Nullam at nulla a est finibus condimentum nec eget dolor. Donec mollis, dolor quis malesuada congue, ligula urna dapibus eros, ac imperdiet tortor est et leo. Ut congue, diam eget placerat pretium, nibh ligula malesuada purus, eu tincidunt neque ipsum eu mi. Mauris vel sem sed enim fermentum pretium. Pellentesque tincidunt lorem nec eros pharetra vulputate.',
         calificacion: 2,
         foto: '',
         precio: 38.5,
-        precioOferta: 23.25,
-        categoria: 1,
-        status: 0
+        precio_oferta: 23.25,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 107,
+        id_producto: 107,
         nombre: 'Producto 5',
         descripcion: 'Suspendisse eget finibus quam. Nam sed nulla ligula. Sed lobortis eleifend quam et ornare. In hac habitasse platea dictumst. Cras egestas leo ut justo feugiat tempus. Sed non finibus dui. Cras id varius libero, a volutpat sem. ',
         calificacion: 3,
         foto: '',
         precio: 30,
-        precioOferta: 12.5,
-        categoria: 4,
-        status: 0
+        precio_oferta: 12.5,
+        id_categoria: 4,
+        estado: 0
     },
     {
-        idProducto: 147,
+        id_producto: 147,
         nombre: 'Producto 6',
         descripcion: 'Fusce tincidunt cursus vehicula. Ut cursus feugiat pretium. Suspendisse potenti. Pellentesque condimentum tellus a dignissim porttitor. Donec tincidunt egestas sem vel ultrices. Nullam a arcu tristique, pellentesque elit tristique, semper lectus. Sed dictum, nunc vel lacinia molestie, lorem mi pellentesque dolor, ac lobortis massa orci congue metus',
         calificacion: 3,
         foto: '',
         precio: 8,
-        precioOferta: 25.25,
-        categoria: 4,
-        status: 0
+        precio_oferta: 25.25,
+        id_categoria: 4,
+        estado: 0
     },
     {
-        idProducto: 57,
+        id_producto: 57,
         nombre: 'Producto 4',
         descripcion: 'Vivamus ut mauris nec mauris cursus eleifend fringilla vitae eros. Donec ligula leo, euismod et dictum non, sodales ut tellus. Morbi ullamcorper egestas diam. Sed tempor metus a ipsum pellentesque eleifend. Mauris urna ligula, gravida in massa vitae, sagittis auctor eros. Sed vel pharetra ante.',
         calificacion: 3,
         foto: '',
         precio: 67,
-        precioOferta: 46.25,
-        categoria: 1,
-        status: 0
+        precio_oferta: 46.25,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 197,
+        id_producto: 197,
         nombre: 'Producto 8',
         descripcion: 'Nullam at nulla a est finibus condimentum nec eget dolor. Donec mollis, dolor quis malesuada congue, ligula urna dapibus eros, ac imperdiet tortor est et leo. Ut congue, diam eget placerat pretium, nibh ligula malesuada purus, eu tincidunt neque ipsum eu mi. Mauris vel sem sed enim fermentum pretium. Pellentesque tincidunt lorem nec eros pharetra vulputate.',
         calificacion: 4,
         foto: '',
         precio: 43.5,
-        precioOferta: 62.75,
-        categoria: 1,
-        status: 0
+        precio_oferta: 62.75,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 32,
+        id_producto: 32,
         nombre: 'Producto 5',
         descripcion: 'Vivamus ut mauris nec mauris cursus eleifend fringilla vitae eros. Donec ligula leo, euismod et dictum non, sodales ut tellus. Morbi ullamcorper egestas diam. Sed tempor metus a ipsum pellentesque eleifend. Mauris urna ligula, gravida in massa vitae, sagittis auctor eros. Sed vel pharetra ante.',
         calificacion: 5,
         foto: '',
         precio: 15,
-        precioOferta: 25.5,
-        categoria: 2,
-        status: 0
+        precio_oferta: 25.5,
+        id_categoria: 2,
+        estado: 0
     },
     {
-        idProducto: 7,
+        id_producto: 7,
         nombre: 'Producto 8',
         descripcion: 'Suspendisse eget finibus quam. Nam sed nulla ligula. Sed lobortis eleifend quam et ornare. In hac habitasse platea dictumst. Cras egestas leo ut justo feugiat tempus. Sed non finibus dui. Cras id varius libero, a volutpat sem. ',
         calificacion: 5,
         foto: '',
         precio: 18,
-        precioOferta: 73.5,
-        categoria: 4,
-        status: 0
+        precio_oferta: 73.5,
+        id_categoria: 4,
+        estado: 0
     },
     {
-        idProducto: 179,
+        id_producto: 179,
         nombre: 'Producto 7',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 3,
         foto: '',
         precio: 7,
-        precioOferta: 17.25,
-        categoria: 1,
-        status: 0
+        precio_oferta: 17.25,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 145,
+        id_producto: 145,
         nombre: 'Producto 6',
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, tellus ut pharetra elementum, ante felis blandit risus, vel porta metus lacus eget metus. Proin euismod ipsum a urna posuere pretium. Curabitur eleifend lacus ac erat imperdiet ultricies. Donec posuere dolor hendrerit, mollis tortor non, bibendum erat',
         calificacion: 1,
         foto: '',
         precio: 11.25,
-        precioOferta: 32.25,
-        categoria: 3,
-        status: 0
+        precio_oferta: 32.25,
+        id_categoria: 3,
+        estado: 0
     },
     {
-        idProducto: 121,
+        id_producto: 121,
         nombre: 'Producto 4',
         descripcion: 'Fusce tincidunt cursus vehicula. Ut cursus feugiat pretium. Suspendisse potenti. Pellentesque condimentum tellus a dignissim porttitor. Donec tincidunt egestas sem vel ultrices. Nullam a arcu tristique, pellentesque elit tristique, semper lectus. Sed dictum, nunc vel lacinia molestie, lorem mi pellentesque dolor, ac lobortis massa orci congue metus',
         calificacion: 1,
         foto: '',
         precio: 60.5,
-        precioOferta: 4,
-        categoria: 3,
-        status: 0
+        precio_oferta: 4,
+        id_categoria: 3,
+        estado: 0
     },
     {
-        idProducto: 97,
+        id_producto: 97,
         nombre: 'Producto',
         descripcion: 'Sed nisl felis, condimentum eget tristique eget, tristique ac sem. Fusce fermentum non dui ut faucibus. Aenean imperdiet consequat elit scelerisque elementum. Donec mattis orci et est dictum semper. Nam ut justo vitae nulla tristique ultrices. ',
         calificacion: 3,
         foto: '',
         precio: 96.5,
-        precioOferta: 35.25,
-        categoria: 1,
-        status: 0
+        precio_oferta: 35.25,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 200,
+        id_producto: 200,
         nombre: 'Producto 8',
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, tellus ut pharetra elementum, ante felis blandit risus, vel porta metus lacus eget metus. Proin euismod ipsum a urna posuere pretium. Curabitur eleifend lacus ac erat imperdiet ultricies. Donec posuere dolor hendrerit, mollis tortor non, bibendum erat',
         calificacion: 4,
         foto: '',
         precio: 91.5,
-        precioOferta: 47,
-        categoria: 1,
-        status: 0
+        precio_oferta: 47,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 175,
+        id_producto: 175,
         nombre: 'Producto 6',
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, tellus ut pharetra elementum, ante felis blandit risus, vel porta metus lacus eget metus. Proin euismod ipsum a urna posuere pretium. Curabitur eleifend lacus ac erat imperdiet ultricies. Donec posuere dolor hendrerit, mollis tortor non, bibendum erat',
         calificacion: 3,
         foto: '',
         precio: 16.25,
-        precioOferta: 63.25,
-        categoria: 3,
-        status: 0
+        precio_oferta: 63.25,
+        id_categoria: 3,
+        estado: 0
     },
     {
-        idProducto: 104,
+        id_producto: 104,
         nombre: 'Producto 8',
         descripcion: 'Vivamus ut mauris nec mauris cursus eleifend fringilla vitae eros. Donec ligula leo, euismod et dictum non, sodales ut tellus. Morbi ullamcorper egestas diam. Sed tempor metus a ipsum pellentesque eleifend. Mauris urna ligula, gravida in massa vitae, sagittis auctor eros. Sed vel pharetra ante.',
         calificacion: 4,
         foto: '',
         precio: 28.75,
-        precioOferta: 32.75,
-        categoria: 2,
-        status: 0
+        precio_oferta: 32.75,
+        id_categoria: 2,
+        estado: 0
     },
     {
-        idProducto: 186,
+        id_producto: 186,
         nombre: 'Producto 9',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 2,
         foto: '',
         precio: 69,
-        precioOferta: 13,
-        categoria: 2,
-        status: 0
+        precio_oferta: 13,
+        id_categoria: 2,
+        estado: 0
     },
     {
-        idProducto: 8,
+        id_producto: 8,
         nombre: 'Producto 7',
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, tellus ut pharetra elementum, ante felis blandit risus, vel porta metus lacus eget metus. Proin euismod ipsum a urna posuere pretium. Curabitur eleifend lacus ac erat imperdiet ultricies. Donec posuere dolor hendrerit, mollis tortor non, bibendum erat',
         calificacion: 2,
         foto: '',
         precio: 79.5,
-        precioOferta: 24,
-        categoria: 2,
-        status: 0
+        precio_oferta: 24,
+        id_categoria: 2,
+        estado: 0
     },
     {
-        idProducto: 140,
+        id_producto: 140,
         nombre: 'Producto',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 4,
         foto: '',
         precio: 91.25,
-        precioOferta: 51.25,
-        categoria: 3,
-        status: 0
+        precio_oferta: 51.25,
+        id_categoria: 3,
+        estado: 0
     },
     {
-        idProducto: 140,
+        id_producto: 140,
         nombre: 'Producto 5',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 3,
         foto: '',
         precio: 2.5,
-        precioOferta: 57,
-        categoria: 1,
-        status: 0
+        precio_oferta: 57,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 13,
+        id_producto: 13,
         nombre: 'Producto 4',
         descripcion: 'Suspendisse eget finibus quam. Nam sed nulla ligula. Sed lobortis eleifend quam et ornare. In hac habitasse platea dictumst. Cras egestas leo ut justo feugiat tempus. Sed non finibus dui. Cras id varius libero, a volutpat sem. ',
         calificacion: 4,
         foto: '',
         precio: 42,
-        precioOferta: 69,
-        categoria: 3,
-        status: 0
+        precio_oferta: 69,
+        id_categoria: 3,
+        estado: 0
     },
     {
-        idProducto: 31,
+        id_producto: 31,
         nombre: 'Producto 7',
         descripcion: 'Nullam at nulla a est finibus condimentum nec eget dolor. Donec mollis, dolor quis malesuada congue, ligula urna dapibus eros, ac imperdiet tortor est et leo. Ut congue, diam eget placerat pretium, nibh ligula malesuada purus, eu tincidunt neque ipsum eu mi. Mauris vel sem sed enim fermentum pretium. Pellentesque tincidunt lorem nec eros pharetra vulputate.',
         calificacion: 5,
         foto: '',
         precio: 81,
-        precioOferta: 25.25,
-        categoria: 1,
-        status: 0
+        precio_oferta: 25.25,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 171,
+        id_producto: 171,
         nombre: 'Producto 6',
         descripcion: 'Fusce tincidunt cursus vehicula. Ut cursus feugiat pretium. Suspendisse potenti. Pellentesque condimentum tellus a dignissim porttitor. Donec tincidunt egestas sem vel ultrices. Nullam a arcu tristique, pellentesque elit tristique, semper lectus. Sed dictum, nunc vel lacinia molestie, lorem mi pellentesque dolor, ac lobortis massa orci congue metus',
         calificacion: 2,
         foto: '',
         precio: 49.25,
-        precioOferta: 46.25,
-        categoria: 5,
-        status: 0
+        precio_oferta: 46.25,
+        id_categoria: 5,
+        estado: 0
     },
     {
-        idProducto: 5,
+        id_producto: 5,
         nombre: 'Producto 7',
         descripcion: 'Suspendisse eget finibus quam. Nam sed nulla ligula. Sed lobortis eleifend quam et ornare. In hac habitasse platea dictumst. Cras egestas leo ut justo feugiat tempus. Sed non finibus dui. Cras id varius libero, a volutpat sem. ',
         calificacion: 1,
         foto: '',
         precio: 99.75,
-        precioOferta: 64,
-        categoria: 1,
-        status: 0
+        precio_oferta: 64,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 31,
+        id_producto: 31,
         nombre: 'Producto 7',
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, tellus ut pharetra elementum, ante felis blandit risus, vel porta metus lacus eget metus. Proin euismod ipsum a urna posuere pretium. Curabitur eleifend lacus ac erat imperdiet ultricies. Donec posuere dolor hendrerit, mollis tortor non, bibendum erat',
         calificacion: 5,
         foto: '',
         precio: 93.25,
-        precioOferta: 44,
-        categoria: 5,
-        status: 0
+        precio_oferta: 44,
+        id_categoria: 5,
+        estado: 0
     },
     {
-        idProducto: 164,
+        id_producto: 164,
         nombre: 'Producto',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 3,
         foto: '',
         precio: 53.25,
-        precioOferta: 47.5,
-        categoria: 3,
-        status: 0
+        precio_oferta: 47.5,
+        id_categoria: 3,
+        estado: 0
     },
     {
-        idProducto: 42,
+        id_producto: 42,
         nombre: 'Producto 4',
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, tellus ut pharetra elementum, ante felis blandit risus, vel porta metus lacus eget metus. Proin euismod ipsum a urna posuere pretium. Curabitur eleifend lacus ac erat imperdiet ultricies. Donec posuere dolor hendrerit, mollis tortor non, bibendum erat',
         calificacion: 5,
         foto: '',
         precio: 7.75,
-        precioOferta: 67,
-        categoria: 1,
-        status: 0
+        precio_oferta: 67,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 14,
+        id_producto: 14,
         nombre: 'Producto 8',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 5,
         foto: '',
         precio: 75,
-        precioOferta: 66.75,
-        categoria: 3,
-        status: 0
+        precio_oferta: 66.75,
+        id_categoria: 3,
+        estado: 0
     },
     {
-        idProducto: 119,
+        id_producto: 119,
         nombre: 'Producto 7',
         descripcion: 'Suspendisse eget finibus quam. Nam sed nulla ligula. Sed lobortis eleifend quam et ornare. In hac habitasse platea dictumst. Cras egestas leo ut justo feugiat tempus. Sed non finibus dui. Cras id varius libero, a volutpat sem. ',
         calificacion: 3,
         foto: '',
         precio: 3.5,
-        precioOferta: 43.75,
-        categoria: 2,
-        status: 0
+        precio_oferta: 43.75,
+        id_categoria: 2,
+        estado: 0
     },
     {
-        idProducto: 23,
+        id_producto: 23,
         nombre: 'Producto',
         descripcion: 'Nullam at nulla a est finibus condimentum nec eget dolor. Donec mollis, dolor quis malesuada congue, ligula urna dapibus eros, ac imperdiet tortor est et leo. Ut congue, diam eget placerat pretium, nibh ligula malesuada purus, eu tincidunt neque ipsum eu mi. Mauris vel sem sed enim fermentum pretium. Pellentesque tincidunt lorem nec eros pharetra vulputate.',
         calificacion: 5,
         foto: '',
         precio: 86.75,
-        precioOferta: 62.25,
-        categoria: 5,
-        status: 0
+        precio_oferta: 62.25,
+        id_categoria: 5,
+        estado: 0
     },
     {
-        idProducto: 15,
+        id_producto: 15,
         nombre: 'Producto 5',
         descripcion: 'Fusce tincidunt cursus vehicula. Ut cursus feugiat pretium. Suspendisse potenti. Pellentesque condimentum tellus a dignissim porttitor. Donec tincidunt egestas sem vel ultrices. Nullam a arcu tristique, pellentesque elit tristique, semper lectus. Sed dictum, nunc vel lacinia molestie, lorem mi pellentesque dolor, ac lobortis massa orci congue metus',
         calificacion: 5,
         foto: '',
         precio: 59.75,
-        precioOferta: 1.5,
-        categoria: 5,
-        status: 0
+        precio_oferta: 1.5,
+        id_categoria: 5,
+        estado: 0
     },
     {
-        idProducto: 76,
+        id_producto: 76,
         nombre: 'Producto 7',
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, tellus ut pharetra elementum, ante felis blandit risus, vel porta metus lacus eget metus. Proin euismod ipsum a urna posuere pretium. Curabitur eleifend lacus ac erat imperdiet ultricies. Donec posuere dolor hendrerit, mollis tortor non, bibendum erat',
         calificacion: 2,
         foto: '',
         precio: 49.5,
-        precioOferta: 41.75,
-        categoria: 1,
-        status: 0
+        precio_oferta: 41.75,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 34,
+        id_producto: 34,
         nombre: 'Producto 5',
         descripcion: 'Vivamus ut mauris nec mauris cursus eleifend fringilla vitae eros. Donec ligula leo, euismod et dictum non, sodales ut tellus. Morbi ullamcorper egestas diam. Sed tempor metus a ipsum pellentesque eleifend. Mauris urna ligula, gravida in massa vitae, sagittis auctor eros. Sed vel pharetra ante.',
         calificacion: 5,
         foto: '',
         precio: 56.5,
-        precioOferta: 23.75,
-        categoria: 5,
-        status: 0
+        precio_oferta: 23.75,
+        id_categoria: 5,
+        estado: 0
     },
     {
-        idProducto: 14,
+        id_producto: 14,
         nombre: 'Producto 8',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 5,
         foto: '',
         precio: 50.75,
-        precioOferta: 67.25,
-        categoria: 1,
-        status: 0
+        precio_oferta: 67.25,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 100,
+        id_producto: 100,
         nombre: 'Producto 9',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 4,
         foto: '',
         precio: 57,
-        precioOferta: 3,
-        categoria: 1,
-        status: 0
+        precio_oferta: 3,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 36,
+        id_producto: 36,
         nombre: 'Producto 5',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 4,
         foto: '',
         precio: 83.75,
-        precioOferta: 61.25,
-        categoria: 1,
-        status: 0
+        precio_oferta: 61.25,
+        id_categoria: 1,
+        estado: 0
     },
     {
-        idProducto: 139,
+        id_producto: 139,
         nombre: 'Producto 5',
         descripcion: 'Vivamus ut mauris nec mauris cursus eleifend fringilla vitae eros. Donec ligula leo, euismod et dictum non, sodales ut tellus. Morbi ullamcorper egestas diam. Sed tempor metus a ipsum pellentesque eleifend. Mauris urna ligula, gravida in massa vitae, sagittis auctor eros. Sed vel pharetra ante.',
         calificacion: 5,
         foto: '',
         precio: 10.75,
-        precioOferta: 19.75,
-        categoria: 5,
-        status: 0
+        precio_oferta: 19.75,
+        id_categoria: 5,
+        estado: 0
     },
     {
-        idProducto: 120,
+        id_producto: 120,
         nombre: 'Producto 5',
         descripcion: 'Fusce tincidunt cursus vehicula. Ut cursus feugiat pretium. Suspendisse potenti. Pellentesque condimentum tellus a dignissim porttitor. Donec tincidunt egestas sem vel ultrices. Nullam a arcu tristique, pellentesque elit tristique, semper lectus. Sed dictum, nunc vel lacinia molestie, lorem mi pellentesque dolor, ac lobortis massa orci congue metus',
         calificacion: 4,
         foto: '',
         precio: 24.5,
-        precioOferta: 31.5,
-        categoria: 5,
-        status: 0
+        precio_oferta: 31.5,
+        id_categoria: 5,
+        estado: 0
     },
     {
-        idProducto: 190,
+        id_producto: 190,
         nombre: 'Producto',
         descripcion: 'Ut vel elit erat. Etiam efficitur pellentesque ante, non mollis dolor ultricies non. Integer lobortis nulla a mattis posuere. Etiam id maximus tortor. Aliquam erat volutpat. Vivamus sit amet dolor hendrerit, aliquam purus eu, blandit lorem. Quisque vulputate odio et malesuada molestie. Etiam nec dui eu mi commodo placerat. Pellentesque pharetra bibendum sem. ',
         calificacion: 1,
         foto: '',
         precio: 25.75,
-        precioOferta: 1,
-        categoria: 2,
-        status: 0
+        precio_oferta: 1,
+        id_categoria: 2,
+        estado: 0
     },
     {
-        idProducto: 128,
+        id_producto: 128,
         nombre: 'Producto 7',
         descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, tellus ut pharetra elementum, ante felis blandit risus, vel porta metus lacus eget metus. Proin euismod ipsum a urna posuere pretium. Curabitur eleifend lacus ac erat imperdiet ultricies. Donec posuere dolor hendrerit, mollis tortor non, bibendum erat',
         calificacion: 5,
         foto: '',
         precio: 21,
-        precioOferta: 0.5,
-        categoria: 2,
-        status: 0
+        precio_oferta: 0.5,
+        id_categoria: 2,
+        estado: 0
     },
     {
-        idProducto: 29,
+        id_producto: 29,
         nombre: 'Producto 5',
         descripcion: 'Vivamus ut mauris nec mauris cursus eleifend fringilla vitae eros. Donec ligula leo, euismod et dictum non, sodales ut tellus. Morbi ullamcorper egestas diam. Sed tempor metus a ipsum pellentesque eleifend. Mauris urna ligula, gravida in massa vitae, sagittis auctor eros. Sed vel pharetra ante.',
         calificacion: 5,
         foto: '',
         precio: 4.25,
-        precioOferta: 45.5,
-        categoria: 3,
-        status: 0
+        precio_oferta: 45.5,
+        id_categoria: 3,
+        estado: 0
     }
 ];

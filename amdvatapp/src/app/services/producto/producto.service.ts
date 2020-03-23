@@ -11,10 +11,10 @@ export class ProductoService {
   }
 
   getProducto(id: number): Producto {
-    return productos.find(prod => prod.idProducto === id);
+    return productos.find(prod => prod.id_producto === id);
   }
 
   getProductos(cateoria: number): Producto [] {
-    return productos.filter(prod => prod.categoria === cateoria);
+    return productos.filter(prod => prod.id_categoria === cateoria);
   }
 }

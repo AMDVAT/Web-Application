@@ -1,11 +1,12 @@
 export class Producto {
-    idProducto: number;
-    foto: string;
+    id_producto: number;
     nombre: string;
-    precio: number;
     descripcion: string;
-    precioOferta: number;
+    precio: number;
+    estado: number;
+    precio_oferta: number;
     calificacion: number;
-    categoria: number;
-    status: number;
+    foto: string;
+    id_categoria: number;
+    nombre_categoria: string;
 }
