@@ -23,6 +23,8 @@ import {ProductoListaComponent} from './components/producto-lista/producto-lista
 import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
 import {ProductosComponent} from './components/productos/productos.component';
 
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,11 +48,13 @@ import {ProductosComponent} from './components/productos/productos.component';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
