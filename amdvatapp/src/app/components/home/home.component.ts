@@ -30,8 +30,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productos = this.productoService.getProductos(1);
-
     this.homeService.getTopProductos().subscribe(
         res => {
           this.topProductos = res;
@@ -46,9 +44,8 @@ export class HomeComponent implements OnInit {
 
 
 
-  search(q: string) {
-    console.log(q);
-    this.router.navigate([`productos/${q}`]);
+  search(producto: string) {
+    this.router.navigate([`productos/${producto}`]);
   }
 
 }
