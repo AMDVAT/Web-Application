@@ -20,7 +20,7 @@ export class NeedAuthUser implements CanActivate{
 
         this.router.navigateByUrl(
             this.router.createUrlTree(
-                ['/login'], {
+                ['/needAuthUser'], {
                     queryParams: {
                         redirectUrl
                     }

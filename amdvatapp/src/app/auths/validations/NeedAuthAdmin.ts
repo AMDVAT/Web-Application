@@ -20,7 +20,7 @@ export class NeedAuthAdmin implements CanActivate{
 
         this.router.navigateByUrl(
             this.router.createUrlTree(
-                ['/login'], {
+                ['/needAuthAdmin'], {
                     queryParams: {
                         redirectUrl
                     }
