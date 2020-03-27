@@ -47,6 +47,11 @@ export class AppComponent implements OnInit {
       title: 'Sucursales',
       url: 'gestion/sucursal/lista',
       icon: 'business'
+    },
+    {
+      title: 'Gestionar Categorias',
+      url: 'gestion/categoria/lista',
+      icon: 'grid'
     }
   ];
 

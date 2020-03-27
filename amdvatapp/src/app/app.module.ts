@@ -24,6 +24,8 @@ import {ProductoSimpleComponent} from './components/producto-simple/producto-sim
 import {ProductosComponent} from './components/productos/productos.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import {HttpClientModule} from '@angular/common/http';
+import {CategoriaListaComponent} from './components/categoria-lista/categoria-lista.component';
+import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {HttpClientModule} from '@angular/common/http';
     SucursalSimpleComponent,
     ProductoListaComponent,
     ProductoSimpleComponent,
-    ProductosComponent
+    ProductosComponent,
+    CategoriaListaComponent,
+    CategoriaSimpleComponent
   ],
   entryComponents: [],
   imports: [
