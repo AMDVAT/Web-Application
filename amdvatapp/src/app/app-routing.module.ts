@@ -13,6 +13,8 @@ import {ProductoListaComponent} from './components/producto-lista/producto-lista
 import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
 import { from } from 'rxjs';
 import {ProductosComponent} from './components/productos/productos.component';
+import {NeedAuthUser} from './auths/validations/NeedAuthUser';
+import {NeedAuthAdmin} from './auths/validations/NeedAuthAdmin';
 import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/need-auth-admin-page.component';
 import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
 
@@ -40,33 +42,34 @@ const routes: Routes = [
         component: ProductoComponent
     },{
         path: 'gestion/usuario/lista',
-        component: ListaUsuariosComponent
+        component: ListaUsuariosComponent,
+        canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/usuario/lista/datos',
-        component: UsuarioSimpleComponent
+        component: UsuarioSimpleComponent,
+        canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista',
-        component: ProductoListaComponent
+        component: ProductoListaComponent,
+        canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista/datos',
-        component: ProductoSimpleComponent
+        component: ProductoSimpleComponent,
+        canActivate: [NeedAuthAdmin]
 
     },{
         path: 'gestion/sucursal/lista',
-        component: SucursalListaComponent
+        component: SucursalListaComponent,
+        canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista/datos',
-        component: SucursalSimpleComponent
+        component: SucursalSimpleComponent,
+        canActivate: [NeedAuthAdmin]
     },{
         path: 'productos/:producto',
-        component: ProductosComponent
-    },{
-    path: 'needAuthAdmin',
-    component: NeedAuthAdminPageComponent
-  },{
-    path: 'needAuthUser',
-    component: NeedAuthUserPageComponent
-  }
+        component: ProductosComponent,
+        canActivate: [NeedAuthAdmin]
+    }
 ];
 
 @NgModule({
