@@ -4,6 +4,7 @@ import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usu
 import {ActivatedRoute, Router} from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { ActionSheetController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class ListaUsuariosComponent implements OnInit {
     private router: Router,
     private userService: GestionUsuarioService,
     public loadingController: LoadingController,
-    public actionSheetController: ActionSheetController
+    public actionSheetController: ActionSheetController,
+    public alertController: AlertController
   ) { 
     this.presentLoading();
   }
@@ -51,6 +53,7 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   async presentActionSheet() {
+    console.log('Hola');
     const actionSheet = await this.actionSheetController.create({
       header: 'Albums',
       buttons: [{
@@ -59,12 +62,14 @@ export class ListaUsuariosComponent implements OnInit {
         icon: 'trash',
         handler: () => {
           console.log('Delete clicked');
+          this.eliminarCategoria();
         }
       }, {
         text: 'Editar',
         icon: 'person',
         handler: () => {
           console.log('Favorite clicked');
+
         }
       }, {
         text: 'Cancel',
@@ -76,6 +81,29 @@ export class ListaUsuariosComponent implements OnInit {
       }]
     });
     await actionSheet.present();
+  }
+
+  async eliminarCategoria() {
+    const alert = await this.alertController.create({
+      header: '¡Advertencia!',
+      message: '<strong>¿Desea eliminar el usuario? </strong>',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }
