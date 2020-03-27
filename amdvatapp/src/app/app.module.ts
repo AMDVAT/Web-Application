@@ -24,6 +24,10 @@ import {ProductoSimpleComponent} from './components/producto-simple/producto-sim
 import {ProductosComponent} from './components/productos/productos.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import {HttpClientModule} from '@angular/common/http';
+import {NeedAuthUser} from './auths/validations/NeedAuthUser';
+import {NeedAuthAdmin} from './auths/validations/NeedAuthAdmin';
+import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/need-auth-admin-page.component';
+import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
 import {CategoriaListaComponent} from './components/categoria-lista/categoria-lista.component';
 import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
 
@@ -43,6 +47,8 @@ import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-
     ProductoListaComponent,
     ProductoSimpleComponent,
     ProductosComponent,
+    NeedAuthAdminPageComponent,
+    NeedAuthUserPageComponent
     CategoriaListaComponent,
     CategoriaSimpleComponent
   ],
@@ -56,6 +62,8 @@ import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-
     FormsModule
   ],
   providers: [
+    NeedAuthUser,
+    NeedAuthAdmin,
     StatusBar,
     SplashScreen,
     NativeStorage,
