@@ -13,6 +13,8 @@ import {ProductoListaComponent} from './components/producto-lista/producto-lista
 import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
 import { from } from 'rxjs';
 import {ProductosComponent} from './components/productos/productos.component';
+import {CategoriaListaComponent} from './components/categoria-lista/categoria-lista.component';
+import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
 
 
 const routes: Routes = [
@@ -58,6 +60,12 @@ const routes: Routes = [
     },{
         path: 'productos/:producto',
         component: ProductosComponent
+    },{
+        path: 'gestion/categoria/lista',
+        component: CategoriaListaComponent
+    },{
+        path: 'gestion/categoria/lista/datos',
+        component: CategoriaSimpleComponent
     }
 ];
 
