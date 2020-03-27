@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usuario.service'
 import {ActivatedRoute, Router} from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -23,8 +24,11 @@ export class ListaUsuariosComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: GestionUsuarioService
-  ) { }
+    private userService: GestionUsuarioService,
+    public loadingController: LoadingController
+  ) { 
+    this.presentLoading();
+  }
 
   ngOnInit() {
     this.userService.getListUser().subscribe(
@@ -32,7 +36,16 @@ export class ListaUsuariosComponent implements OnInit {
         this.usersList = res;
       }, error => console.log(error)
     );
+  }
 
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 2000
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
 }
