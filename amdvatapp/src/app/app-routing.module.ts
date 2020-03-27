@@ -17,6 +17,8 @@ import {NeedAuthUser} from './auths/validations/NeedAuthUser';
 import {NeedAuthAdmin} from './auths/validations/NeedAuthAdmin';
 import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/need-auth-admin-page.component';
 import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
+import {CategoriaListaComponent} from './components/categoria-lista/categoria-lista.component';
+import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
 
 
 const routes: Routes = [
@@ -76,7 +78,6 @@ const routes: Routes = [
         path: 'needAuthUser',
         component: NeedAuthUserPageComponent,
     }
-
 ];
 
 @NgModule({
