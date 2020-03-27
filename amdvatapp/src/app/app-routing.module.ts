@@ -1,22 +1,79 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import {LogInComponent} from './components/log-in/log-in.component';
+import {CategoriasComponent} from './components/categorias/categorias.component';
+import { HomeComponent } from './components/home/home.component';
+import {CategoriaComponent} from './components/categoria/categoria.component';
+import {ProductoComponent} from './components/producto/producto.component';
+import {ListaUsuariosComponent} from './components/lista-usuarios/lista-usuarios.component';
+import {UsuarioSimpleComponent} from './components/usuario-simple/usuario-simple.component';
+import {SucursalListaComponent} from './components/sucursal-lista/sucursal-lista.component';
+import {SucursalSimpleComponent} from './components/sucursal-simple/sucursal-simple.component';
+import {ProductoListaComponent} from './components/producto-lista/producto-lista.component';
+import {ProductoSimpleComponent} from './components/producto-simple/producto-simple.component';
+import { from } from 'rxjs';
+import {ProductosComponent} from './components/productos/productos.component';
+import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/need-auth-admin-page.component';
+import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
+
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: HomeComponent
+    }, {
+        path: 'login',
+        component: LogInComponent
+    }, {
+        path: 'categorias',
+        component: CategoriasComponent
+    }, {
+        path: 'categorias/categoria/:id',
+        component: CategoriaComponent
+    }, {
+        path: 'producto/:id',
+        component: ProductoComponent
+    },{
+        path: 'gestion/usuario/lista',
+        component: ListaUsuariosComponent
+    },{
+        path: 'gestion/usuario/lista/datos',
+        component: UsuarioSimpleComponent
+    },{
+        path: 'gestion/producto/lista',
+        component: ProductoListaComponent
+    },{
+        path: 'gestion/producto/lista/datos',
+        component: ProductoSimpleComponent
+
+    },{
+        path: 'gestion/sucursal/lista',
+        component: SucursalListaComponent
+    },{
+        path: 'gestion/sucursal/lista/datos',
+        component: SucursalSimpleComponent
+    },{
+        path: 'productos/:producto',
+        component: ProductosComponent
+    },{
+    path: 'needAuthAdmin',
+    component: NeedAuthAdminPageComponent
+  },{
+    path: 'needAuthUser',
+    component: NeedAuthUserPageComponent
   }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
+    ],
+    exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
