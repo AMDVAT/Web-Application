@@ -45,7 +45,7 @@ export class ListaUsuariosComponent implements OnInit {
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
-      duration: 2000
+      duration: 1000
     });
     await loading.present();
     const { role, data } = await loading.onDidDismiss();

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../../models/user';
+import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usuario.service'
+
 
 @Component({
   selector: 'app-usuario-simple',
@@ -7,8 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioSimpleComponent implements OnInit {
 
-  constructor() { }
+  usuario: User = {
+      nombre: '',
+      apellido: '',
+      email: '',
+      password: ''  
+  }
+
+
+  constructor( private usuarioService: GestionUsuarioService) 
+  { }
 
   ngOnInit() {}
+
+  saveUser(){
+    console.log(this.usuario);
+  }
 
 }
