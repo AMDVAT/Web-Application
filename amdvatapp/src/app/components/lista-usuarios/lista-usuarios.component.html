@@ -23,7 +23,7 @@
 
   <div *ngFor="let user of usersList">
     <div class = "card text-center">
-      <ion-card>
+      <ion-card (click)="presentActionSheet()">
         <ion-card-header>
           <ion-card-subtitle>{{user.apellido}}</ion-card-subtitle>
           <ion-card-title>{{user.nombre}}</ion-card-title>

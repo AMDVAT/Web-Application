@@ -3,6 +3,7 @@ import {User} from '../../models/user';
 import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usuario.service'
 import {ActivatedRoute, Router} from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { ActionSheetController } from '@ionic/angular';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class ListaUsuariosComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private userService: GestionUsuarioService,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public actionSheetController: ActionSheetController
   ) { 
     this.presentLoading();
   }
@@ -46,6 +48,34 @@ export class ListaUsuariosComponent implements OnInit {
     await loading.present();
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
+  }
+
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Albums',
+      buttons: [{
+        text: 'Eliminar',
+        role: 'destructive',
+        icon: 'trash',
+        handler: () => {
+          console.log('Delete clicked');
+        }
+      }, {
+        text: 'Editar',
+        icon: 'person',
+        handler: () => {
+          console.log('Favorite clicked');
+        }
+      }, {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
   }
 
 }
