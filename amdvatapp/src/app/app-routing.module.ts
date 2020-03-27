@@ -15,6 +15,8 @@ import { from } from 'rxjs';
 import {ProductosComponent} from './components/productos/productos.component';
 import {NeedAuthUser} from './auths/validations/NeedAuthUser';
 import {NeedAuthAdmin} from './auths/validations/NeedAuthAdmin';
+import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/need-auth-admin-page.component';
+import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
 
 
 const routes: Routes = [
