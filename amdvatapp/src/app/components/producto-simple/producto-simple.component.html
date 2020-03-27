@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Datos Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-content>
+
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title >
+          Datos del producto
+        </ion-card-title>
+
+        <ion-card-content>
+          <form>
+            <ion-item>
+              <ion-label position="floating">Nombre del producto</ion-label>
+              <ion-input required type="text" name="Name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Descripcion</ion-label>
+              <ion-input required type="text" name="descripcion"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating">Precio</ion-label>
+              <ion-input required type="text" name="precio"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Categoria</ion-label>
+              <ion-select placeholder="Seleccione una categoria">
+                <ion-select-option value="f">Audifonos</ion-select-option>
+                <ion-select-option value="m">Telefonos</ion-select-option>
+              </ion-select>
+            </ion-item>
+  
+  
+          </form> 
+        </ion-card-content>
+
+        <ion-button expand= "full" (click)= "save()"> 
+          Guardar
+        </ion-button>
+      </ion-card-header>
+    </ion-card>
+  
+  </div>
+
+
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger">
+    <ion-fab-button color = "danger" routerLink = ".." >
+      <ion-icon name = "trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
