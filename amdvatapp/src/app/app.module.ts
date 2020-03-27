@@ -24,6 +24,8 @@ import {ProductoSimpleComponent} from './components/producto-simple/producto-sim
 import {ProductosComponent} from './components/productos/productos.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import {HttpClientModule} from '@angular/common/http';
+import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/need-auth-admin-page.component';
+import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {HttpClientModule} from '@angular/common/http';
     SucursalSimpleComponent,
     ProductoListaComponent,
     ProductoSimpleComponent,
-    ProductosComponent
+    ProductosComponent,
+    NeedAuthAdminPageComponent,
+    NeedAuthUserPageComponent
   ],
   entryComponents: [],
   imports: [
