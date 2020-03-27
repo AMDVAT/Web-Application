@@ -44,7 +44,6 @@ import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-
     SucursalSimpleComponent,
     ProductoListaComponent,
     ProductoSimpleComponent,
-    ProductosComponent
     ProductosComponent,
     NeedAuthAdminPageComponent,
     NeedAuthUserPageComponent

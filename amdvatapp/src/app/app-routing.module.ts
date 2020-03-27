@@ -69,7 +69,14 @@ const routes: Routes = [
         path: 'productos/:producto',
         component: ProductosComponent,
         canActivate: [NeedAuthAdmin]
+    },{
+        path: 'needAuthAdmin',
+        component: NeedAuthAdminPageComponent,
+    },{
+        path: 'needAuthUser',
+        component: NeedAuthUserPageComponent,
     }
+
 ];
 
 @NgModule({
