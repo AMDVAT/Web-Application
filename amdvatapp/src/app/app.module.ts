@@ -24,6 +24,8 @@ import {ProductoSimpleComponent} from './components/producto-simple/producto-sim
 import {ProductosComponent} from './components/productos/productos.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import {HttpClientModule} from '@angular/common/http';
+import {NeedAuthUser} from './auths/validations/NeedAuthUser';
+import {NeedAuthAdmin} from './auths/validations/NeedAuthAdmin';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule
   ],
   providers: [
+    NeedAuthUser,
+    NeedAuthAdmin,
     StatusBar,
     SplashScreen,
     NativeStorage,
