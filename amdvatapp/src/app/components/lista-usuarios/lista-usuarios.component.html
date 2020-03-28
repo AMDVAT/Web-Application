@@ -19,12 +19,39 @@
         </ion-card-title>
       </ion-card-header>
     </ion-card>
-    
+  </div>
 
+  <div *ngFor="let user of usersList">
+    <div class = "card text-center">
+      <ion-card (click)="presentActionSheet()">
+        <ion-card-header>
+          <ion-card-subtitle>{{user.apellido}}</ion-card-subtitle>
+          <ion-card-title>{{user.nombre}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          EMAIL: {{user.email}} 
+        </ion-card-content>
+        <ion-card-content>
+          CATEGORIA USUARIO: {{user.nombre_tipo_usuario}}
+         </ion-card-content>
+ 
+        <ion-chip color = "primary" href = "">
+          <ion-avatar>
+            <img src="https://www.studnet.com.co/wp-content/uploads/2016/10/default-avatar-300x300.png">
+          </ion-avatar>
+          <ion-label> Editar</ion-label>
+        </ion-chip>
+        <ion-chip color = "danger">
+          <ion-label>Eliminar</ion-label>
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-chip>
+      </ion-card>
+      
+    </div>
   </div>
 
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
-    <ion-fab-button routerLink = "datos" >
+    <ion-fab-button (click)="agregarUsuario()" >
       <ion-icon name = "add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
