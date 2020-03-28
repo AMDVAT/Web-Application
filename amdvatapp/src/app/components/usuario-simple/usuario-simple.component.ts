@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usuario.service'
-
+import { AlertController } from '@ionic/angular';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-usuario-simple',
@@ -14,17 +15,61 @@ export class UsuarioSimpleComponent implements OnInit {
       nombre: '',
       apellido: '',
       email: '',
-      password: ''  
+      password: '',
+      tipo_usuario: 4
   }
 
 
-  constructor( private usuarioService: GestionUsuarioService) 
+  constructor( 
+        private usuarioService: GestionUsuarioService, 
+        private alertController: AlertController,
+        private router: Router) 
   { }
 
   ngOnInit() {}
 
   saveUser(){
+    this.usuarioService.saveUser(this.usuario)
+    .subscribe( 
+      res =>{ 
+        this.messageSave();
+        location.href= 'gestion/usuario/lista';
+      }, 
+      err => {console.error(err); this.errorMessageSave();}
+      );
     console.log(this.usuario);
   }
 
+
+  async messageSave() {
+    const alert = await this.alertController.create({
+      header: 'Almacenado',
+      message: '<strong>El usuario ha sido creado con exito </strong>',
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async errorMessageSave() {
+    const alert = await this.alertController.create({
+      header: 'Almacenado',
+      message: '<strong>No se ha logrado crear el usuario,revise los datos </strong>',
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
 }

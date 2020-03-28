@@ -35,6 +35,12 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.obtenerListadoUsuarios();
+  }
+
+  async obtenerListadoUsuarios(){
+    console.log('Obtener lista de usuarios')
     this.userService.getListUser().subscribe(
       res => {
         this.usersList = res;
@@ -42,10 +48,15 @@ export class ListaUsuariosComponent implements OnInit {
     );
   }
 
+  agregarUsuario(){
+    console.log('se desea almacenar un usuario');
+    this.router.navigate(['gestion/usuario/lista/datos']);
+  }
+
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
-      duration: 1000
+      duration: 500
     });
     await loading.present();
     const { role, data } = await loading.onDidDismiss();
@@ -105,5 +116,7 @@ export class ListaUsuariosComponent implements OnInit {
     });
     await alert.present();
   }
+
+
 
 }

@@ -23,7 +23,7 @@ export class GestionUsuarioService {
   }
   
   saveUser(usuario: User){
-    return this.http.post(`${this.env.API_URI}/usuario/registrer`,usuario);
+    return this.http.post(`${this.env.API_URI}usuario/registrar`,usuario);
   }
 
   deleteUser(){
