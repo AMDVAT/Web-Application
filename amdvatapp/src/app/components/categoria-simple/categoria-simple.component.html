@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Datos Categorias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-content>
+
+    <div id="container">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title >
+            Datos de la categoria
+          </ion-card-title>
+
+
+        </ion-card-header>
+
+        <form>
+          <ion-item>
+            <ion-label position="floating">Nombre de la categoria</ion-label>
+            <ion-input required type="text" name="Name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Categoria</ion-label>
+            <ion-select placeholder="Seleccione una categoria padre">
+              <ion-select-option value="f">Audifonos</ion-select-option>
+              <ion-select-option value="m">Telefonos</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+
+        </form>
+
+        <ion-button expand= "full" (click)= "save()">
+          Guardar
+        </ion-button>
+      </ion-card>
+
+
+
+    </div>
+
+
+    <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger">
+      <ion-fab-button color = "danger" routerLink = ".." >
+        <ion-icon name = "trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-content>
