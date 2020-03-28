@@ -48,7 +48,7 @@ import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-
     ProductoSimpleComponent,
     ProductosComponent,
     NeedAuthAdminPageComponent,
-    NeedAuthUserPageComponent
+    NeedAuthUserPageComponent,
     CategoriaListaComponent,
     CategoriaSimpleComponent
   ],
