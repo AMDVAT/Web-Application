@@ -85,6 +85,10 @@ const routes: Routes = [
         path: 'gestion/categoria/lista/datos',
         component: CategoriaSimpleComponent,
         // canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/categoria/lista/editar/:id',
+        component: CategoriaSimpleComponent,
+        // canActivate: [NeedAuthAdmin]
     }
 ];
 
