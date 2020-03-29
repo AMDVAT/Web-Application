@@ -66,7 +66,7 @@ export class ListaUsuariosComponent implements OnInit {
   async presentActionSheet() {
     console.log('Hola');
     const actionSheet = await this.actionSheetController.create({
-      header: 'Albums',
+      header: 'Usuarios',
       buttons: [{
         text: 'Eliminar',
         role: 'destructive',
@@ -77,14 +77,14 @@ export class ListaUsuariosComponent implements OnInit {
         }
       }, {
         text: 'Editar',
-        icon: 'person',
+        icon: 'create',
         handler: () => {
           console.log('Favorite clicked');
 
         }
       }, {
         text: 'Cancel',
-        icon: 'close',
+        icon: 'exit',
         role: 'cancel',
         handler: () => {
           console.log('Cancel clicked');

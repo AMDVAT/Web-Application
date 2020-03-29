@@ -21,6 +21,28 @@
     </ion-card>
   </div>
 
+  <div *ngFor="let producto of productoList">
+    <div class = "card text-center">
+      <ion-card (click)="presentActionSheet()">
+        <ion-card-header>
+          <ion-card-title>{{producto.nombre}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          PRECIO: {{producto.precio}} <br>
+          PRECIO OFERTA: {{producto.precio_oferta}} 
+        </ion-card-content>
+        <ion-card-content>
+          CATEGORIA: {{producto.nombre_categoria}}
+         </ion-card-content>
+ 
+        
+      </ion-card>
+      
+    </div>
+  </div>
+
+
+
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
     <ion-fab-button routerLink = "datos" >
       <ion-icon name = "add"></ion-icon>
