@@ -24,16 +24,25 @@
         <form>
           <ion-item>
             <ion-label position="floating">Nombre de la categoria</ion-label>
-            <ion-input required type="text" name="Name"></ion-input>
+            <ion-input [(ngModel)]="categoria.nombre" required type="text" name="Name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Descripcion</ion-label>
+            <ion-input [(ngModel)]="categoria.descripcion" required type="text" name="Descripcion"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label>Categoria</ion-label>
-            <ion-select placeholder="Seleccione una categoria padre">
-              <ion-select-option value="f">Audifonos</ion-select-option>
-              <ion-select-option value="m">Telefonos</ion-select-option>
+            <ion-select #S (ionChange)="SetID(S.value)" placeholder="Seleccione una categoria padre" >
+              <ion-select-option value="{{cat.id_categoria}}" *ngFor="let cat of categorias">{{cat.nombre}}</ion-select-option>
             </ion-select>
+
           </ion-item>
+          <ion-label position="fixed">*Si no selecciona una categoria se creara como categoria principal<ion-text color="danger">*</ion-text></ion-label>
+
+
+
 
 
         </form>
