@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import {GestionCategoriaService} from '../../services/gestion-categoria/gestion-categoria.service';
+import {GCategoria} from '../../models/g-categoria';
 
 @Component({
   selector: 'app-categoria-lista',
@@ -11,21 +13,27 @@ export class CategoriaListaComponent implements OnInit {
 
   constructor(
       public actionSheetController: ActionSheetController,
-      public alertController: AlertController
+      public alertController: AlertController,
+      private gestionCategoriaService: GestionCategoriaService
   ) { }
+
   data: true;
+  categorias: any = [];
 
-  categorys: any = [
-    {
-      categoria: 'Telefono',
-      id: '1'
-    },{
-      categoria: 'Radios',
-      id: '2'
-    }
-  ];
+  categoria: GCategoria = {
+    nombre: '',
+    descripcion: '',
+    categoria_id_categoria: null
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.categorias = null;
+    this.gestionCategoriaService.getCategorias().subscribe(
+      res => {
+        this.categorias = res;
+      }, error => console.log(error)
+    );
+  }
 
   async eliminarCategoria(categoria: string) {
     const alert = await this.alertController.create({
@@ -52,7 +60,7 @@ export class CategoriaListaComponent implements OnInit {
   }
 
 
-  async editarCategoria(categoria: string) {
+  async editarCategoria(categoria: string, categoriaID: number, categoriaDescripcion: string, categoriaPadre: number) {
 
      const alert = await this.alertController.create({
        header: 'Editar Categoria',
@@ -87,24 +95,27 @@ export class CategoriaListaComponent implements OnInit {
 
   }
 
-  async presentActionSheet(categoria: string) {
-    console.log(categoria);
+  async presentActionSheet(categoriaNombre: string, categoriaID: number, categoriaDescripcion: string, categoriaPadre: number) {
+    console.log(categoriaNombre);
+    console.log(categoriaID);
+    console.log(categoriaDescripcion);
+    console.log(categoriaPadre);
     const actionSheet = await this.actionSheetController.create({
-      header: categoria,
-      buttons: [{
+      header: categoriaNombre,
+      buttons: [/*{
         text: 'Eliminar',
         role: 'destructive',
         icon: 'trash',
         handler: () => {
           console.log('Delete clicked');
-          this.eliminarCategoria(categoria);
+          this.eliminarCategoria(categoriaNombre);
         }
-      }, {
+      }, */{
         text: 'Actualizar',
         icon: 'share',
         handler: () => {
           console.log('Share clicked');
-          this.editarCategoria(categoria);
+          this.editarCategoria(categoriaNombre, categoriaID, categoriaDescripcion, categoriaPadre);
         }
       }, {
         text: 'Cancel',

@@ -77,6 +77,14 @@ const routes: Routes = [
     },{
         path: 'needAuthUser',
         component: NeedAuthUserPageComponent,
+    },{
+        path: 'gestion/categoria/lista',
+        component: CategoriaListaComponent,
+        // canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/categoria/lista/datos',
+        component: CategoriaSimpleComponent,
+        // canActivate: [NeedAuthAdmin]
     }
 ];
 
