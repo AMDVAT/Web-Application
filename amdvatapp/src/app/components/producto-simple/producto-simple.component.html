@@ -22,32 +22,38 @@
           <form>
             <ion-item>
               <ion-label position="floating">Nombre del producto</ion-label>
-              <ion-input required type="text" name="Name"></ion-input>
+              <ion-input required type="text" name="Name" [(ngModel)]= "producto.nombre"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label position="floating">Descripcion</ion-label>
-              <ion-input required type="text" name="descripcion"></ion-input>
+              <ion-input required type="text" name="descripcion" [(ngModel)]= "producto.descripcion"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label position="floating">Precio</ion-label>
-              <ion-input required type="text" name="precio"></ion-input>
+              <ion-input required type="text" name="precio" [(ngModel)]= "producto.precio"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label>Categoria</ion-label>
-              <ion-select placeholder="Seleccione una categoria">
-                <ion-select-option value="f">Audifonos</ion-select-option>
-                <ion-select-option value="m">Telefonos</ion-select-option>
-              </ion-select>
+              <ion-label position="floating">URL de la Imagen</ion-label>
+              <ion-input required type="text" name="foto" [(ngModel)]= "producto.foto"></ion-input>
             </ion-item>
-  
-  
+
+            <div class="ion-padding">
+              <ion-item>
+                <ion-label>Categoria</ion-label>
+                <ion-select  (ionChange)="OnChange($event)">
+                  <ion-select-option *ngFor="let categoria of categoriaList" [value]="categoria.id_categoria" >
+                    {{categoria.nombre}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+            </div>
           </form> 
         </ion-card-content>
 
-        <ion-button expand= "full" (click)= "save()"> 
+        <ion-button expand= "full" (click)= "saveProduct()"> 
           Guardar
         </ion-button>
       </ion-card-header>

@@ -17,6 +17,10 @@ export class GestionProductoService {
       return this.http.get(`${this.env.API_URI}producto/listar`);
     }
 
+    getCategoriaProduct(){
+      return this.http.get(`${this.env.API_URI}producto/listaCategorias`);
+    }
+
     getOneProduct(){
 
     }
