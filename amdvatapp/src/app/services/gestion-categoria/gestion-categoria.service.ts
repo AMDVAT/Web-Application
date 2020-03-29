@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {EnviromentService} from '../enviroment/enviroment.service';
 import {GCategoria} from '../../models/g-categoria';
 
@@ -22,10 +22,12 @@ export class GestionCategoriaService {
   }
 
   postCategoria(categoria: GCategoria){
-    return this.http.post(`${this.env.API_URI}producto/categoria/crear`, categoria);
+    const headers = new HttpHeaders().set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzdWFyaW8iOjEsImVtYWlsIjoiZGxvcmVuY2UwQG5ldHNjYXBlLmNvbSIsInRpcG9Vc3VhcmlvIjoxLCJpYXQiOjE1ODU0NzA4NzgsImV4cCI6MTU4NTQ3MjMxOH0.A8cRpoFcyAkwMNt9yPguXi5TsuL0THlHiRZ1bTXwMmY');
+    return this.http.post(`${this.env.API_URI}producto/categoria/crear`, categoria, {headers});
   }
 
-  putCategoria(categoria: GCategoria, idCategoria:number){
-    return this.http.put(`${this.env.API_URI}producto/categoria/editar/${idCategoria}`, categoria);
+  putCategoria(categoria: GCategoria, idCategoria: number) {
+    const headers = new HttpHeaders().set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzdWFyaW8iOjEsImVtYWlsIjoiZGxvcmVuY2UwQG5ldHNjYXBlLmNvbSIsInRpcG9Vc3VhcmlvIjoxLCJpYXQiOjE1ODU0NzA4NzgsImV4cCI6MTU4NTQ3MjMxOH0.A8cRpoFcyAkwMNt9yPguXi5TsuL0THlHiRZ1bTXwMmY');
+    return this.http.put(`${this.env.API_URI}producto/categoria/editar/${idCategoria}`, categoria,{headers});
   }
 }

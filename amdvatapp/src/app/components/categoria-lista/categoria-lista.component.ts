@@ -84,7 +84,16 @@ export class CategoriaListaComponent implements OnInit {
          }, {
            text: 'Aceptar',
            handler: data => {
-             console.log(data.Categoria);
+             this.categoria.nombre = data.Categoria;
+             this.categoria.descripcion = categoriaDescripcion;
+             this.categoria.categoria_id_categoria = categoriaPadre;
+             console.log(this.categoria);
+             this.gestionCategoriaService.putCategoria(this.categoria, categoriaID).subscribe(
+              res => {
+                console.log(res);
+                this.ngOnInit();
+              }, error => console.log(error)
+             );
            }
          }
        ]
