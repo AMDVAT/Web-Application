@@ -40,6 +40,18 @@ export class SessionService {
         }
     }
 
+    removeUser(): any {
+        if (this.platform.is('android')) {
+            return this.nativeStorage.remove('user')
+                .then(
+                    data => console.log(data),
+                    error => console.error(error)
+                );
+        } else {
+            return localStorage.removeItem('user');
+        }
+    }
+
     isLogged(): boolean {
         return false;
     }
