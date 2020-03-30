@@ -58,8 +58,9 @@ export class CategoriaSimpleComponent implements OnInit {
     this.gestionCategoriaService.postCategoria(this.categoria).subscribe(
       res => {
         alert('Categoria registrada');
-        this.ngOnInit();
-        this.router.navigate(['/gestion/categoria/lista']);
+        /*this.ngOnInit();
+        this.router.navigate(['/gestion/categoria/lista']);*/
+        location.href = 'gestion/categoria/lista';
       }, error => console.log(error)
     );
   }
@@ -70,7 +71,7 @@ export class CategoriaSimpleComponent implements OnInit {
     this.gestionCategoriaService.putCategoria(this.categoria, params.id).subscribe(
         res => {
           console.log(res);
-          this.ngOnInit();
+          location.href = 'gestion/categoria/lista';
         }, error => console.log(error)
     );
   }
