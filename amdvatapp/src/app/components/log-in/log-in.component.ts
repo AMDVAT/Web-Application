@@ -45,6 +45,7 @@ export class LogInComponent implements OnInit {
         res => {
           this.messageSave();
           this.sessionService.setUser(res);
+          location.href= 'home';
         },err => {
           this.errorMessageSave();
           console.log(err)
