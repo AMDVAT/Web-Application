@@ -52,6 +52,8 @@ export class SessionService {
         }
     }
 
+
+
     isLogged(): boolean {
         return false;
     }
