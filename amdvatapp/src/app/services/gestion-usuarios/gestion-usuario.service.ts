@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {EnviromentService} from '../enviroment/enviroment.service';
 import {User} from '../../models/user'
 
@@ -31,7 +31,9 @@ export class GestionUsuarioService {
   }
 
   updateUser(id: string, updateUser: User){
-    return this.http.put(`${this.env.API_URI}/usuario/editar/${id}`,updateUser);
+    const headers = new HttpHeaders().
+    set('token','');
+    return this.http.put(`${this.env.API_URI}/usuario/editar/${id}`,updateUser,{headers});
   }
 
 }

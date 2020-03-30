@@ -21,19 +21,19 @@ export class GestionProductoService {
       return this.http.get(`${this.env.API_URI}producto/categoria/listar`);
     }
 
-    getOneProduct(){
+    getOneProduct(id: string){
 
     }
 
-    saveProduct(){
+    saveProduct(producto: Producto){
 
     }
     
-    deleteProduct(){
+    deleteProduct(id: string){
 
     }
 
-    updateProduct(){
+    updateProduct(id: string, updateProducto: Producto){
 
     }
 
