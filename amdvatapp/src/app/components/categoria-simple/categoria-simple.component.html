@@ -34,7 +34,7 @@
 
           <ion-item>
             <ion-label>Categoria</ion-label>
-            <ion-select #S (ionChange)="SetID(S.value)" placeholder="Seleccione una categoria padre" >
+            <ion-select value="{{categoria.categoria_id_categoria}}" #S (ionChange)="SetID(S.value)" placeholder="Seleccione una categoria padre" >
               <ion-select-option value="{{cat.id_categoria}}" *ngFor="let cat of categorias">{{cat.nombre}}</ion-select-option>
             </ion-select>
 
@@ -47,9 +47,12 @@
 
         </form>
 
-        <ion-button expand= "full" (click)= "save()">
+        <ion-button expand= "full" (click) = "save()" *ngIf="!edit">
           Guardar
         </ion-button>
+          <ion-button expand= "full" (click)= "editar()" *ngIf="edit">
+              Editar
+          </ion-button>
       </ion-card>
 
 

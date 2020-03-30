@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {GCategoria} from '../../models/g-categoria';
 import {GestionCategoriaService} from '../../services/gestion-categoria/gestion-categoria.service';
 import {Router} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-categoria-simple',
@@ -12,7 +14,9 @@ export class CategoriaSimpleComponent implements OnInit {
 
   constructor(
       private gestionCategoriaService: GestionCategoriaService,
-      private router: Router
+      private router: Router,
+      private activeRoute: ActivatedRoute,
+      private  session: SessionService
   ) { }
 
   categoria: GCategoria = {
@@ -22,9 +26,12 @@ export class CategoriaSimpleComponent implements OnInit {
   };
 
   categorias: any = [];
-
+  editCategoria: any = [];
+  edit = false;
+  gender = 'm';
 
   ngOnInit() {
+    const params = this.activeRoute.snapshot.params;
     this.categoria.nombre = '';
     this.categoria.descripcion = '';
     this.gestionCategoriaService.getCategoriasPadre().subscribe(
@@ -32,6 +39,18 @@ export class CategoriaSimpleComponent implements OnInit {
         this.categorias = res;
       }, error => console.log(error)
     );
+
+    if (params.id) {
+      this.gestionCategoriaService.getCategoria(params.id).subscribe(
+        res => {
+          this.editCategoria = res;
+          this.categoria.nombre = this.editCategoria.nombre;
+          this.categoria.descripcion = this.editCategoria.descripcion;
+          this.categoria.categoria_id_categoria = this.editCategoria.categoria_id_categoria;
+          this.edit = true;
+        }, error => console.log(error)
+      );
+    }
   }
 
   save() {
@@ -45,7 +64,21 @@ export class CategoriaSimpleComponent implements OnInit {
     );
   }
 
+  editar() {
+    console.log(this.categoria);
+    const params = this.activeRoute.snapshot.params;
+    this.gestionCategoriaService.putCategoria(this.categoria, params.id).subscribe(
+        res => {
+          console.log(res);
+          this.ngOnInit();
+        }, error => console.log(error)
+    );
+  }
+
+
+
   SetID(value: any) {
     this.categoria.categoria_id_categoria = value;
   }
+
 }

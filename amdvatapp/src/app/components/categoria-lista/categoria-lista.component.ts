@@ -3,6 +3,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import {GestionCategoriaService} from '../../services/gestion-categoria/gestion-categoria.service';
 import {GCategoria} from '../../models/g-categoria';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-categoria-lista',
@@ -14,7 +15,8 @@ export class CategoriaListaComponent implements OnInit {
   constructor(
       public actionSheetController: ActionSheetController,
       public alertController: AlertController,
-      private gestionCategoriaService: GestionCategoriaService
+      private gestionCategoriaService: GestionCategoriaService,
+      private router: Router
   ) { }
 
   data: true;
@@ -24,7 +26,7 @@ export class CategoriaListaComponent implements OnInit {
     nombre: '',
     descripcion: '',
     categoria_id_categoria: null
-  }
+  };
 
   ngOnInit() {
     this.categorias = null;
@@ -124,7 +126,8 @@ export class CategoriaListaComponent implements OnInit {
         icon: 'share',
         handler: () => {
           console.log('Share clicked');
-          this.editarCategoria(categoriaNombre, categoriaID, categoriaDescripcion, categoriaPadre);
+          this.router.navigate([`/gestion/categoria/lista/editar/${categoriaID}`]);
+          // this.editarCategoria(categoriaNombre, categoriaID, categoriaDescripcion, categoriaPadre);
         }
       }, {
         text: 'Cancel',
