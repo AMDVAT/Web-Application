@@ -52,6 +52,31 @@ export class SessionService {
         }
     }
 
+    getUserToken(): any {
+        if (this.platform.is('android')) {
+            return this.nativeStorage.getItem('user')
+                .then(
+                    (data) => {
+                        return JSON.parse(data).token;
+                    }
+                );
+        } else {
+            return JSON.parse(localStorage.getItem('user')).token;
+        }
+    }
+
+    getUserTipo(): any {
+        if (this.platform.is('android')) {
+            return this.nativeStorage.getItem('user')
+                .then(
+                    (data) => {
+                        return JSON.parse(data);
+                    }
+                );
+        } else {
+            return JSON.parse(localStorage.getItem('user'));
+        }
+    }
 
 
     isLogged(): boolean {

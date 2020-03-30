@@ -28,12 +28,12 @@ export class GestionCategoriaService {
   }
 
   postCategoria(categoria: GCategoria) {
-    const headers = new HttpHeaders().set('token', this.session.getUser().token);
+    const headers = new HttpHeaders().set('token', this.session.getUserToken());
     return this.http.post(`${this.env.API_URI}producto/categoria/crear`, categoria, {headers});
   }
 
   putCategoria(categoria: GCategoria, idCategoria: number) {
-    const headers = new HttpHeaders().set('token', this.session.getUser().token);
+    const headers = new HttpHeaders().set('token', this.session.getUserToken());
     return this.http.put(`${this.env.API_URI}producto/categoria/editar/${idCategoria}`, categoria,{headers});
   }
 }
