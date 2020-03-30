@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import {GestionCategoriaService} from '../../services/gestion-categoria/gestion-categoria.service';
 import {GCategoria} from '../../models/g-categoria';
 import {Router} from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-categoria-lista',
@@ -15,9 +16,22 @@ export class CategoriaListaComponent implements OnInit {
   constructor(
       public actionSheetController: ActionSheetController,
       public alertController: AlertController,
+      public loadingController: LoadingController,
       private gestionCategoriaService: GestionCategoriaService,
       private router: Router
-  ) { }
+  ) {
+    this.presentLoading();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 500
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
 
   data: true;
   categorias: any = [];
