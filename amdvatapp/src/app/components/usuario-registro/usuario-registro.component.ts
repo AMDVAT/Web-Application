@@ -3,6 +3,8 @@ import {User} from '../../models/user';
 import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usuario.service'
 import { AlertController } from '@ionic/angular';
 import {Router} from '@angular/router';
+import {SessionService} from '../../services/session/session.service';
+import {LogInService} from '../../services/log-in/log-in.service';
 
 @Component({
   selector: 'app-usuario-registro',
@@ -17,29 +19,37 @@ export class UsuarioRegistroComponent implements OnInit {
     email: '',
     password: '',
     tipo_usuario: 5
-}
+  }
 
 
-  constructor(private usuarioService: GestionUsuarioService, 
-    private alertController: AlertController,
-    private router: Router) { }
+  constructor(
+      private usuarioService: GestionUsuarioService,
+      private loginService: LogInService,
+      private alertController: AlertController,
+      private router: Router,
+      private sessionService: SessionService,
+  ) { }
 
   ngOnInit() {}
 
-  saveUser(){
-    //Registrar Usuario
+  saveUser() {
+    // TODO registrar usuario
     this.usuarioService.saveUser(this.usuario)
-    .subscribe( 
-      res =>{ 
+    .subscribe(
+      res => {
         this.messageSave();
-        //LOGEARLO AUTOMATICAMENTE
-
-        //GUARDAR EL TOKEN
-
-        //REDIRIGIR AL HOME
-        this.router.navigate(['home']); //<-----Esto ponerlo adentro del res del login 
-      }, 
-      err => {console.error(err); this.errorMessageSave();}
+        this.loginService.login(this.usuario.email, this.usuario.password).subscribe(
+            res => {
+              // this.messageSave();
+              this.sessionService.setUser(res);
+              this.router.navigate(['home']);
+            },err => {
+              this.errorMessageSave();
+              console.log(err)
+            }
+        );
+      },
+      err => {console.error(err); this.errorMessageSave(); }
       );
     console.log(this.usuario);
   }
