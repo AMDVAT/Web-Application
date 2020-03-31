@@ -1,3 +1,57 @@
-<p>
-  usuario-registro works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Resgistro Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-content>
+
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title >
+          Ingrese su información:
+        </ion-card-title>
+
+        <ion-card-content>
+          <form #formulario = "ngForm" (ngSubmit)= "saveUser()">
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input type="text" name="Name" [(ngModel)]= "usuario.nombre" required ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellido</ion-label>
+              <ion-input type="text" name="apellido" [(ngModel)]= "usuario.apellido" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Email </ion-label>
+              <ion-input type="email" name="email" 
+                          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                          [(ngModel)]= "usuario.email" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" name="password" [(ngModel)]= "usuario.password" required></ion-input>
+            </ion-item>
+            
+            <ion-label position="floating" *ngIf="formulario.valid"> Los datos ingresados son los solicitados</ion-label>
+            <ion-label position="floating" *ngIf="formulario.valid==false"> Faltan campos requeridos</ion-label>
+
+            <ion-button color="success" expand= "full" type="submit"
+                    [disabled]="formulario.invalid" > 
+                Registrar
+            </ion-button>
+
+          </form> 
+        </ion-card-content>
+
+      </ion-card-header>
+    </ion-card>
+  
+  </div>
+</ion-content>
