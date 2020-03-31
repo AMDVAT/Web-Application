@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {Utils} from './Utils';
+
 
 
 @Component({
@@ -11,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  private UtilsRef = Utils;
   public selectedIndex = 0;
   public appPages = [
     // {
@@ -27,6 +30,10 @@ export class AppComponent implements OnInit {
       title: 'Home',
       url: '/home',
       icon: 'home'
+    },{
+      title: 'Carrito',
+      url: 'cart',
+      icon: 'cart'
     },
     {
       title: 'Categorias',

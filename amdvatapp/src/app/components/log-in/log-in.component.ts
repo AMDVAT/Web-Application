@@ -7,6 +7,7 @@ import {SessionService} from '../../services/session/session.service';
 import { AlertController } from '@ionic/angular';
 import {ActivatedRoute, Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -35,6 +36,7 @@ export class LogInComponent implements OnInit {
 
   ngOnInit() {
     
+
   }
 
   login(){
@@ -55,7 +57,6 @@ export class LogInComponent implements OnInit {
         }
     );
   }
-
 
   ionViewWillEnter() {
     console.log('hola');

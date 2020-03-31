@@ -10,3 +10,9 @@ export class Producto {
     id_categoria?: number;
     nombre_categoria?: string;
 }
+
+export class ProductoCarrito {
+    producto?: Producto;
+    cantidad?: number;
+}
+
