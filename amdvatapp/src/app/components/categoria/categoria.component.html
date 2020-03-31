@@ -1,29 +1,39 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title *ngIf="categoria">{{categoria.nombre}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title *ngIf="categoria">{{categoria.nombre}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let producto of productos" routerDirection="forward" lines="none" detail="false" [routerLink]="['/', 'producto', producto.id_producto]">
-    <ion-card-header>
-      <ion-card-title>{{producto.nombre}}</ion-card-title>
-      <ion-card-subtitle *ngIf="producto.precio_oferta != 0">
-        <span style="color: red; font-size: 1.4em">Ahora: ${{producto.precio_oferta}}</span>
-        <br>
-        Antes: $<span style="text-decoration: line-through">{{producto.precio}}</span>
-      </ion-card-subtitle>
-      <ion-card-subtitle *ngIf="producto.precio_oferta == 0">
-        <span style="font-size: 1.4em">Precio: ${{producto.precio}}</span>
-      </ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <p>{{producto.descripcion}}</p>
-      <br>
-      Valoracion <app-valoration [valoration]="producto.calificacion"></app-valoration>
-    </ion-card-content>
-  </ion-card>
+    <ion-progress-bar *ngIf="!productos" type="indeterminate" reversed="true"></ion-progress-bar>
+    <div *ngIf="productos">
+        <div *ngIf="productos.length > 0">
+            <ion-card *ngFor="let producto of productos" routerDirection="forward" lines="none" detail="false"
+                      [routerLink]="['/', 'producto', producto.id_producto]">
+                <ion-card-header>
+                    <ion-card-title>{{producto.nombre}}</ion-card-title>
+                    <ion-card-subtitle *ngIf="producto.precio_oferta != 0">
+                        <span style="color: red; font-size: 1.4em">Ahora: ${{producto.precio_oferta}}</span>
+                        <br>
+                        Antes: $<span style="text-decoration: line-through">{{producto.precio}}</span>
+                    </ion-card-subtitle>
+                    <ion-card-subtitle *ngIf="producto.precio_oferta == 0">
+                        <span style="font-size: 1.4em">Precio: ${{producto.precio}}</span>
+                    </ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                    <p>{{producto.descripcion}}</p>
+                    <br>
+                    Valoracion
+                    <app-valoration [valoration]="producto.calificacion"></app-valoration>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div *ngIf="productos.length === 0">
+            <p>Lo sentimos, Aun no existen Productos asociados a esta categoria.</p>
+        </div>
+    </div>
 </ion-content>
