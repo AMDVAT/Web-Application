@@ -19,7 +19,7 @@
         </ion-card-title>
 
         <ion-card-content>
-          <form>
+          <form #formulario = "ngForm" (ngSubmit)= "saveUser()">
             <ion-item>
               <ion-label position="floating">Nombre</ion-label>
               <ion-input required type="text" name="Name" [(ngModel)]= "usuario.nombre" ></ion-input>
@@ -32,14 +32,15 @@
 
             <ion-item>
               <ion-label position="floating">Email</ion-label>
-              <ion-input required type="email" name="email" [(ngModel)]= "usuario.email"></ion-input>
+              <ion-input required type="email" name="email" 
+                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        [(ngModel)]= "usuario.email"></ion-input>
             </ion-item>
   
             <ion-item>
               <ion-label position="floating">Password</ion-label>
               <ion-input required type="password" name="password" [(ngModel)]= "usuario.password"></ion-input>
             </ion-item>
-
             
             <ion-item>
               <ion-label>Users</ion-label>
@@ -48,18 +49,18 @@
               </ion-select>
             </ion-item>
 
+            <ion-label position="floating" *ngIf="formulario.valid"> Los datos ingresados son los solicitados</ion-label>
+            <ion-label position="floating" *ngIf="formulario.valid==false"> Faltan campos requeridos</ion-label>
 
+            <ion-button color = "success" expand= "full" type="submit"
+                        [disabled]="formulario.invalid"> 
+              Registrar
+            </ion-button>
           </form> 
         </ion-card-content>
-
-        <ion-button expand= "full" (click)= "saveUser()"> 
-          Guardar
-        </ion-button>
       </ion-card-header>
     </ion-card>
-  
   </div>
-
 
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger">
     <ion-fab-button color = "danger" routerLink = ".." >

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {EnviromentService} from '../enviroment/enviroment.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import {SessionService} from '../session/session.service';
+
 import {Producto} from '../../models/Producto';
 
 @Injectable({
@@ -10,7 +12,8 @@ export class GestionProductoService {
 
   constructor(
     private http: HttpClient,
-    private env: EnviromentService
+    private env: EnviromentService,
+    private  session: SessionService
    ) { }
 
     getListProduct(){
@@ -21,20 +24,19 @@ export class GestionProductoService {
       return this.http.get(`${this.env.API_URI}producto/categoria/listar`);
     }
 
-    getOneProduct(id: string){
-
-    }
-
     saveProduct(producto: Producto){
-
+      const headers = new HttpHeaders().set('token', this.session.getUserToken());
+      return this.http.post(`${this.env.API_URI}producto/crear`, producto, {headers});
     }
     
     deleteProduct(id: string){
-
+      const headers = new HttpHeaders().set('token', this.session.getUserToken());
+      return this.http.put(`${this.env.API_URI}producto/eliminar/${id}`,{headers});
     }
 
     updateProduct(id: string, updateProducto: Producto){
-
+      const headers = new HttpHeaders().set('token', this.session.getUserToken());
+      return this.http.put(`${this.env.API_URI}producto/editar/${id}`, updateProducto,{headers});
     }
 
 

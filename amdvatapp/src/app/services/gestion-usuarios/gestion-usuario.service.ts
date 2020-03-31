@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {EnviromentService} from '../enviroment/enviroment.service';
+import {SessionService} from '../session/session.service';
+
 import {User} from '../../models/user'
 
 @Injectable({
@@ -10,7 +12,8 @@ export class GestionUsuarioService {
 
   constructor(
     private http: HttpClient,
-    private env: EnviromentService
+    private env: EnviromentService,
+    private  session: SessionService
   ) { }
 
   getListUser(){
@@ -18,22 +21,18 @@ export class GestionUsuarioService {
     //http://amdvat-be.herokuapp.com
   }
 
-  getOneUser(id: string){
-    return this.http.get(`${this.env.API_URI}usuario/`);
-  }
-  
   saveUser(usuario: User){
     return this.http.post(`${this.env.API_URI}usuario/registrar`,usuario);
   }
 
-  deleteUser(){
-
+  deleteUser(id:string){
+    const headers = new HttpHeaders().set('token', this.session.getUserToken());
+    return this.http.put(`${this.env.API_URI}usuario/eliminar/${id}`,{headers});
   }
 
   updateUser(id: string, updateUser: User){
-    const headers = new HttpHeaders().
-    set('token','');
-    return this.http.put(`${this.env.API_URI}/usuario/editar/${id}`,updateUser,{headers});
+    const headers = new HttpHeaders().set('token', this.session.getUserToken());
+    return this.http.put(`${this.env.API_URI}usuario/editar/${id}`,updateUser,{headers});
   }
 
 }

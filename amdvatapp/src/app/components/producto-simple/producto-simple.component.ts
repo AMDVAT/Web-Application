@@ -50,16 +50,18 @@ export class ProductoSimpleComponent implements OnInit {
   }
 
   saveProduct(){
-    /*
-    this.productoService.sav(this.usuario)
+    delete this.producto.nombre_categoria;
+    this.productoService.saveProduct(this.producto)
     .subscribe( 
       res =>{ 
+        console.log(this.producto);
         this.messageSave();
-        location.href= 'gestion/usuario/lista';
+        location.href= 'gestion/producto/lista';
       }, 
-      err => {console.error(err); this.errorMessageSave();}
-      );*/
-    console.log(this.producto);
+      err => {
+        console.error(err); 
+        this.errorMessageSave();
+      });
   }
 
   async obtenerCategorias(){

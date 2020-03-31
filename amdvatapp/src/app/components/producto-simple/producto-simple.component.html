@@ -18,28 +18,24 @@
           Datos del producto
         </ion-card-title>
 
-        <ion-card-content  >
-          <form>
+        <ion-card-content >
+          <form #formulario = "ngForm" (ngSubmit)= "saveProduct()">
             <ion-item>
               <ion-label position="floating">Nombre del producto</ion-label>
               <ion-input required type="text" name="Name" [(ngModel)]= "producto.nombre"></ion-input>
             </ion-item>
-
             <ion-item>
               <ion-label position="floating">Descripcion</ion-label>
               <ion-input required type="text" name="descripcion" [(ngModel)]= "producto.descripcion"></ion-input>
             </ion-item>
-
             <ion-item>
               <ion-label position="floating">Precio</ion-label>
               <ion-input required type="text" name="precio" [(ngModel)]= "producto.precio"></ion-input>
             </ion-item>
-
             <ion-item>
               <ion-label position="floating">URL de la Imagen</ion-label>
               <ion-input required type="text" name="foto" [(ngModel)]= "producto.foto"></ion-input>
             </ion-item>
-
             <div class="ion-padding">
               <ion-item>
                 <ion-label>Categoria</ion-label>
@@ -50,12 +46,19 @@
                 </ion-select>
               </ion-item>
             </div>
+
+            <ion-label position="floating" *ngIf="formulario.valid"> Los datos ingresados son los solicitados</ion-label>
+            <ion-label position="floating" *ngIf="formulario.valid==false"> Faltan campos requeridos</ion-label>
+
+            <ion-button color="success" expand= "full" type="submit"
+            [disabled]="formulario.invalid" > 
+              Registrar Producto
+            </ion-button>
+
           </form> 
         </ion-card-content>
 
-        <ion-button expand= "full" (click)= "saveProduct()"> 
-          Guardar
-        </ion-button>
+        
       </ion-card-header>
     </ion-card>
   
