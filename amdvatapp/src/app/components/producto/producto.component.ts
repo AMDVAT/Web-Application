@@ -3,6 +3,7 @@ import {Producto} from '../../models/Producto';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductoService} from '../../services/producto/producto.service';
 import {CarritoService} from '../../services/carrito/carrito.service';
+import {ToastController} from '@ionic/angular';
 
 @Component({
     selector: 'app-producto',
@@ -16,7 +17,8 @@ export class ProductoComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private productoService: ProductoService,
-        private carritoService: CarritoService
+        private carritoService: CarritoService,
+        private toastController: ToastController
     ) {
 
     }
@@ -29,7 +31,16 @@ export class ProductoComponent implements OnInit {
             });
     }
 
+    async presentToast() {
+        const toast = await this.toastController.create({
+            message: 'Producto añadido con exito!',
+            duration: 2000
+        });
+        toast.present();
+    }
+
     AddProduct(producto: Producto) {
         this.carritoService.UpdateCart(producto, 1);
+        this.presentToast();
     }
 }
