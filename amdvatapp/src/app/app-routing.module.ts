@@ -20,6 +20,7 @@ import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-
 import {CategoriaListaComponent} from './components/categoria-lista/categoria-lista.component';
 import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
 import {CarritoComponent} from './components/carrito/carrito.component';
+import { UsuarioRegistroComponent } from './components/usuario-registro/usuario-registro.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,9 @@ const routes: Routes = [
         path: 'login',
         component: LogInComponent
     }, {
+        path: 'registro',
+        component: UsuarioRegistroComponent
+    },{
         path: 'categorias',
         component: CategoriasComponent
     }, {

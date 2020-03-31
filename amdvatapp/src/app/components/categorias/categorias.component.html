@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-progress-bar *ngIf="!categorias" type="indeterminate" reversed="true"></ion-progress-bar>
 <ion-list>
   <ion-item [routerLink]="['categoria', categoria.id_categoria]" *ngFor="let categoria of categorias">
     <ion-label>{{categoria.nombre}}</ion-label>
