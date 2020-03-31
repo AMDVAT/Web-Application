@@ -28,5 +28,6 @@ export class CarritoService {
 
     public DeleteFromCart(producto: Producto): void {
         Utils.products = Utils.products.filter((p) => p.producto.id_producto !== producto.id_producto);
+        Utils.UpdateAmounts();
     }
 }
