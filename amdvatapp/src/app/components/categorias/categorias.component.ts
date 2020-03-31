@@ -9,7 +9,7 @@ import {CategoriaService} from '../../services/categoria/categoria.service';
 })
 export class CategoriasComponent implements OnInit {
 
-    categorias: Array<Categoria> = [];
+    categorias: Array<Categoria>;
 
     constructor(
         private categoriaService: CategoriaService

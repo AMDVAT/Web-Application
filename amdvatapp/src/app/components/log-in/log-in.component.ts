@@ -56,6 +56,7 @@ export class LogInComponent implements OnInit {
     );
   }
 
+
   ionViewWillEnter() {
     console.log('hola');
   }
