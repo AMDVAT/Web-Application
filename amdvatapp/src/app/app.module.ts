@@ -30,7 +30,9 @@ import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/nee
 import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
 import {CategoriaListaComponent} from './components/categoria-lista/categoria-lista.component';
 import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
+import {CarritoComponent} from './components/carrito/carrito.component';
 import {UsuarioRegistroComponent} from './components/usuario-registro/usuario-registro.component';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import {UsuarioRegistroComponent} from './components/usuario-registro/usuario-re
     NeedAuthUserPageComponent,
     CategoriaListaComponent,
     CategoriaSimpleComponent,
+    CarritoComponent
     UsuarioRegistroComponent
   ],
   entryComponents: [],
