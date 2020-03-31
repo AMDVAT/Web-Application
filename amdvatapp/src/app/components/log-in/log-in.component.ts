@@ -5,6 +5,7 @@ import {LogInService} from '../../services/log-in/log-in.service';
 import { Platform } from '@ionic/angular';
 import {SessionService} from '../../services/session/session.service';
 import { AlertController } from '@ionic/angular';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -26,12 +27,14 @@ export class LogInComponent implements OnInit {
       private loginService: LogInService,
       private sessionService: SessionService,
       private alertController: AlertController,
-      public platform: Platform
-  ) { }
+      public platform: Platform,
+      private router: Router
+  ) { 
+  }
 
 
   ngOnInit() {
-
+    
   }
 
   login(){
@@ -45,7 +48,7 @@ export class LogInComponent implements OnInit {
         res => {
           this.messageSave();
           this.sessionService.setUser(res);
-          location.href= 'home';
+          this.router.navigate(['home']);
         },err => {
           this.errorMessageSave();
           console.log(err)
@@ -59,7 +62,7 @@ export class LogInComponent implements OnInit {
 
   async messageSave() {
     const alert = await this.alertController.create({
-      header: 'Almacenado',
+      header: 'ACEPTADO',
       message: '<strong>Inicio de sesión exitoso </strong>',
       buttons: [
         {
@@ -75,8 +78,8 @@ export class LogInComponent implements OnInit {
 
   async errorMessageSave() {
     const alert = await this.alertController.create({
-      header: 'Almacenado',
-      message: '<strong>No se ha logrado iniciar sesion ,revise los datos </strong>',
+      header: 'DENEGADO',
+      message: '<strong> No se ha logrado iniciar sesion. Revise los datos </strong>',
       buttons: [
         {
           text: 'Aceptar',
