@@ -95,6 +95,9 @@ const routes: Routes = [
         component: CategoriaSimpleComponent,
         // canActivate: [NeedAuthAdmin]
     },{
+        path: 'gestion/usuario/lista/editar/:id',
+        component: UsuarioSimpleComponent
+    },{
         path: 'cart',
         component: CarritoComponent,
         // canActivate: [NeedAuthAdmin]

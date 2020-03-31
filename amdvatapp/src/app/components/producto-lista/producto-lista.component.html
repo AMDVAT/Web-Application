@@ -23,7 +23,7 @@
 
   <div *ngFor="let producto of productoList">
     <div class = "card text-center">
-      <ion-card (click)="presentActionSheet()">
+      <ion-card (click)="presentActionSheet(producto.id_producto, producto)">
         <ion-card-header>
           <ion-card-title>{{producto.nombre}}</ion-card-title>
         </ion-card-header>

@@ -6,6 +6,7 @@ import { LoadingController } from '@ionic/angular';
 import { ActionSheetController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -29,7 +30,8 @@ export class ListaUsuariosComponent implements OnInit {
     private userService: GestionUsuarioService,
     public loadingController: LoadingController,
     public actionSheetController: ActionSheetController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private  session: SessionService
   ) { 
     this.presentLoading();
   }
@@ -63,8 +65,7 @@ export class ListaUsuariosComponent implements OnInit {
     console.log('Loading dismissed!');
   }
 
-  async presentActionSheet(id_usuario: number, nombre: string, apellido: string) {
-    console.log('Hola');
+  async presentActionSheet(id_usuario: number, nombre: string, apellido: string, usuPrueba: User) {
     const actionSheet = await this.actionSheetController.create({
       header: 'Usuarios',
       buttons: [{
@@ -73,13 +74,14 @@ export class ListaUsuariosComponent implements OnInit {
         icon: 'trash',
         handler: () => {
           //console.log('Delete clicked' + id_usuario);
-          this.eliminarCategoria(id_usuario, nombre, apellido);
+          this.eliminarUsuario(id_usuario, nombre, apellido);
         }
       }, {
         text: 'Editar',
         icon: 'create',
         handler: () => {
-          console.log('Favorite clicked');
+          console.log('Favorite clicked ' + usuPrueba.nombre);
+          this.router.navigate([`/gestion/usuario/lista/editar/${id_usuario}`]);
         }
       }, {
         text: 'Cancel',
@@ -93,7 +95,7 @@ export class ListaUsuariosComponent implements OnInit {
     await actionSheet.present();
   }
 
-  async eliminarCategoria(id_usuario: number, nombre: string, apellido: string) {
+  async eliminarUsuario(id_usuario: number, nombre: string, apellido: string) {
     const alert = await this.alertController.create({
       header: '¡Advertencia!',
       message: '<strong>¿Desea eliminar a ' +nombre + ' ' + apellido +'? </strong>',
@@ -109,7 +111,7 @@ export class ListaUsuariosComponent implements OnInit {
           text: 'Aceptar',
           handler: () => {
             //ELIMINARLO
-            console.log('Delete '+ id_usuario);
+            this.deleteUser(id_usuario,nombre,apellido);
           }
         }
       ]
@@ -117,6 +119,31 @@ export class ListaUsuariosComponent implements OnInit {
     await alert.present();
   }
 
+  async deleteUser(id_usuario: number, nombre: string, apellido: string){
+    console.log('Delete '+ id_usuario);
+    this.session.getUserToken(token =>{
+      this.userService.deleteUser(id_usuario,token).subscribe(
+        res => {
+          alert('Usuario eliminado');
+          location.href = 'gestion/usuario/lista';
+        },
+        error => console.log(error)
+      );
+    });
+  }
 
+  async updateUser(id_usuario: number,usuario: User){
+    console.log('Se va a editar '  + usuario.nombre);
+    console.log('Delete '+ id_usuario);
+    this.session.getUserToken(token =>{
+      this.userService.updateUser(id_usuario,usuario,token).subscribe(
+        res => {
+          alert('Usuario eliminado');
+          location.href = 'gestion/usuario/lista';
+        },
+        error => console.log(error)
+      );
+    });
+  }
 
 }

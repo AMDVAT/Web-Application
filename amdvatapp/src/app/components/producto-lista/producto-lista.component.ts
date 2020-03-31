@@ -58,8 +58,7 @@ export class ProductoListaComponent implements OnInit {
     console.log('Loading dismissed!');
   }
 
-  async presentActionSheet() {
-    console.log('Hola');
+  async presentActionSheet(id_producto: number, productoP: Producto) {
     const actionSheet = await this.actionSheetController.create({
       header: 'Productos',
       buttons: [{

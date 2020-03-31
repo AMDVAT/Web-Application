@@ -21,17 +21,22 @@ export class GestionUsuarioService {
     //http://amdvat-be.herokuapp.com
   }
 
+  getOneUser(id:number, token: string){
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.delete(`${this.env.API_URI}usuario/buscar/${id}`,{headers});
+  }
+  
   saveUser(usuario: User){
     return this.http.post(`${this.env.API_URI}usuario/registrar`,usuario);
   }
 
-  deleteUser(id:string){
-    const headers = new HttpHeaders().set('token', this.session.getUserToken());
-    return this.http.put(`${this.env.API_URI}usuario/eliminar/${id}`,{headers});
+  deleteUser(id:number, token: string){
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.delete(`${this.env.API_URI}usuario/eliminar/${id}`,{headers});
   }
 
-  updateUser(id: string, updateUser: User){
-    const headers = new HttpHeaders().set('token', this.session.getUserToken());
+  updateUser(id: number, updateUser: User, token: string){
+    let headers = new HttpHeaders().set('token', token);
     return this.http.put(`${this.env.API_URI}usuario/editar/${id}`,updateUser,{headers});
   }
 

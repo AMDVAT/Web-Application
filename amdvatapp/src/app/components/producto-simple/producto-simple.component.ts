@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {Producto} from '../../models/Producto';
 import {GestionProductoService} from '../../services/gestion-producto/gestion-producto.service'
 import { Categoria } from 'src/app/models/Categoria';
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-producto-simple',
@@ -33,6 +34,7 @@ export class ProductoSimpleComponent implements OnInit {
     private platform: Platform,
       private alertController: AlertController,
       private router: Router,
+      private session : SessionService,
       private productoService: GestionProductoService
   ) { 
     this.platform.ready().then(()=>{
@@ -44,23 +46,20 @@ export class ProductoSimpleComponent implements OnInit {
     this.obtenerCategorias();
   }
 
+  //OBTENER EL ID DE LA CATEGORIA
   OnChange(event){
     this.producto.id_categoria = event.target.value;
-    //alert("you have selected = " + event.target.value);
   }
 
   saveProduct(){
     delete this.producto.nombre_categoria;
-    this.productoService.saveProduct(this.producto)
-    .subscribe( 
-      res =>{ 
-        console.log(this.producto);
-        this.messageSave();
-        location.href= 'gestion/producto/lista';
-      }, 
-      err => {
-        console.error(err); 
-        this.errorMessageSave();
+      this.session.getUserToken(token => {
+          this.productoService.saveProduct(this.producto,token).subscribe(
+              res => {
+                  alert('Producto registrada');
+                  location.href = 'gestion/producto/lista';
+              }, error => console.log(error)
+          );
       });
   }
 
@@ -76,7 +75,7 @@ export class ProductoSimpleComponent implements OnInit {
   async messageSave() {
     const alert = await this.alertController.create({
       header: 'Almacenado',
-      message: '<strong>El producto ha sido creado con exito </strong>',
+      message: '<strong>El producto ha sido registrado con exito </strong>',
       buttons: [
         {
           text: 'Aceptar',
@@ -88,11 +87,10 @@ export class ProductoSimpleComponent implements OnInit {
     });
     await alert.present();
   }
-
   async errorMessageSave() {
     const alert = await this.alertController.create({
-      header: 'Almacenado',
-      message: '<strong>No se ha logrado crear el producto ,revise los datos </strong>',
+      header: 'No almacenado',
+      message: '<strong>No se ha logrado registrar el producto ,revise los datos </strong>',
       buttons: [
         {
           text: 'Aceptar',
