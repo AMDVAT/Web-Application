@@ -54,7 +54,7 @@ import {UsuarioRegistroComponent} from './components/usuario-registro/usuario-re
     NeedAuthUserPageComponent,
     CategoriaListaComponent,
     CategoriaSimpleComponent,
-    CarritoComponent
+    CarritoComponent,
     UsuarioRegistroComponent
   ],
   entryComponents: [],

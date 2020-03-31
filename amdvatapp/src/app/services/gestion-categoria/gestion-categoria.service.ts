@@ -15,6 +15,7 @@ export class GestionCategoriaService {
       private  session: SessionService
   ) { }
 
+
   getCategorias() {
     return this.http.get(`${this.env.API_URI}producto/categoria/listar`);
   }
@@ -27,13 +28,13 @@ export class GestionCategoriaService {
     return this.http.get(`${this.env.API_URI}producto/categoria/buscar/${id}`);
   }
 
-  postCategoria(categoria: GCategoria) {
-    const headers = new HttpHeaders().set('token', this.session.getUserToken());
-    return this.http.post(`${this.env.API_URI}producto/categoria/crear`, categoria, {headers});
+  postCategoria(categoria: GCategoria, token: string) {
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.post(`${this.env.API_URI}producto/categoria/crear`, categoria, { headers });
   }
 
-  putCategoria(categoria: GCategoria, idCategoria: number) {
-    const headers = new HttpHeaders().set('token', this.session.getUserToken());
-    return this.http.put(`${this.env.API_URI}producto/categoria/editar/${idCategoria}`, categoria,{headers});
+  putCategoria(categoria: GCategoria, idCategoria: number, token: string) {
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.put(`${this.env.API_URI}producto/categoria/editar/${idCategoria}`, categoria, { headers });
   }
 }

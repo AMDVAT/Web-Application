@@ -52,16 +52,16 @@ export class SessionService {
         }
     }
 
-    getUserToken(): any {
+    getUserToken(fun): any {
         if (this.platform.is('android')) {
-            return this.nativeStorage.getItem('user')
+            this.nativeStorage.getItem('user')
                 .then(
                     (data) => {
-                        return JSON.parse(data).token;
+                        fun(JSON.parse(data).token);
                     }
                 );
         } else {
-            return JSON.parse(localStorage.getItem('user')).token;
+            fun(JSON.parse(localStorage.getItem('user')).token);
         }
     }
 
