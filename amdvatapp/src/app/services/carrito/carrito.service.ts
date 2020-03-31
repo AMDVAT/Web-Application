@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Producto} from '../../models/Producto';
+import {Producto, ProductoCarrito} from '../../models/Producto';
 import {Utils} from '../../Utils';
 
 @Injectable({
@@ -11,17 +11,21 @@ export class CarritoService {
     }
 
     public UpdateCart(producto: Producto, amount: number): void {
-        const prod = {
+        const prod: ProductoCarrito = {
             producto,
-            amount
+            cantidad: amount
         };
-        const index = Utils.products.findIndex((p) =>
-            p.producto.id_producto === producto.id_producto
-        );
-        if (index === -1) {
+        if (Utils.products.length === 0) {
             Utils.products.push(prod);
         } else {
-            Utils.products[index].cantidad = amount;
+            const index = Utils.products.findIndex((p) =>
+                p.producto.id_producto === producto.id_producto
+            );
+            if (index === -1) {
+                Utils.products.push(prod);
+            } else {
+                Utils.products[index].cantidad = amount;
+            }
         }
         Utils.UpdateAmounts();
     }

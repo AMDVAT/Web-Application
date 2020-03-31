@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Utils} from '../../Utils';
-import {Producto} from '../../models/Producto';
+import {Producto, ProductoCarrito} from '../../models/Producto';
 import {CarritoService} from '../../services/carrito/carrito.service';
 import {ToastController} from '@ionic/angular';
 
@@ -30,7 +30,24 @@ export class CarritoComponent implements OnInit {
     }
 
     AddProduct(producto: Producto) {
-      this.carritoService.UpdateCart(producto, 1);
-      this.presentToast();
+        this.carritoService.UpdateCart(producto, 1);
+        this.presentToast();
+    }
+
+    add(productoRef: ProductoCarrito) {
+        productoRef.cantidad++;
+        this.UtilsRef.UpdateAmounts();
+    }
+
+    sub(productoRef: ProductoCarrito) {
+        if (productoRef.cantidad === 0) {
+            return;
+        }
+        productoRef.cantidad--;
+        this.UtilsRef.UpdateAmounts();
+    }
+
+    delete(productoRef: ProductoCarrito) {
+        this.carritoService.DeleteFromCart(productoRef.producto);
     }
 }
