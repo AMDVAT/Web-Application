@@ -27,6 +27,10 @@ export class AppComponent implements OnInit {
       title: 'Home',
       url: '/home',
       icon: 'home'
+    },{
+      title: 'Carrito',
+      url: 'cart',
+      icon: 'cart'
     },
     {
       title: 'Categorias',
