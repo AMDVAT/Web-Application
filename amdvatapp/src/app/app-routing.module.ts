@@ -19,6 +19,7 @@ import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/nee
 import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
 import {CategoriaListaComponent} from './components/categoria-lista/categoria-lista.component';
 import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
+import {CarritoComponent} from './components/carrito/carrito.component';
 
 
 const routes: Routes = [
@@ -88,6 +89,10 @@ const routes: Routes = [
     },{
         path: 'gestion/categoria/lista/editar/:id',
         component: CategoriaSimpleComponent,
+        // canActivate: [NeedAuthAdmin]
+    },{
+        path: 'cart',
+        component: CarritoComponent,
         // canActivate: [NeedAuthAdmin]
     }
 ];
