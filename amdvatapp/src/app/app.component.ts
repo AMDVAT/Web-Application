@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -12,11 +13,46 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
+    // {
+    //   title: 'Productos',
+    //   url: '/productos',
+    //   icon: 'cube'
+    // },
     {
-      title: 'Productos',
-      url: '',
-      icon: 'cube-sharp'
+      title: 'Log In',
+      url: '/login',
+      icon: 'log-in'
     },
+    {
+      title: 'Home',
+      url: '/home',
+      icon: 'home'
+    },
+    {
+      title: 'Categorias',
+      url: '/categorias',
+      icon: 'apps'
+    },
+    {
+      title: 'Gestion usuarios',
+      url: 'gestion/usuario/lista',
+      icon: 'person'
+    },
+    {
+      title: 'Gestion productos',
+      url: 'gestion/producto/lista',
+      icon: 'rocket'
+    },
+    {
+      title: 'Gestion sucursales',
+      url: 'gestion/sucursal/lista',
+      icon: 'business'
+    },
+    {
+      title: 'Gestionar Categorias',
+      url: 'gestion/categoria/lista',
+      icon: 'grid'
+    }
   ];
 
   constructor(
