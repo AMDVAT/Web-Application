@@ -6,3 +6,20 @@
     <ion-title>Mi Carrito</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let productoRef of UtilsRef.products">
+    <ion-card-header style="cursor: pointer" routerDirection="forward" lines="none" detail="false" [routerLink]="['/', 'producto', productoRef.id_producto]">
+      <ion-card-title>{{productoRef.producto.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{productoRef.producto.descripcion}}</p>
+      <br>
+      Valoracion <app-valoration [valoration]="productoRef.producto.calificacion"></app-valoration>
+      <div style="float: right">
+        <ion-button (click)="AddProduct(productoRef.producto)"><ion-icon name="cart"></ion-icon>Añadir</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
