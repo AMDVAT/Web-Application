@@ -50,9 +50,13 @@
             <ion-label position="floating" *ngIf="formulario.valid"> Los datos ingresados son los solicitados</ion-label>
             <ion-label position="floating" *ngIf="formulario.valid==false"> Faltan campos requeridos</ion-label>
 
-            <ion-button color="success" expand= "full" type="submit"
-            [disabled]="formulario.invalid" > 
-              Registrar Producto
+            <ion-button color = "success" expand= "full" type="submit"
+                        [disabled]="formulario.invalid" *ngIf="!edit"> 
+              Registrar
+            </ion-button>
+            <ion-button color = "success" expand= "full" type="submit"
+                        [disabled]="formulario.invalid" *ngIf="edit"> 
+              Editar
             </ion-button>
 
           </form> 
@@ -61,12 +65,14 @@
     </ion-card>
   
   </div>
-
-
-  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger">
-    <ion-fab-button color = "danger" routerLink = ".." >
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger" *ngIf="!edit">
+    <ion-fab-button color = "primary" routerLink = ".." >
+      <ion-icon name = "arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger" *ngIf="edit">
+    <ion-fab-button color = "primary" routerLink = "../.." >
       <ion-icon name = "trash"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 </ion-content>

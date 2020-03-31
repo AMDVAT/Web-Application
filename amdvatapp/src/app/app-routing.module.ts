@@ -56,6 +56,9 @@ const routes: Routes = [
         component: UsuarioSimpleComponent,
         //canActivate: [NeedAuthAdmin]
     },{
+        path: 'gestion/usuario/lista/editar/:id',
+        component: UsuarioSimpleComponent
+    },{
         path: 'gestion/producto/lista',
         component: ProductoListaComponent,
         //canActivate: [NeedAuthAdmin]
@@ -64,6 +67,9 @@ const routes: Routes = [
         component: ProductoSimpleComponent,
        //canActivate: [NeedAuthAdmin]
 
+    },{
+        path: 'gestion/producto/lista/editar/:id',
+        component: ProductoSimpleComponent
     },{
         path: 'gestion/sucursal/lista',
         component: SucursalListaComponent,
@@ -94,9 +100,6 @@ const routes: Routes = [
         path: 'gestion/categoria/lista/editar/:id',
         component: CategoriaSimpleComponent,
         // canActivate: [NeedAuthAdmin]
-    },{
-        path: 'gestion/usuario/lista/editar/:id',
-        component: UsuarioSimpleComponent
     },{
         path: 'cart',
         component: CarritoComponent,

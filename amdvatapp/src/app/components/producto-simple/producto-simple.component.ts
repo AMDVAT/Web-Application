@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController,Platform } from '@ionic/angular';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import {Producto} from '../../models/Producto';
 import {GestionProductoService} from '../../services/gestion-producto/gestion-producto.service'
@@ -18,6 +18,7 @@ export class ProductoSimpleComponent implements OnInit {
   categoria: Categoria;
   categoriaList: any;
   selectedVal: Number = 100;
+  edit = false;
 
   producto: Producto = {
     nombre: '',
@@ -35,7 +36,8 @@ export class ProductoSimpleComponent implements OnInit {
       private alertController: AlertController,
       private router: Router,
       private session : SessionService,
-      private productoService: GestionProductoService
+      private productoService: GestionProductoService,
+      private activeRoute: ActivatedRoute
   ) { 
     this.platform.ready().then(()=>{
       this.obtenerCategorias();
@@ -44,6 +46,12 @@ export class ProductoSimpleComponent implements OnInit {
 
   ngOnInit() {
     this.obtenerCategorias();
+    const params = this.activeRoute.snapshot.params;
+
+    if (params.id) {
+      this.edit = true;
+      console.log('Entro aca ' + params.id)
+    }
   }
 
   //OBTENER EL ID DE LA CATEGORIA
@@ -63,6 +71,9 @@ export class ProductoSimpleComponent implements OnInit {
       });
   }
 
+  editProduct(){
+
+  }
   async obtenerCategorias(){
     console.log('Obtenes lista de productos');
     this.productoService.getCategoriaProduct().subscribe(
