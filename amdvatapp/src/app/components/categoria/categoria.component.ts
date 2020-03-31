@@ -5,6 +5,7 @@ import {CategoriaService} from '../../services/categoria/categoria.service';
 import {Categoria} from '../../models/Categoria';
 import {Producto} from '../../models/Producto';
 import {ProductoService} from '../../services/producto/producto.service';
+import {CarritoService} from '../../services/carrito/carrito.service';
 
 @Component({
     selector: 'app-categoria',
@@ -19,7 +20,8 @@ export class CategoriaComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private categoriaService: CategoriaService,
-        private productoService: ProductoService
+        private productoService: ProductoService,
+        private carritoService: CarritoService
     ) {
     }
 
@@ -37,4 +39,7 @@ export class CategoriaComponent implements OnInit {
             });
     }
 
+    AddProduct(producto: Producto) {
+        this.carritoService.UpdateCart(producto, 1);
+    }
 }

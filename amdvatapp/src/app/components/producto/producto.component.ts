@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Producto} from '../../models/Producto';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductoService} from '../../services/producto/producto.service';
+import {CarritoService} from '../../services/carrito/carrito.service';
 
 @Component({
     selector: 'app-producto',
@@ -14,7 +15,8 @@ export class ProductoComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private productoService: ProductoService
+        private productoService: ProductoService,
+        private carritoService: CarritoService
     ) {
 
     }
@@ -27,4 +29,7 @@ export class ProductoComponent implements OnInit {
             });
     }
 
+    AddProduct(producto: Producto) {
+        this.carritoService.UpdateCart(producto, 1);
+    }
 }

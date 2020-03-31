@@ -6,8 +6,10 @@ export class Utils {
 
     public static UpdateAmounts(): void {
         Utils.amounts = 0;
-        for (const prod of Utils.products) {
-            Utils.amounts += prod.cantidad;
-        }
+        Utils.products.map(p => {
+            Utils.amounts += p.cantidad;
+        });
+        console.log('Cantidad de productos ' + Utils.amounts);
+        console.log(Utils.products);
     }
 }
