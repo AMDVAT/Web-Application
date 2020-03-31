@@ -32,6 +32,7 @@ export class UsuarioSimpleComponent implements OnInit {
     this.usuarioService.saveUser(this.usuario)
     .subscribe( 
       res =>{ 
+        alert('Producto registrada');
         this.messageSave();
         location.href= 'gestion/usuario/lista';
       }, 

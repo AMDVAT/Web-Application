@@ -63,7 +63,7 @@ export class ListaUsuariosComponent implements OnInit {
     console.log('Loading dismissed!');
   }
 
-  async presentActionSheet() {
+  async presentActionSheet(id_usuario: number, nombre: string, apellido: string) {
     console.log('Hola');
     const actionSheet = await this.actionSheetController.create({
       header: 'Usuarios',
@@ -72,15 +72,14 @@ export class ListaUsuariosComponent implements OnInit {
         role: 'destructive',
         icon: 'trash',
         handler: () => {
-          console.log('Delete clicked');
-          this.eliminarCategoria();
+          //console.log('Delete clicked' + id_usuario);
+          this.eliminarCategoria(id_usuario, nombre, apellido);
         }
       }, {
         text: 'Editar',
         icon: 'create',
         handler: () => {
           console.log('Favorite clicked');
-
         }
       }, {
         text: 'Cancel',
@@ -94,10 +93,10 @@ export class ListaUsuariosComponent implements OnInit {
     await actionSheet.present();
   }
 
-  async eliminarCategoria() {
+  async eliminarCategoria(id_usuario: number, nombre: string, apellido: string) {
     const alert = await this.alertController.create({
       header: '¡Advertencia!',
-      message: '<strong>¿Desea eliminar el usuario? </strong>',
+      message: '<strong>¿Desea eliminar a ' +nombre + ' ' + apellido +'? </strong>',
       buttons: [
         {
           text: 'Cancelar',
@@ -109,7 +108,8 @@ export class ListaUsuariosComponent implements OnInit {
         }, {
           text: 'Aceptar',
           handler: () => {
-            console.log('Confirm Okay');
+            //ELIMINARLO
+            console.log('Delete '+ id_usuario);
           }
         }
       ]
