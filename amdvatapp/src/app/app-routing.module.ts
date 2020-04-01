@@ -66,11 +66,13 @@ const routes: Routes = [
         //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista/datos',
-        component: ProductoSimpleComponent,
+        //component: ProductoSimpleComponent,
+        component: PestanaMantenimientoComponent
        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista/editar/:id',
-        component: ProductoSimpleComponent
+        //component: ProductoSimpleComponent
+        component: PestanaMantenimientoComponent
         //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista',
