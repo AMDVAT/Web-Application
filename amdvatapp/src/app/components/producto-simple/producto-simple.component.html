@@ -19,7 +19,7 @@
         </ion-card-title>
 
         <ion-card-content >
-          <form #formulario = "ngForm" (ngSubmit)= "saveProduct()">
+          <form #formulario = "ngForm" (ngSubmit)= "menuAccion()">
             <ion-item>
               <ion-label position="floating">Nombre del producto</ion-label>
               <ion-input required type="text" name="Name" [(ngModel)]= "producto.nombre"></ion-input>
@@ -32,10 +32,19 @@
               <ion-label position="floating">Precio</ion-label>
               <ion-input required type="text" name="precio" [(ngModel)]= "producto.precio"></ion-input>
             </ion-item>
+            <ion-item *ngIf="edit">
+              <ion-label position="floating">Precio Oferta</ion-label>
+              <ion-input required type="text" name="precio_oferta" [(ngModel)]= "producto.precio_oferta"></ion-input>
+            </ion-item>
             <ion-item>
               <ion-label position="floating">URL de la Imagen</ion-label>
               <ion-input required type="text" name="foto" [(ngModel)]= "producto.foto"></ion-input>
             </ion-item>
+            <ion-item *ngIf="edit">
+              <ion-label position="floating">Calificacion</ion-label>
+              <ion-input required type="text" name="calificacion" [(ngModel)]= "producto.calificacion"></ion-input>
+            </ion-item>
+
             <div class="ion-padding">
               <ion-item>
                 <ion-label>Categoria</ion-label>
@@ -65,14 +74,16 @@
     </ion-card>
   
   </div>
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger" *ngIf="edit" >
+    <ion-fab-button color = "primary" routerLink = "../.." >
+      <ion-icon name = "arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger" *ngIf="!edit">
     <ion-fab-button color = "primary" routerLink = ".." >
       <ion-icon name = "arrow-back"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
-  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger" *ngIf="edit">
-    <ion-fab-button color = "primary" routerLink = "../.." >
-      <ion-icon name = "trash"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  </ion-fab> 
+
 </ion-content>

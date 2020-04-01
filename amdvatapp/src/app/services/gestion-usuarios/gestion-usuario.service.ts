@@ -23,7 +23,7 @@ export class GestionUsuarioService {
 
   getOneUser(id:number, token: string){
     let headers = new HttpHeaders().set('token', token);
-    return this.http.delete(`${this.env.API_URI}usuario/buscar/${id}`,{headers});
+    return this.http.get(`${this.env.API_URI}usuario/buscar/${id}`,{headers});
   }
   
   saveUser(usuario: User){

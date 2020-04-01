@@ -31,6 +31,8 @@ export class ProductoSimpleComponent implements OnInit {
     nombre_categoria: ''
   }
 
+  editProducto: any = [];
+
   constructor(
     private platform: Platform,
       private alertController: AlertController,
@@ -39,9 +41,9 @@ export class ProductoSimpleComponent implements OnInit {
       private productoService: GestionProductoService,
       private activeRoute: ActivatedRoute
   ) { 
-    this.platform.ready().then(()=>{
-      this.obtenerCategorias();
-    })
+    //this.platform.ready().then(()=>{
+      //this.obtenerCategorias();
+    //})
   }
 
   ngOnInit() {
@@ -49,6 +51,20 @@ export class ProductoSimpleComponent implements OnInit {
     const params = this.activeRoute.snapshot.params;
 
     if (params.id) {
+      const params = this.activeRoute.snapshot.params;
+      this.productoService.getOneProduct(params.id).subscribe(
+          res => {
+            this.editProducto = res;
+            this.producto.nombre = this.editProducto.nombre;
+            this.producto.descripcion = this.editProducto.descripcion;
+            this.producto.precio = this.editProducto.precio;
+            this.producto.precio_oferta = this.editProducto.precio_oferta;
+            this.producto.foto = this.editProducto.foto;
+            this.producto.calificacion = this.editProducto.calificacion;
+            this.producto.id_categoria = this.editProducto.id_categoria;
+            console.log(res);
+          }, error => console.log(error)
+      );
       this.edit = true;
       console.log('Entro aca ' + params.id)
     }
@@ -58,6 +74,14 @@ export class ProductoSimpleComponent implements OnInit {
   OnChange(event){
     this.producto.id_categoria = event.target.value;
   }
+
+  menuAccion(){
+    if(this.edit)
+      this.editProduct();
+    else
+      this.saveProduct();
+  }
+
 
   saveProduct(){
     delete this.producto.nombre_categoria;

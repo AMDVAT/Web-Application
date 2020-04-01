@@ -22,7 +22,7 @@
   </div>
 
   <div *ngFor="let producto of productoList">
-    <div class = "card text-center">
+    <div class = "card text-center" *ngIf="producto.estado == 1" >
       <ion-card (click)="presentActionSheet(producto.id_producto, producto)">
         <ion-card-header>
           <ion-card-title>{{producto.nombre}}</ion-card-title>

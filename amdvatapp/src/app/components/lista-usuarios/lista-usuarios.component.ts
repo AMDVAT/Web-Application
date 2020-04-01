@@ -37,7 +37,6 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.obtenerListadoUsuarios();
   }
 
@@ -73,8 +72,7 @@ export class ListaUsuariosComponent implements OnInit {
         role: 'destructive',
         icon: 'trash',
         handler: () => {
-          //console.log('Delete clicked' + id_usuario);
-          this.eliminarUsuario(id_usuario, nombre, apellido);
+          this.eliminarUsuario(id_usuario,nombre,apellido);
         }
       }, {
         text: 'Editar',
@@ -95,7 +93,7 @@ export class ListaUsuariosComponent implements OnInit {
     await actionSheet.present();
   }
 
-  async eliminarUsuario(id_usuario: number, nombre: string, apellido: string) {
+  async eliminarUsuario(id_usuario: number,nombre: string, apellido: string) {
     const alert = await this.alertController.create({
       header: '¡Advertencia!',
       message: '<strong>¿Desea eliminar a ' +nombre + ' ' + apellido +'? </strong>',
@@ -111,7 +109,7 @@ export class ListaUsuariosComponent implements OnInit {
           text: 'Aceptar',
           handler: () => {
             //ELIMINARLO
-            this.deleteUser(id_usuario,nombre,apellido);
+            this.deleteUser(id_usuario);
           }
         }
       ]
@@ -119,31 +117,17 @@ export class ListaUsuariosComponent implements OnInit {
     await alert.present();
   }
 
-  async deleteUser(id_usuario: number, nombre: string, apellido: string){
+  async deleteUser(id_usuario: number){
     console.log('Delete '+ id_usuario);
     this.session.getUserToken(token =>{
       this.userService.deleteUser(id_usuario,token).subscribe(
         res => {
           alert('Usuario eliminado');
+          //console.log(res, + ' ' + token)
           location.href = 'gestion/usuario/lista';
         },
         error => console.log(error)
       );
     });
   }
-
-  async updateUser(id_usuario: number,usuario: User){
-    console.log('Se va a editar '  + usuario.nombre);
-    console.log('Delete '+ id_usuario);
-    this.session.getUserToken(token =>{
-      this.userService.updateUser(id_usuario,usuario,token).subscribe(
-        res => {
-          alert('Usuario eliminado');
-          location.href = 'gestion/usuario/lista';
-        },
-        error => console.log(error)
-      );
-    });
-  }
-
 }

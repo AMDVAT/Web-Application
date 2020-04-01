@@ -19,7 +19,7 @@
         </ion-card-title>
 
         <ion-card-content>
-          <form #formulario = "ngForm" (ngSubmit)= "saveUser()">
+          <form #formulario = "ngForm" (ngSubmit)= "menuAccion()">
             <ion-item>
               <ion-label position="floating">Nombre</ion-label>
               <ion-input required type="text" name="Name" [(ngModel)]= "usuario.nombre" ></ion-input>
@@ -73,10 +73,11 @@
     </ion-fab-button>
   </ion-fab>
 
+ 
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger" *ngIf="edit">
     <ion-fab-button color = "primary" routerLink = "../.." >
-      <ion-icon name = "trash"></ion-icon>
+      <ion-icon name = "arrow-back"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> 
 
 </ion-content>
