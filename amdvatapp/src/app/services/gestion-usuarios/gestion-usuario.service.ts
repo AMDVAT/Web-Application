@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {EnviromentService} from '../enviroment/enviroment.service';
 import {SessionService} from '../session/session.service';
+import {delay} from 'rxjs/operators'
 
 import {User} from '../../models/user'
 
@@ -17,7 +18,10 @@ export class GestionUsuarioService {
   ) { }
 
   getListUser(){
-    return this.http.get(`${this.env.API_URI}usuario/listar`);
+    return this.http.get(`${this.env.API_URI}usuario/listar`)
+      .pipe(
+        delay(1000)
+      );
     //http://amdvat-be.herokuapp.com
   }
 

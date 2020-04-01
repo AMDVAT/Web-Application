@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {EnviromentService} from '../enviroment/enviroment.service';
 import {GCategoria} from '../../models/g-categoria';
 import {SessionService} from '../session/session.service';
+import {delay} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,10 @@ export class GestionCategoriaService {
 
 
   getCategorias() {
-    return this.http.get(`${this.env.API_URI}producto/categoria/listar`);
+    return this.http.get(`${this.env.API_URI}producto/categoria/listar`)
+    .pipe(
+      delay(1000)
+    );
   }
 
   getCategoriasPadre() {

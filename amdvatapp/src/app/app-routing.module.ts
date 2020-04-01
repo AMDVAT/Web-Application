@@ -21,6 +21,7 @@ import {CategoriaListaComponent} from './components/categoria-lista/categoria-li
 import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
 import {CarritoComponent} from './components/carrito/carrito.component';
 import { UsuarioRegistroComponent } from './components/usuario-registro/usuario-registro.component';
+import { PestanaMantenimientoComponent } from './components/pestana-mantenimiento/pestana-mantenimiento.component';
 
 
 const routes: Routes = [
@@ -65,11 +66,13 @@ const routes: Routes = [
         //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista/datos',
-        component: ProductoSimpleComponent,
+        //component: ProductoSimpleComponent,
+        component: PestanaMantenimientoComponent
        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista/editar/:id',
-        component: ProductoSimpleComponent
+        //component: ProductoSimpleComponent
+        component: PestanaMantenimientoComponent
         //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista',
@@ -109,6 +112,10 @@ const routes: Routes = [
         path: 'cart',
         component: CarritoComponent,
         // canActivate: [NeedAuthAdmin]
+    }
+    ,{
+        path: 'mantenimiento',
+        component: PestanaMantenimientoComponent
     }
 ];
 

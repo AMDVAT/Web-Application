@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {EnviromentService} from '../enviroment/enviroment.service';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {SessionService} from '../session/session.service';
+import {delay} from 'rxjs/operators'
 
 import {Producto} from '../../models/Producto';
 
@@ -17,7 +18,10 @@ export class GestionProductoService {
    ) { }
 
     getListProduct(){
-      return this.http.get(`${this.env.API_URI}producto/listar`);
+      return this.http.get(`${this.env.API_URI}producto/listar`)
+      .pipe(
+        delay(1000)
+      );
     }
 
     getCategoriaProduct(){

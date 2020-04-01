@@ -66,7 +66,7 @@ export class SucursalListaComponent implements OnInit {
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
-      duration: 500
+      duration: 1000
     });
     await loading.present();
     const { role, data } = await loading.onDidDismiss();
@@ -76,14 +76,15 @@ export class SucursalListaComponent implements OnInit {
   async presentActionSheet(idSucursal: number, sucuPru: Sucursal) {
     const actionSheet = await this.actionSheetController.create({
       header: 'Usuarios',
-      buttons: [{
+      buttons: [
+      /*{
         text: 'Eliminar',
         role: 'destructive',
         icon: 'trash',
         handler: () => {
           this.eliminarSucursal(idSucursal,sucuPru.nombre);
         }
-      }, {
+      }, */{
         text: 'Editar',
         icon: 'create',
         handler: () => {

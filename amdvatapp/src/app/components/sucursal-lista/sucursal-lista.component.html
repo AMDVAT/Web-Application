@@ -35,6 +35,23 @@
     </div>
   </div>
 
+  <div *ngFor="let sucursal of [1,1,1,1,1,1,1,1,1,1,1]">
+    <div class = "card text-center" >
+      <ion-card>
+        <ion-card-header>
+          <ion-label>
+            <ion-skeleton-text width='30%'> </ion-skeleton-text>
+          </ion-label>
+            <ion-skeleton-text width='300%'> </ion-skeleton-text>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-skeleton-text width='70%'> </ion-skeleton-text>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  
+
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
     <ion-fab-button routerLink = "datos" >
       <ion-icon name = "add"></ion-icon>

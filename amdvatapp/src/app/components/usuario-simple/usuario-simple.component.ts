@@ -4,6 +4,7 @@ import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usu
 import { AlertController, Platform } from '@ionic/angular';
 import {Router, ActivatedRoute} from '@angular/router';
 import {SessionService} from '../../services/session/session.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-usuario-simple',
@@ -17,7 +18,7 @@ export class UsuarioSimpleComponent implements OnInit {
       apellido: '',
       email: '',
       password: '',
-      tipo_usuario: null
+      tipo_usuario: 5
   }
 
   usuarioP: User;
@@ -59,7 +60,8 @@ export class UsuarioSimpleComponent implements OnInit {
         private alertController: AlertController,
         private activeRoute: ActivatedRoute,
         private session: SessionService,
-        private router: Router) 
+        private router: Router,
+        public toastController: ToastController) 
   { }
 
   ngOnInit() {
@@ -104,7 +106,8 @@ export class UsuarioSimpleComponent implements OnInit {
     .subscribe( 
       res =>{ 
         alert('Usuario registrada');
-        this.messageSave();
+        //this.messageSave();
+        this.presentToast();
         location.href= 'gestion/usuario/lista';
       }, 
       err => {console.error(err); this.errorMessageSave();}
@@ -156,5 +159,13 @@ export class UsuarioSimpleComponent implements OnInit {
       ]
     });
     await alert.present();
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Your settings have been saved.',
+      duration: 1500
+    });
+    toast.present();
   }
 }

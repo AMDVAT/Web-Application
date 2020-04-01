@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {EnviromentService} from '../enviroment/enviroment.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {SessionService} from '../session/session.service';
+import {delay} from 'rxjs/operators'
 
 import {Sucursal} from '../../models/sucursal'
 
@@ -16,7 +17,10 @@ export class GestionSucursalService {
   ) { }
 
   getListSucursal(){
-    return this.http.get(`${this.env.API_URI}sucursal/listar`);
+    return this.http.get(`${this.env.API_URI}sucursal/listar`)
+          .pipe(
+            delay(1000)
+          );
   }
 
   getOneSucursal(id: number, token: string){

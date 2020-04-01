@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+     <!-- <ion-menu-button></ion-menu-button> -->
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Datos Categorias</ion-title>
@@ -42,10 +42,10 @@
           <ion-label position="fixed">*Si no selecciona una categoria se creara como categoria principal<ion-text color="danger">*</ion-text></ion-label>
         </form>
 
-        <ion-button expand= "full" (click) = "save()" *ngIf="!edit">
+        <ion-button color="success" expand= "full" (click) = "save()" *ngIf="!edit">
           Guardar
         </ion-button>
-        <ion-button expand= "full" (click)= "editar()" *ngIf="edit">
+        <ion-button color="success" expand= "full" (click)= "editar()" *ngIf="edit">
           Editar
         </ion-button>
       </ion-card>
