@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import {SessionService} from '../../services/session/session.service';
 
+
+
 @Component({
   selector: 'app-categoria-simple',
   templateUrl: './categoria-simple.component.html',

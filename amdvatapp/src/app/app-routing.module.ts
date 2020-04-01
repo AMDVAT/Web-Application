@@ -58,6 +58,7 @@ const routes: Routes = [
     },{
         path: 'gestion/usuario/lista/editar/:id',
         component: UsuarioSimpleComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista',
         component: ProductoListaComponent,
@@ -66,18 +67,22 @@ const routes: Routes = [
         path: 'gestion/producto/lista/datos',
         component: ProductoSimpleComponent,
        //canActivate: [NeedAuthAdmin]
-
     },{
         path: 'gestion/producto/lista/editar/:id',
         component: ProductoSimpleComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista',
         component: SucursalListaComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista/datos',
         component: SucursalSimpleComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/sucursal/lista/editar/:id',
+        component: SucursalSimpleComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'productos/:producto',
         component: ProductosComponent,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usuario.service'
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import {Router, ActivatedRoute} from '@angular/router';
 import {SessionService} from '../../services/session/session.service';
 
@@ -17,14 +17,44 @@ export class UsuarioSimpleComponent implements OnInit {
       apellido: '',
       email: '',
       password: '',
-      tipo_usuario: 4
+      tipo_usuario: null
   }
 
   usuarioP: User;
   edit = false;
   editUsuario: any = [];
+  categorias: any = [];
+  id_tipo_usuario: number;
+
+  users1: any[] = [
+    {
+      tipo_usuario: 1,
+      nombre: 'Administrador',
+    },
+    {
+      tipo_usuario: 2,
+      nombre: 'Dueño',
+    },
+    {
+      tipo_usuario: 3,
+      nombre: 'Gerente',
+    },
+    {
+      tipo_usuario: 4,
+      nombre: 'Empleado',
+    },
+    {
+      tipo_usuario: 5,
+      nombre: 'Cliente',
+    },
+    {
+      tipo_usuario: 6,
+      nombre: 'Cliente Frecuente',
+    }
+  ];
 
   constructor( 
+        private platform: Platform,
         private usuarioService: GestionUsuarioService, 
         private alertController: AlertController,
         private activeRoute: ActivatedRoute,
@@ -37,7 +67,6 @@ export class UsuarioSimpleComponent implements OnInit {
 
     if (params.id) {
       this.session.getUserToken(token => {
-        const params = this.activeRoute.snapshot.params;
         console.log('Entro aca edit ' + params.id + ', ' + token)
         this.usuarioService.getOneUser(params.id,token).subscribe(
             res => {
@@ -47,6 +76,7 @@ export class UsuarioSimpleComponent implements OnInit {
               this.usuario.email = this.editUsuario.email;
               this.usuario.password = this.editUsuario.password;
               this.usuario.tipo_usuario = this.editUsuario.tipo_usuario;
+              console.log(this.usuario.nombre)
               console.log(res);
             }, error => console.log(error)
         );
@@ -54,6 +84,11 @@ export class UsuarioSimpleComponent implements OnInit {
       this.edit = true;
     }
 
+  }
+
+  OnChange(event){
+    this.usuario.tipo_usuario = event.target.value;
+    //console.log(this.usuario.tipo_usuario);
   }
 
   menuAccion(){
@@ -95,7 +130,7 @@ export class UsuarioSimpleComponent implements OnInit {
   async messageSave() {
     const alert = await this.alertController.create({
       header: 'Almacenado',
-      message: '<strong>El usuario ha sido creado con exito </strong>',
+      message: '<strong>El usuario ha sido gestionado con exito </strong>',
       buttons: [
         {
           text: 'Aceptar',
@@ -109,8 +144,8 @@ export class UsuarioSimpleComponent implements OnInit {
   }
   async errorMessageSave() {
     const alert = await this.alertController.create({
-      header: 'Almacenado',
-      message: '<strong>No se ha logrado crear el usuario,revise los datos </strong>',
+      header: 'NO Almacenado',
+      message: '<strong>No se ha logrado gestionar el usuario,revise los datos </strong>',
       buttons: [
         {
           text: 'Aceptar',

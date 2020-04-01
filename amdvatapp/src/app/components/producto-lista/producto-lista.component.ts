@@ -74,7 +74,7 @@ export class ProductoListaComponent implements OnInit {
         text: 'Editar',
         icon: 'create',
         handler: () => {
-          console.log('Favorite clicked');
+          console.log('Favorite clicked '+ productoP.nombre);
           this.router.navigate([`/gestion/producto/lista/editar/${id_producto}`]);
         }
       }, {
