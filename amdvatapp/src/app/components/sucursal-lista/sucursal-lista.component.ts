@@ -48,6 +48,7 @@ export class SucursalListaComponent implements OnInit {
   async deleteSucursal(idSucursal: number){
     console.log('Delete '+ idSucursal);
     this.session.getUserToken(token =>{
+      console.log(token)
       this.sucursalService.deleteSucursal(idSucursal,token).subscribe(
         res => {
           alert('Sucursal eliminada');

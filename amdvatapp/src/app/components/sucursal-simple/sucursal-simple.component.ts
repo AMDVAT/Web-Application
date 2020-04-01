@@ -38,7 +38,6 @@ export class SucursalSimpleComponent implements OnInit {
     if (params.id) {
       this.session.getUserToken(token => {
         console.log('Entro aca edit ' + params.id + ', ' + token)
-       /*
         this.sucursalService.getOneSucursal(params.id,token).subscribe(
             res => {
               this.editSucursal = res;
@@ -49,7 +48,6 @@ export class SucursalSimpleComponent implements OnInit {
               console.log(res);
             }, error => console.log(error)
         );
-        */ 
       });
       this.edit = true;
     }
@@ -79,7 +77,6 @@ export class SucursalSimpleComponent implements OnInit {
   editarSucursal(){
     console.log('Se editara');
     console.log(this.sucursal);
-    /*
     this.session.getUserToken(token => {
       const params = this.activeRoute.snapshot.params;
       this.sucursalService.updateSucursal(params.id,this.sucursal,token).subscribe(
@@ -89,7 +86,7 @@ export class SucursalSimpleComponent implements OnInit {
               location.href = 'gestion/sucursal/lista';
           }, error => console.log(error)
       );
-    });*/
+    });
   }
 
   async messageSave() {
