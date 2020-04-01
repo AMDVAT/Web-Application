@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {EnviromentService} from '../enviroment/enviroment.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {SessionService} from '../session/session.service';
 
 import {Sucursal} from '../../models/sucursal'
 
@@ -18,19 +19,25 @@ export class GestionSucursalService {
     return this.http.get(`${this.env.API_URI}sucursal/listar`);
   }
 
-  getOneSucursal(id: string){
+  getOneSucursal(id: number, token: string){
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.get(`${this.env.API_URI}sucursal/buscar/${id}`,{headers});
+  }
+
+  saveSucursal(sucursal: Sucursal, token: string){
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.post(`${this.env.API_URI}sucursal/crear`,sucursal,{headers});
+  }
+
+  deleteSucursal(id: number, token: string){
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.delete(`${this.env.API_URI}sucursal/eliminar/${id}`,{headers});
 
   }
 
-  saveSucursal(sucursal: Sucursal){
-
-  }
-
-  deleteSucursal(id: string){
-
-  }
-
-  updateSucursal(id:string, updateSucursal: Sucursal){
+  updateSucursal(id:number, updateSucursal: Sucursal, token: string){
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.put(`${this.env.API_URI}sucursal/editar/${id}`,updateSucursal,{headers});
 
   }
 

@@ -130,7 +130,7 @@ export class UsuarioSimpleComponent implements OnInit {
   async messageSave() {
     const alert = await this.alertController.create({
       header: 'Almacenado',
-      message: '<strong>El usuario ha sido creado con exito </strong>',
+      message: '<strong>El usuario ha sido gestionado con exito </strong>',
       buttons: [
         {
           text: 'Aceptar',
@@ -144,8 +144,8 @@ export class UsuarioSimpleComponent implements OnInit {
   }
   async errorMessageSave() {
     const alert = await this.alertController.create({
-      header: 'Almacenado',
-      message: '<strong>No se ha logrado crear el usuario,revise los datos </strong>',
+      header: 'NO Almacenado',
+      message: '<strong>No se ha logrado gestionar el usuario,revise los datos </strong>',
       buttons: [
         {
           text: 'Aceptar',

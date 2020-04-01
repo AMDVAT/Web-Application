@@ -21,6 +21,20 @@
     </ion-card>
   </div>
 
+  <div *ngFor="let sucursal of sucursalList">
+    <div class = "card text-center" >
+      <ion-card (click)="presentActionSheet(sucursal.idSucursal, sucursal)">
+        <ion-card-header>
+          <ion-card-subtitle>Tel: {{sucursal.numero}}</ion-card-subtitle>
+          <ion-card-title>{{sucursal.nombre}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          DIRECCION: {{sucursal.direccion}} 
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
     <ion-fab-button routerLink = "datos" >
       <ion-icon name = "add"></ion-icon>

@@ -13,16 +13,11 @@ import {SessionService} from '../../services/session/session.service';
   templateUrl: './lista-usuarios.component.html',
   styleUrls: ['./lista-usuarios.component.scss'],
 })
-
-
 export class ListaUsuariosComponent implements OnInit {
 
   users: Array<any> = [];
   user: User;
-
   usersList: any;
-
-
 
   constructor(
     private route: ActivatedRoute,
