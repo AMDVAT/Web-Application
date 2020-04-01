@@ -48,7 +48,8 @@
             <div class="ion-padding">
               <ion-item>
                 <ion-label>Categoria</ion-label>
-                <ion-select  (ionChange)="OnChange($event)">
+                <ion-select  [(ngModel)]="producto.id_categoria" [ngModelOptions]="{standalone: true}"
+                            (ionChange)="OnChange($event)" placeholder= "Seleccione categoria del producto">
                   <ion-select-option *ngFor="let categoria of categoriaList" [value]="categoria.id_categoria" >
                     {{categoria.nombre}}
                   </ion-select-option>

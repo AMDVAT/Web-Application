@@ -13,13 +13,7 @@ import {SessionService} from '../../services/session/session.service';
   styleUrls: ['./producto-simple.component.scss'],
 })
 export class ProductoSimpleComponent implements OnInit {
-
-  categorias: Array<any>;
-  categoria: Categoria;
-  categoriaList: any;
-  selectedVal: Number = 100;
-  edit = false;
-
+  
   producto: Producto = {
     nombre: '',
     descripcion: '',
@@ -31,29 +25,30 @@ export class ProductoSimpleComponent implements OnInit {
     nombre_categoria: ''
   }
 
-  editProducto: any = [];
+  categorias: Array<any>;
+  categoria: Categoria;
+  categoriaList: any;
+  selectedVal: Number = 100;
+  edit = false;
+  editProducto: any =[];
 
   constructor(
-    private platform: Platform,
       private alertController: AlertController,
       private router: Router,
       private session : SessionService,
       private productoService: GestionProductoService,
       private activeRoute: ActivatedRoute
-  ) { 
-    //this.platform.ready().then(()=>{
-      //this.obtenerCategorias();
-    //})
-  }
+  ) {  }
 
   ngOnInit() {
-    this.obtenerCategorias();
     const params = this.activeRoute.snapshot.params;
+    this.obtenerCategorias();
 
     if (params.id) {
-      const params = this.activeRoute.snapshot.params;
+      console.log('Entro aca edit ' + params.id );
+      this.edit = true;
       this.productoService.getOneProduct(params.id).subscribe(
-          res => {
+        res => {
             this.editProducto = res;
             this.producto.nombre = this.editProducto.nombre;
             this.producto.descripcion = this.editProducto.descripcion;
@@ -62,11 +57,11 @@ export class ProductoSimpleComponent implements OnInit {
             this.producto.foto = this.editProducto.foto;
             this.producto.calificacion = this.editProducto.calificacion;
             this.producto.id_categoria = this.editProducto.id_categoria;
+            this.producto.nombre_categoria = this.editProducto.nombre_categoria;
             console.log(res);
-          }, error => console.log(error)
+        }, error => console.log(error)
       );
-      this.edit = true;
-      console.log('Entro aca ' + params.id)
+
     }
   }
 
@@ -85,6 +80,7 @@ export class ProductoSimpleComponent implements OnInit {
 
   saveProduct(){
     delete this.producto.nombre_categoria;
+    console.log('WANT TO SAVE '+ this.producto);
       this.session.getUserToken(token => {
           this.productoService.saveProduct(this.producto,token).subscribe(
               res => {
@@ -96,6 +92,18 @@ export class ProductoSimpleComponent implements OnInit {
   }
 
   editProduct(){
+    delete this.producto.nombre_categoria;
+    console.log('WANT TO EDIT '+this.producto);
+    this.session.getUserToken(token => {
+        const params = this.activeRoute.snapshot.params;
+        this.productoService.updateProduct( params.id,this.producto,token).subscribe(
+            res => {
+                alert('Producto editado');
+                console.log(res);
+                location.href = 'gestion/categoria/lista';
+            }, error => console.log(error)
+        );
+    });
 
   }
   async obtenerCategorias(){

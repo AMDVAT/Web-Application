@@ -41,11 +41,11 @@
               <ion-label position="floating">Password</ion-label>
               <ion-input required type="password" name="password" [(ngModel)]= "usuario.password"></ion-input>
             </ion-item>
-            
             <ion-item>
               <ion-label>Users</ion-label>
-              <ion-select [compareWith]="compareWith">
-                <ion-select-option *ngFor="let categoria of categoriaList">{{categoria.nombre}}</ion-select-option>
+              <ion-select [(ngModel)]="usuario.tipo_usuario" [ngModelOptions]="{standalone: true}"
+                          (ionChange)="OnChange($event)" placeholder= "Seleccione el tipo de usuario">
+                <ion-select-option *ngFor="let user1 of users1" [value]="user1.tipo_usuario">{{user1.nombre}}</ion-select-option>
               </ion-select>
             </ion-item>
 

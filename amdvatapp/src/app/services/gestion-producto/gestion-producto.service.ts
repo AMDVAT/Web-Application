@@ -30,7 +30,6 @@ export class GestionProductoService {
     }
 
     saveProduct(producto: Producto,token: string){
-      console.log('WANT TO SAVE A PRODUCT');
       let headers = new HttpHeaders().set('token', token);
       return this.http.post(`${this.env.API_URI}producto/crear`, producto, {headers});
     }
