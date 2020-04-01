@@ -6,6 +6,7 @@ import { AlertController } from '@ionic/angular';
 
 import {Producto} from '../../models/Producto';
 import {GestionProductoService} from '../../services/gestion-producto/gestion-producto.service'
+import { SessionService } from 'src/app/services/session/session.service';
 
 @Component({
   selector: 'app-producto-lista',
@@ -25,6 +26,7 @@ export class ProductoListaComponent implements OnInit {
     public loadingController: LoadingController,
     public actionSheetController: ActionSheetController,
     public alertController: AlertController,
+    private session: SessionService,
     private productService: GestionProductoService
   ) { 
     this.presentLoading();
@@ -58,8 +60,7 @@ export class ProductoListaComponent implements OnInit {
     console.log('Loading dismissed!');
   }
 
-  async presentActionSheet() {
-    console.log('Hola');
+  async presentActionSheet(id_producto: number, productoP: Producto) {
     const actionSheet = await this.actionSheetController.create({
       header: 'Productos',
       buttons: [{
@@ -67,15 +68,14 @@ export class ProductoListaComponent implements OnInit {
         role: 'destructive',
         icon: 'trash',
         handler: () => {
-          console.log('Delete clicked');
-          this.eliminarCategoria();
+          this.eliminarProducto(id_producto,productoP);
         }
       }, {
         text: 'Editar',
         icon: 'create',
         handler: () => {
           console.log('Favorite clicked');
-
+          this.router.navigate([`/gestion/producto/lista/editar/${id_producto}`]);
         }
       }, {
         text: 'Cancel',
@@ -89,7 +89,7 @@ export class ProductoListaComponent implements OnInit {
     await actionSheet.present();
   }
 
-  async eliminarCategoria() {
+  async eliminarProducto(id: number, productoP : Producto) {
     const alert = await this.alertController.create({
       header: '¡Advertencia!',
       message: '<strong>¿Desea eliminar el producto? </strong>',
@@ -105,6 +105,7 @@ export class ProductoListaComponent implements OnInit {
           text: 'Aceptar',
           handler: () => {
             console.log('Confirm Okay');
+            this.deleteProducto(id,productoP);
           }
         }
       ]
@@ -112,6 +113,18 @@ export class ProductoListaComponent implements OnInit {
     await alert.present();
   }
 
+  deleteProducto(id: number, productoP : Producto){
+    console.log('Delete '+ id);
+    this.session.getUserToken(token =>{
+      this.productService.deleteProduct(id,token).subscribe(
+        res => {
+          alert('Producto eliminado');
+          location.href = 'gestion/producto/lista';
+        },
+        error => console.log(error)
+      );
+    });
+  }
 
 
 }
