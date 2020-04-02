@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Perfil',
-      url: '/gestion/usuario/perfil/:id',
+      url: '/gestion/usuario/perfil',
       icon: 'person'
     },
     {

@@ -58,7 +58,7 @@ const routes: Routes = [
         component: UsuarioSimpleComponent,
         //canActivate: [NeedAuthAdmin]
     },{
-        path: 'gestion/usuario/perfil/:id',
+        path: 'gestion/usuario/perfil',
         component: UsuarioPerfilComponent,
         //canActivate: [NeedAuthAdmin]
     },{
