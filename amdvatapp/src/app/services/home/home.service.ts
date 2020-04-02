@@ -19,4 +19,8 @@ export class HomeService {
   getTopProductos(){
     return this.http.get(`${this.env.API_URI}producto/topProductos`);
   }
+
+  getNuevosProductos(){
+    return this.http.get(`${this.env.API_URI}producto/listar/masBuscados`);
+  }
 }
