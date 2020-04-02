@@ -33,6 +33,7 @@ import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-
 import {CarritoComponent} from './components/carrito/carrito.component';
 import {UsuarioRegistroComponent} from './components/usuario-registro/usuario-registro.component';
 import {PestanaMantenimientoComponent} from './components/pestana-mantenimiento/pestana-mantenimiento.component';
+import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perfil.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {PestanaMantenimientoComponent} from './components/pestana-mantenimiento/
     CategoriaSimpleComponent,
     CarritoComponent,
     UsuarioRegistroComponent,
-    PestanaMantenimientoComponent
+    PestanaMantenimientoComponent,
+    UsuarioPerfilComponent
   ],
   entryComponents: [],
   imports: [

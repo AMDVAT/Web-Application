@@ -22,6 +22,7 @@ import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-
 import {CarritoComponent} from './components/carrito/carrito.component';
 import { UsuarioRegistroComponent } from './components/usuario-registro/usuario-registro.component';
 import { PestanaMantenimientoComponent } from './components/pestana-mantenimiento/pestana-mantenimiento.component';
+import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perfil.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,10 @@ const routes: Routes = [
     },{
         path: 'gestion/usuario/lista/datos',
         component: UsuarioSimpleComponent,
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/usuario/perfil/:id',
+        component: UsuarioPerfilComponent,
         //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/usuario/lista/editar/:id',

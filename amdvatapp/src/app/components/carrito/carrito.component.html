@@ -54,7 +54,13 @@
         </ion-card>
     </div>
     <div *ngIf="UtilsRef.products.length === 0">
-        <p>Lo sentimos, Aun no existen Productos en tu carrito.</p>
+        <ion-img src="https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585780813/CarroVacio_oozqcg.png"></ion-img>
+        <ion-text color="dark">
+            <h4> Tu carrito de MyApp está vacío</h4>
+        </ion-text>
+        <div class="ion-text-center">
+            <h6> <a href="home"> Adquiere nuestros productos</a>  </h6>
+        </div>
     </div>
 
 

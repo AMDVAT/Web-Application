@@ -38,6 +38,7 @@
             </ion-item>
             <ion-item>
               <ion-label position="floating">URL de la Imagen</ion-label>
+              <img src="{{producto.foto}}">
               <ion-input required type="text" name="foto" [(ngModel)]= "producto.foto"></ion-input>
             </ion-item>
             <ion-item *ngIf="edit">
