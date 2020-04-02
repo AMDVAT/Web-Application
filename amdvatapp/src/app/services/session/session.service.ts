@@ -78,6 +78,45 @@ export class SessionService {
         }
     }
 
+    setUserEmail(email: string): void {
+        let obj = { email: `${email}`};
+        email = JSON.stringify(obj);
+        if (this.platform.is('android')) {
+            this.nativeStorage.setItem('userEmail', email)
+                .then(
+                    (data) => console.log('Stored first item!', data),
+                    error => console.error('Error storing item', error)
+                );
+        } else {
+            localStorage.setItem('userEmail', email);
+        }
+    }
+
+    getUserEmail(fun): any {
+        if (this.platform.is('android')) {
+            this.nativeStorage.getItem('userEmail')
+                .then(
+                    (data) => {
+                        fun(JSON.parse(data).email);
+                    }
+                );
+        } else {
+            fun(JSON.parse(localStorage.getItem('userEmail')).email);
+        }
+    }
+
+    removeUserEmail(): any {
+        if (this.platform.is('android')) {
+            return this.nativeStorage.remove('userEmail')
+                .then(
+                    data => console.log(data),
+                    error => console.error(error)
+                );
+        } else {
+            return localStorage.removeItem('userEmail');
+        }
+    }
+
 
     isLogged(): boolean {
         return false;

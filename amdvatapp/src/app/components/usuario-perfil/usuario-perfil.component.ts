@@ -29,6 +29,15 @@ export class UsuarioPerfilComponent implements OnInit {
       private sessionService: SessionService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.mostrarPerfil();
+  }
+
+
+  mostrarPerfil() {
+    this.sessionService.getUserEmail(email => {
+      console.log(email);
+    });
+  }
 
 }

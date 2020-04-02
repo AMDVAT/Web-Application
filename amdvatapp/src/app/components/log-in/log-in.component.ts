@@ -50,6 +50,7 @@ export class LogInComponent implements OnInit {
         res => {
           this.messageSave();
           this.sessionService.setUser(res);
+          this.sessionService.setUserEmail(this.user.email);
           this.router.navigate(['home']);
         },err => {
           this.errorMessageSave();
