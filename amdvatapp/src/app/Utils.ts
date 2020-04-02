@@ -3,6 +3,7 @@ import {ProductoCarrito} from './models/Producto';
 export class Utils {
     public static products: Array<ProductoCarrito> = [];
     public static amounts = 0;
+    public static routes: any = [];
 
     public static UpdateAmounts(): void {
         Utils.amounts = 0;

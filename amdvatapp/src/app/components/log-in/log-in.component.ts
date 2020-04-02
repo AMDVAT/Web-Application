@@ -48,10 +48,11 @@ export class LogInComponent implements OnInit {
         );*/
     this.loginService.login(this.user.email,this.user.password).subscribe(
         res => {
+          this.sessionService.setRoutes();
           this.messageSave();
           this.sessionService.setUser(res);
           this.sessionService.setUserEmail(this.user.email);
-          this.router.navigate(['home']);
+          location.href = 'home';
         },err => {
           this.errorMessageSave();
           console.log(err)
