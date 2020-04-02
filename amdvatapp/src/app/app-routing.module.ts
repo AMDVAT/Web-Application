@@ -94,7 +94,7 @@ const routes: Routes = [
     },{
         path: 'productos/:producto',
         component: ProductosComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'needAuthAdmin',
         component: NeedAuthAdminPageComponent,
