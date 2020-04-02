@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   categoria: Categoria;
   productos: Array<Producto>;
 
+  productosRecientes: any = [];
   topCategorias: any = [];
   topProductos: any = [];
 
@@ -30,6 +31,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.homeService.getNuevosProductos().subscribe(
+        res => {
+          this.productosRecientes = res;
+        }, error => console.log(error)
+    );
     this.homeService.getTopProductos().subscribe(
         res => {
           this.topProductos = res;
