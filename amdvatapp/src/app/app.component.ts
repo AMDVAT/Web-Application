@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {Utils} from './Utils';
+import {SessionService} from './services/session/session.service';
+
 
 
 
@@ -21,58 +23,18 @@ export class AppComponent implements OnInit {
     //   url: '/productos',
     //   icon: 'cube'
     // },
-    {
-      title: 'Log In',
-      url: '/login',
-      icon: 'log-in'
-    },
-    {
-      title: 'Perfil',
-      url: '/gestion/usuario/perfil',
-      icon: 'person'
-    },
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },{
-      title: 'Carrito',
-      url: 'cart',
-      icon: 'cart'
-    },
-    {
-      title: 'Categorias',
-      url: '/categorias',
-      icon: 'apps'
-    },
-    {
-      title: 'Gestion usuarios',
-      url: 'gestion/usuario/lista',
-      icon: 'people'
-    },
-    {
-      title: 'Gestion productos',
-      url: 'gestion/producto/lista',
-      icon: 'rocket'
-    },
-    {
-      title: 'Gestion sucursales',
-      url: 'gestion/sucursal/lista',
-      icon: 'business'
-    },
-    {
-      title: 'Gestionar Categorias',
-      url: 'gestion/categoria/lista',
-      icon: 'grid'
-    }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private sessionService: SessionService
   ) {
     this.initializeApp();
+    this.sessionService.setRoutes(() => {
+      this.appPages = this.UtilsRef.routes;
+    });
   }
 
   initializeApp() {

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
 import {LogInService} from '../log-in/log-in.service';
 import {Platform} from '@ionic/angular';
+import {Utils} from '../../Utils';
 
 @Injectable({
     providedIn: 'root'
@@ -59,9 +60,16 @@ export class SessionService {
                     (data) => {
                         fun(JSON.parse(data).token);
                     }
-                );
+                ).catch((data) => {
+                    fun(undefined);
+            });
         } else {
-            fun(JSON.parse(localStorage.getItem('user')).token);
+            const data = JSON.parse(localStorage.getItem('user'));
+            if (data) {
+                fun(data.token);
+            } else {
+                fun(undefined);
+            }
         }
     }
 
@@ -79,7 +87,7 @@ export class SessionService {
     }
 
     setUserEmail(email: string): void {
-        let obj = { email: `${email}`};
+        let obj = {email: `${email}`};
         email = JSON.stringify(obj);
         if (this.platform.is('android')) {
             this.nativeStorage.setItem('userEmail', email)
@@ -120,6 +128,82 @@ export class SessionService {
 
     isLogged(): boolean {
         return false;
+    }
+
+    setRoutes(fun = () => {}): void {
+        this.getUserToken((token) => {
+            if (token !== null && token !== undefined) {
+                Utils.routes = [
+                    {
+                        title: 'Log In',
+                        url: '/login',
+                        icon: 'log-in'
+                    },
+                    {
+                        title: 'Perfil',
+                        url: '/gestion/usuario/perfil/:id',
+                        icon: 'person'
+                    },
+                    {
+                        title: 'Home',
+                        url: '/home',
+                        icon: 'home'
+                    }, {
+                        title: 'Carrito',
+                        url: 'cart',
+                        icon: 'cart'
+                    },
+                    {
+                        title: 'Categorias',
+                        url: '/categorias',
+                        icon: 'apps'
+                    },
+                    {
+                        title: 'Gestion usuarios',
+                        url: 'gestion/usuario/lista',
+                        icon: 'people'
+                    },
+                    {
+                        title: 'Gestion productos',
+                        url: 'gestion/producto/lista',
+                        icon: 'rocket'
+                    },
+                    {
+                        title: 'Gestion sucursales',
+                        url: 'gestion/sucursal/lista',
+                        icon: 'business'
+                    },
+                    {
+                        title: 'Gestionar Categorias',
+                        url: 'gestion/categoria/lista',
+                        icon: 'grid'
+                    }
+                ];
+            } else {
+                Utils.routes = [
+                    {
+                        title: 'Log In',
+                        url: '/login',
+                        icon: 'log-in'
+                    },
+                    {
+                        title: 'Home',
+                        url: '/home',
+                        icon: 'home'
+                    }, {
+                        title: 'Carrito',
+                        url: 'cart',
+                        icon: 'cart'
+                    },
+                    {
+                        title: 'Categorias',
+                        url: '/categorias',
+                        icon: 'apps'
+                    },
+                ];
+            }
+            fun();
+        });
     }
 }
 

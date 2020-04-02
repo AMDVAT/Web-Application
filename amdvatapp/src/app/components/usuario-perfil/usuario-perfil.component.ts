@@ -21,9 +21,9 @@ export class UsuarioPerfilComponent implements OnInit {
     tipo_usuario: 5
   }
 
+
   usuarioP: User;
   editUsuario: any = [];
-
 
   constructor(
       private usuarioService: GestionUsuarioService,

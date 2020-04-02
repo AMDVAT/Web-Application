@@ -4,7 +4,7 @@ import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {SessionService} from '../../services/session/session.service';
 
 @Injectable()
-export class NeedAuthUser implements CanActivate{
+export class NeedAuthUser implements CanActivate {
     constructor(
         private sessionService: SessionService,
         private router: Router
@@ -13,22 +13,20 @@ export class NeedAuthUser implements CanActivate{
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const redirectUrl = route.url;
-
-        if (this.sessionService.isLogged()) {
-            return true;
-        }
-
-        this.router.navigateByUrl(
-            this.router.createUrlTree(
-                ['/needAuthUser'], {
-                    queryParams: {
-                        redirectUrl
-                    }
-                }
-            )
-        );
-
-        return false;
+        this.sessionService.getUserToken((user) => {
+            if (user === undefined) {
+                this.router.navigateByUrl(
+                    this.router.createUrlTree(
+                        ['/needAuthUser'], {
+                            queryParams: {
+                                redirectUrl
+                            }
+                        }
+                    )
+                );
+            }
+        });
+        return true;
     }
 
 }
