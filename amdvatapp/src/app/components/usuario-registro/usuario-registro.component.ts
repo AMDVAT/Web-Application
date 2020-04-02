@@ -27,7 +27,7 @@ export class UsuarioRegistroComponent implements OnInit {
       private loginService: LogInService,
       private alertController: AlertController,
       private router: Router,
-      private sessionService: SessionService,
+      private sessionService: SessionService
   ) { }
 
   ngOnInit() {}

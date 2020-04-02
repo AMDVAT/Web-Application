@@ -28,9 +28,13 @@
           <ion-card-header>
             <ion-card-title>{{producto.nombre}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content *ngIf="producto.precio_oferta != 0">
             PRECIO: {{producto.precio}} <br>
             PRECIO OFERTA: {{producto.precio_oferta}} 
+          </ion-card-content>
+          <ion-card-content *ngIf="producto.precio_oferta == 0">
+            PRECIO: {{producto.precio}} <br>
+            PRECIO OFERTA: - 
           </ion-card-content>
           <ion-card-content>
             CATEGORIA: {{producto.nombre_categoria}}
@@ -45,13 +49,16 @@
       <div class = "card text-center" >
         <ion-card>
           <ion-card-header>
-            <ion-label>
-              <ion-skeleton-text width='30%'> </ion-skeleton-text>
-            </ion-label>
-              <ion-skeleton-text width='300%'> </ion-skeleton-text>
+            <ion-card-title>
+              <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+            </ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-skeleton-text width='70%'> </ion-skeleton-text>
+            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+          </ion-card-content>
+          <ion-card-content>
+            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
           </ion-card-content>
         </ion-card>
       </div>
