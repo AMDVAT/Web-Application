@@ -6,22 +6,18 @@ import { LoadingController } from '@ionic/angular';
 import { ActionSheetController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-lista-usuarios',
   templateUrl: './lista-usuarios.component.html',
   styleUrls: ['./lista-usuarios.component.scss'],
 })
-
-
 export class ListaUsuariosComponent implements OnInit {
 
   users: Array<any> = [];
   user: User;
-
   usersList: any;
-
-
 
   constructor(
     private route: ActivatedRoute,
@@ -29,13 +25,13 @@ export class ListaUsuariosComponent implements OnInit {
     private userService: GestionUsuarioService,
     public loadingController: LoadingController,
     public actionSheetController: ActionSheetController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private  session: SessionService
   ) { 
     this.presentLoading();
   }
 
   ngOnInit() {
-
     this.obtenerListadoUsuarios();
   }
 
@@ -56,15 +52,14 @@ export class ListaUsuariosComponent implements OnInit {
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
-      duration: 500
+      duration: 1000
     });
     await loading.present();
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
   }
 
-  async presentActionSheet() {
-    console.log('Hola');
+  async presentActionSheet(id_usuario: number, nombre: string, apellido: string, usuPrueba: User) {
     const actionSheet = await this.actionSheetController.create({
       header: 'Usuarios',
       buttons: [{
@@ -72,15 +67,14 @@ export class ListaUsuariosComponent implements OnInit {
         role: 'destructive',
         icon: 'trash',
         handler: () => {
-          console.log('Delete clicked');
-          this.eliminarCategoria();
+          this.eliminarUsuario(id_usuario,nombre,apellido);
         }
       }, {
         text: 'Editar',
         icon: 'create',
         handler: () => {
-          console.log('Favorite clicked');
-
+          console.log('Favorite clicked ' + usuPrueba.nombre);
+          this.router.navigate([`/gestion/usuario/lista/editar/${id_usuario}`]);
         }
       }, {
         text: 'Cancel',
@@ -94,10 +88,10 @@ export class ListaUsuariosComponent implements OnInit {
     await actionSheet.present();
   }
 
-  async eliminarCategoria() {
+  async eliminarUsuario(id_usuario: number,nombre: string, apellido: string) {
     const alert = await this.alertController.create({
       header: '¡Advertencia!',
-      message: '<strong>¿Desea eliminar el usuario? </strong>',
+      message: '<strong>¿Desea eliminar a ' +nombre + ' ' + apellido +'? </strong>',
       buttons: [
         {
           text: 'Cancelar',
@@ -109,7 +103,8 @@ export class ListaUsuariosComponent implements OnInit {
         }, {
           text: 'Aceptar',
           handler: () => {
-            console.log('Confirm Okay');
+            //ELIMINARLO
+            this.deleteUser(id_usuario);
           }
         }
       ]
@@ -117,6 +112,17 @@ export class ListaUsuariosComponent implements OnInit {
     await alert.present();
   }
 
-
-
+  async deleteUser(id_usuario: number){
+    console.log('Delete '+ id_usuario);
+    this.session.getUserToken(token =>{
+      this.userService.deleteUser(id_usuario,token).subscribe(
+        res => {
+          alert('Usuario eliminado');
+          //console.log(res, + ' ' + token)
+          location.href = 'gestion/usuario/lista';
+        },
+        error => console.log(error)
+      );
+    });
+  }
 }

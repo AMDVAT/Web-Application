@@ -21,33 +21,43 @@
     </ion-card>
   </div>
 
-  <div *ngFor="let user of usersList">
-    <div class = "card text-center">
-      <ion-card (click)="presentActionSheet()">
-        <ion-card-header>
-          <ion-card-subtitle>{{user.apellido}}</ion-card-subtitle>
-          <ion-card-title>{{user.nombre}}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          EMAIL: {{user.email}} 
-        </ion-card-content>
-        <ion-card-content>
-          TIPO USUARIO: {{user.nombre_tipo_usuario}}
-         </ion-card-content>
-     <!-- 
-        <ion-chip color = "primary" href = "">
-          <ion-avatar>
-            <img src="https://www.studnet.com.co/wp-content/uploads/2016/10/default-avatar-300x300.png">
-          </ion-avatar>
-          <ion-label> Editar</ion-label>
-        </ion-chip>
-        <ion-chip color = "danger">
-          <ion-label>Eliminar</ion-label>
-          <ion-icon name="close-circle"></ion-icon>
-        </ion-chip>
-      -->
-      </ion-card>
-      
+  <div *ngIf="usersList">
+    <div *ngFor="let user of usersList" >
+      <div class = "card text-center" *ngIf="user.estado == 1">
+        <ion-card (click)="presentActionSheet(user.id_usuario, user.nombre, user.apellido, user)">
+          <ion-card-header>
+            <ion-card-subtitle>{{user.apellido}}</ion-card-subtitle>
+            <ion-card-title>{{user.nombre}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            EMAIL: {{user.email}} 
+          </ion-card-content>
+          <ion-card-content>
+            TIPO USUARIO: {{user.nombre_tipo_usuario}}
+           </ion-card-content>
+        </ion-card>    
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!usersList">
+    <div *ngFor="let sucursal of [1,1,1,1,1,1,1,1,1,1,1]">
+      <div class = "card text-center" >
+        <ion-card>
+          <ion-card-header>
+            <ion-label>
+              <ion-skeleton-text animated width='30%'> </ion-skeleton-text>
+            </ion-label>
+              <ion-skeleton-text animated width='300%'> </ion-skeleton-text>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+          </ion-card-content>
+          <ion-card-content>
+            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </div>
   </div>
 

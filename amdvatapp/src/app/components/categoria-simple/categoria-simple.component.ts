@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import {SessionService} from '../../services/session/session.service';
 
+
+
 @Component({
   selector: 'app-categoria-simple',
   templateUrl: './categoria-simple.component.html',
@@ -55,25 +57,33 @@ export class CategoriaSimpleComponent implements OnInit {
 
   save() {
     console.log(this.categoria);
-    this.gestionCategoriaService.postCategoria(this.categoria).subscribe(
-      res => {
-        alert('Categoria registrada');
-        /*this.ngOnInit();
-        this.router.navigate(['/gestion/categoria/lista']);*/
-        location.href = 'gestion/categoria/lista';
-      }, error => console.log(error)
-    );
+      this.session.getUserToken(token => {
+
+          this.gestionCategoriaService.postCategoria(this.categoria,token).subscribe(
+              res => {
+                  alert('Categoria registrada');
+                  /*this.ngOnInit();
+                  this.router.navigate(['/gestion/categoria/lista']);*/
+                  location.href = 'gestion/categoria/lista';
+              }, error => console.log(error)
+          );
+      });
   }
 
   editar() {
-    console.log(this.categoria);
-    const params = this.activeRoute.snapshot.params;
-    this.gestionCategoriaService.putCategoria(this.categoria, params.id).subscribe(
-        res => {
-          console.log(res);
-          location.href = 'gestion/categoria/lista';
-        }, error => console.log(error)
-    );
+
+      console.log(this.categoria);
+      this.session.getUserToken(token => {
+
+          const params = this.activeRoute.snapshot.params;
+          this.gestionCategoriaService.putCategoria(this.categoria, params.id,token).subscribe(
+              res => {
+                  console.log(res);
+                  location.href = 'gestion/categoria/lista';
+              }, error => console.log(error)
+          );
+      });
+
   }
 
 

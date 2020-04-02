@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {EnviromentService} from '../enviroment/enviroment.service';
 import {GCategoria} from '../../models/g-categoria';
 import {SessionService} from '../session/session.service';
+import {delay} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,12 @@ export class GestionCategoriaService {
       private  session: SessionService
   ) { }
 
+
   getCategorias() {
-    return this.http.get(`${this.env.API_URI}producto/categoria/listar`);
+    return this.http.get(`${this.env.API_URI}producto/categoria/listar`)
+    .pipe(
+      delay(1000)
+    );
   }
 
   getCategoriasPadre() {
@@ -27,13 +32,13 @@ export class GestionCategoriaService {
     return this.http.get(`${this.env.API_URI}producto/categoria/buscar/${id}`);
   }
 
-  postCategoria(categoria: GCategoria) {
-    const headers = new HttpHeaders().set('token', this.session.getUserToken());
-    return this.http.post(`${this.env.API_URI}producto/categoria/crear`, categoria, {headers});
+  postCategoria(categoria: GCategoria, token: string) {
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.post(`${this.env.API_URI}producto/categoria/crear`, categoria, { headers });
   }
 
-  putCategoria(categoria: GCategoria, idCategoria: number) {
-    const headers = new HttpHeaders().set('token', this.session.getUserToken());
-    return this.http.put(`${this.env.API_URI}producto/categoria/editar/${idCategoria}`, categoria,{headers});
+  putCategoria(categoria: GCategoria, idCategoria: number, token: string) {
+    let headers = new HttpHeaders().set('token', token);
+    return this.http.put(`${this.env.API_URI}producto/categoria/editar/${idCategoria}`, categoria, { headers });
   }
 }

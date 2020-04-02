@@ -27,6 +27,11 @@ export class AppComponent implements OnInit {
       icon: 'log-in'
     },
     {
+      title: 'Perfil',
+      url: '/gestion/usuario/perfil/:id',
+      icon: 'person'
+    },
+    {
       title: 'Home',
       url: '/home',
       icon: 'home'
@@ -43,7 +48,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Gestion usuarios',
       url: 'gestion/usuario/lista',
-      icon: 'person'
+      icon: 'people'
     },
     {
       title: 'Gestion productos',

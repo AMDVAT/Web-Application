@@ -13,6 +13,8 @@ import { LoadingController } from '@ionic/angular';
 })
 export class CategoriaListaComponent implements OnInit {
 
+  edit = true;
+
   constructor(
       public actionSheetController: ActionSheetController,
       public alertController: AlertController,
@@ -26,7 +28,7 @@ export class CategoriaListaComponent implements OnInit {
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
-      duration: 500
+      duration: 1000
     });
     await loading.present();
     const { role, data } = await loading.onDidDismiss();
@@ -47,6 +49,7 @@ export class CategoriaListaComponent implements OnInit {
     this.gestionCategoriaService.getCategorias().subscribe(
       res => {
         this.categorias = res;
+        this.edit = false;
       }, error => console.log(error)
     );
   }
@@ -104,12 +107,7 @@ export class CategoriaListaComponent implements OnInit {
              this.categoria.descripcion = categoriaDescripcion;
              this.categoria.categoria_id_categoria = categoriaPadre;
              console.log(this.categoria);
-             this.gestionCategoriaService.putCategoria(this.categoria, categoriaID).subscribe(
-              res => {
-                console.log(res);
-                this.ngOnInit();
-              }, error => console.log(error)
-             );
+
            }
          }
        ]

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController,Platform } from '@ionic/angular';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import {Producto} from '../../models/Producto';
 import {GestionProductoService} from '../../services/gestion-producto/gestion-producto.service'
 import { Categoria } from 'src/app/models/Categoria';
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-producto-simple',
@@ -12,12 +13,7 @@ import { Categoria } from 'src/app/models/Categoria';
   styleUrls: ['./producto-simple.component.scss'],
 })
 export class ProductoSimpleComponent implements OnInit {
-
-  categorias: Array<any>;
-  categoria: Categoria;
-  categoriaList: any;
-  selectedVal: Number = 100;
-
+  
   producto: Producto = {
     nombre: '',
     descripcion: '',
@@ -29,39 +25,87 @@ export class ProductoSimpleComponent implements OnInit {
     nombre_categoria: ''
   }
 
+  categorias: Array<any>;
+  categoria: Categoria;
+  categoriaList: any;
+  selectedVal: Number = 100;
+  edit = false;
+  editProducto: any =[];
+
   constructor(
-    private platform: Platform,
       private alertController: AlertController,
       private router: Router,
-      private productoService: GestionProductoService
-  ) { 
-    this.platform.ready().then(()=>{
-      this.obtenerCategorias();
-    })
-  }
+      private session : SessionService,
+      private productoService: GestionProductoService,
+      private activeRoute: ActivatedRoute
+  ) {  }
 
   ngOnInit() {
+    const params = this.activeRoute.snapshot.params;
     this.obtenerCategorias();
+
+    if (params.id) {
+      console.log('Entro aca edit ' + params.id );
+      this.edit = true;
+      this.productoService.getOneProduct(params.id).subscribe(
+        res => {
+            this.editProducto = res;
+            this.producto.nombre = this.editProducto.nombre;
+            this.producto.descripcion = this.editProducto.descripcion;
+            this.producto.precio = this.editProducto.precio;
+            this.producto.precio_oferta = this.editProducto.precio_oferta;
+            this.producto.foto = this.editProducto.foto;
+            this.producto.calificacion = this.editProducto.calificacion;
+            this.producto.id_categoria = this.editProducto.id_categoria;
+            this.producto.nombre_categoria = this.editProducto.nombre_categoria;
+            console.log(res);
+        }, error => console.log(error)
+      );
+
+    }
   }
 
+  //OBTENER EL ID DE LA CATEGORIA
   OnChange(event){
     this.producto.id_categoria = event.target.value;
-    //alert("you have selected = " + event.target.value);
   }
+
+  menuAccion(){
+    if(this.edit)
+      this.editProduct();
+    else
+      this.saveProduct();
+  }
+
 
   saveProduct(){
-    /*
-    this.productoService.sav(this.usuario)
-    .subscribe( 
-      res =>{ 
-        this.messageSave();
-        location.href= 'gestion/usuario/lista';
-      }, 
-      err => {console.error(err); this.errorMessageSave();}
-      );*/
-    console.log(this.producto);
+    delete this.producto.nombre_categoria;
+    console.log('WANT TO SAVE '+ this.producto);
+      this.session.getUserToken(token => {
+          this.productoService.saveProduct(this.producto,token).subscribe(
+              res => {
+                  alert('Producto registrada');
+                  location.href = 'gestion/producto/lista';
+              }, error => console.log(error)
+          );
+      });
   }
 
+  editProduct(){
+    delete this.producto.nombre_categoria;
+    console.log('WANT TO EDIT '+this.producto);
+    this.session.getUserToken(token => {
+        const params = this.activeRoute.snapshot.params;
+        this.productoService.updateProduct( params.id,this.producto,token).subscribe(
+            res => {
+                alert('Producto editado');
+                console.log(res);
+                location.href = 'gestion/categoria/lista';
+            }, error => console.log(error)
+        );
+    });
+
+  }
   async obtenerCategorias(){
     console.log('Obtenes lista de productos');
     this.productoService.getCategoriaProduct().subscribe(
@@ -74,7 +118,7 @@ export class ProductoSimpleComponent implements OnInit {
   async messageSave() {
     const alert = await this.alertController.create({
       header: 'Almacenado',
-      message: '<strong>El producto ha sido creado con exito </strong>',
+      message: '<strong>El producto ha sido registrado con exito </strong>',
       buttons: [
         {
           text: 'Aceptar',
@@ -86,11 +130,10 @@ export class ProductoSimpleComponent implements OnInit {
     });
     await alert.present();
   }
-
   async errorMessageSave() {
     const alert = await this.alertController.create({
-      header: 'Almacenado',
-      message: '<strong>No se ha logrado crear el producto ,revise los datos </strong>',
+      header: 'No almacenado',
+      message: '<strong>No se ha logrado registrar el producto ,revise los datos </strong>',
       buttons: [
         {
           text: 'Aceptar',

@@ -21,6 +21,8 @@ import {CategoriaListaComponent} from './components/categoria-lista/categoria-li
 import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
 import {CarritoComponent} from './components/carrito/carrito.component';
 import { UsuarioRegistroComponent } from './components/usuario-registro/usuario-registro.component';
+import { PestanaMantenimientoComponent } from './components/pestana-mantenimiento/pestana-mantenimiento.component';
+import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perfil.component';
 
 
 const routes: Routes = [
@@ -56,22 +58,39 @@ const routes: Routes = [
         component: UsuarioSimpleComponent,
         //canActivate: [NeedAuthAdmin]
     },{
+        path: 'gestion/usuario/perfil/:id',
+        component: UsuarioPerfilComponent,
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/usuario/lista/editar/:id',
+        component: UsuarioSimpleComponent
+        //canActivate: [NeedAuthAdmin]
+    },{
         path: 'gestion/producto/lista',
         component: ProductoListaComponent,
         //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista/datos',
-        component: ProductoSimpleComponent,
+        //component: ProductoSimpleComponent,
+        component: PestanaMantenimientoComponent
        //canActivate: [NeedAuthAdmin]
-
+    },{
+        path: 'gestion/producto/lista/editar/:id',
+        //component: ProductoSimpleComponent
+        component: PestanaMantenimientoComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista',
         component: SucursalListaComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista/datos',
         component: SucursalSimpleComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/sucursal/lista/editar/:id',
+        component: SucursalSimpleComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'productos/:producto',
         component: ProductosComponent,
@@ -98,6 +117,10 @@ const routes: Routes = [
         path: 'cart',
         component: CarritoComponent,
         // canActivate: [NeedAuthAdmin]
+    }
+    ,{
+        path: 'mantenimiento',
+        component: PestanaMantenimientoComponent
     }
 ];
 

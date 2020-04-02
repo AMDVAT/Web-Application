@@ -21,27 +21,49 @@
     </ion-card>
   </div>
 
-  <div *ngFor="let producto of productoList">
-    <div class = "card text-center">
-      <ion-card (click)="presentActionSheet()">
-        <ion-card-header>
-          <ion-card-title>{{producto.nombre}}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          PRECIO: {{producto.precio}} <br>
-          PRECIO OFERTA: {{producto.precio_oferta}} 
-        </ion-card-content>
-        <ion-card-content>
-          CATEGORIA: {{producto.nombre_categoria}}
-         </ion-card-content>
- 
-        
-      </ion-card>
-      
+  <div *ngIf="productoList">
+    <div *ngFor="let producto of productoList">
+      <div class = "card text-center" *ngIf="producto.estado == 1" >
+        <ion-card (click)="presentActionSheet(producto.id_producto, producto)">
+          <ion-card-header>
+            <ion-card-title>{{producto.nombre}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content *ngIf="producto.precio_oferta != 0">
+            PRECIO: {{producto.precio}} <br>
+            PRECIO OFERTA: {{producto.precio_oferta}} 
+          </ion-card-content>
+          <ion-card-content *ngIf="producto.precio_oferta == 0">
+            PRECIO: {{producto.precio}} <br>
+            PRECIO OFERTA: - 
+          </ion-card-content>
+          <ion-card-content>
+            CATEGORIA: {{producto.nombre_categoria}}
+           </ion-card-content>
+        </ion-card>
+      </div>
     </div>
   </div>
 
-
+  <div *ngIf="!productoList">
+    <div *ngFor="let sucursal of [1,1,1,1,1,1,1,1,1,1,1]">
+      <div class = "card text-center" >
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+          </ion-card-content>
+          <ion-card-content>
+            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>  
+  </div>
 
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
     <ion-fab-button routerLink = "datos" >
