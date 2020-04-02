@@ -29,7 +29,7 @@ export class ProductoListaComponent implements OnInit {
     private session: SessionService,
     private productService: GestionProductoService
   ) { 
-    this.presentLoading();
+
   }
 
   ngOnInit() {

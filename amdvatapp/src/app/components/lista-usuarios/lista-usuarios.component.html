@@ -11,17 +11,21 @@
 
 <ion-content>
 
-  <div id="container">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title >
-          Listado de Usuarios Existentes
-        </ion-card-title>
-      </ion-card-header>
-    </ion-card>
-  </div>
+<!--  <div id="container">-->
+<!--    <ion-card>-->
+<!--      <ion-card-header>-->
+<!--        <ion-card-title >-->
+<!--          Listado de Usuarios Existentes-->
+<!--        </ion-card-title>-->
+<!--      </ion-card-header>-->
+<!--    </ion-card>-->
+<!--  </div>-->
 
   <div *ngIf="usersList">
+    <ion-list>
+      <ion-list-header>
+        <h2>Listado de Usuarios Existentes</h2>
+      </ion-list-header>
     <div *ngFor="let user of usersList" >
       <div class = "card text-center" *ngIf="user.estado == 1">
         <ion-card (click)="presentActionSheet(user.id_usuario, user.nombre, user.apellido, user)">
@@ -38,27 +42,34 @@
         </ion-card>    
       </div>
     </div>
+    </ion-list>
   </div>
 
   <div *ngIf="!usersList">
+    <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+    <ion-list>
+      <ion-list-header>
+        <h2>Listado de Usuarios Existentes</h2>
+      </ion-list-header>
     <div *ngFor="let sucursal of [1,1,1,1,1,1,1,1,1,1,1]">
       <div class = "card text-center" >
         <ion-card>
           <ion-card-header>
             <ion-label>
-              <ion-skeleton-text animated width='30%'> </ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 24%"> </ion-skeleton-text>
             </ion-label>
-              <ion-skeleton-text animated width='300%'> </ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 32%; height: 14px;"> </ion-skeleton-text>
           </ion-card-header>
           <ion-card-content>
-            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 60%"> </ion-skeleton-text>
           </ion-card-content>
           <ion-card-content>
-            <ion-skeleton-text animated width='70%'> </ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 65%"> </ion-skeleton-text>
           </ion-card-content>
         </ion-card>
       </div>
     </div>
+    </ion-list>
   </div>
 
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
