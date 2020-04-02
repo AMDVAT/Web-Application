@@ -130,7 +130,7 @@ export class SessionService {
         return false;
     }
 
-    setRoutes(): void {
+    setRoutes(fun = () => {}): void {
         this.getUserToken((token) => {
             if (token !== null && token !== undefined) {
                 Utils.routes = [
@@ -202,7 +202,7 @@ export class SessionService {
                     },
                 ];
             }
-            location.href = 'home';
+            fun();
         });
     }
 }

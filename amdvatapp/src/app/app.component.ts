@@ -32,8 +32,9 @@ export class AppComponent implements OnInit {
     private sessionService: SessionService
   ) {
     this.initializeApp();
-    this.sessionService.setRoutes();
-    this.appPages = this.UtilsRef.routes;
+    this.sessionService.setRoutes(() => {
+      this.appPages = this.UtilsRef.routes;
+    });
   }
 
   initializeApp() {
