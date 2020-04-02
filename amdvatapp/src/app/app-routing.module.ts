@@ -52,11 +52,19 @@ const routes: Routes = [
     },{
         path: 'gestion/usuario/lista',
         component: ListaUsuariosComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/usuario/lista/datos',
         component: UsuarioSimpleComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/usuario/perfil',
+        component: UsuarioPerfilComponent,
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/usuario/lista/editar/:id',
+        component: UsuarioSimpleComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/usuario/perfil/:id',
         component: UsuarioPerfilComponent,
@@ -68,7 +76,7 @@ const routes: Routes = [
     },{
         path: 'gestion/producto/lista',
         component: ProductoListaComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista/datos',
         //component: ProductoSimpleComponent,
@@ -82,11 +90,15 @@ const routes: Routes = [
     },{
         path: 'gestion/sucursal/lista',
         component: SucursalListaComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista/datos',
         component: SucursalSimpleComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/sucursal/lista/editar/:id',
+        component: SucursalSimpleComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista/editar/:id',
         component: SucursalSimpleComponent,

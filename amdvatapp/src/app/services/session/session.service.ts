@@ -202,7 +202,6 @@ export class SessionService {
                     },
                 ];
             }
-            location.href = 'home';
         });
     }
 }

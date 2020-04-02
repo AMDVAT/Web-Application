@@ -21,6 +21,10 @@ export class UsuarioPerfilComponent implements OnInit {
     tipo_usuario: 5
   }
 
+
+  usuarioP: User;
+  editUsuario: any = [];
+
   constructor(
       private usuarioService: GestionUsuarioService,
       private loginService: LogInService,
@@ -36,7 +40,20 @@ export class UsuarioPerfilComponent implements OnInit {
 
   mostrarPerfil() {
     this.sessionService.getUserEmail(email => {
-      console.log(email);
+      this.sessionService.getUserToken(token => {
+        this.usuarioService.getUserByEmail(email,token).subscribe(
+          res =>{
+            this.editUsuario = res;
+            this.usuario.nombre = this.editUsuario.nombre;
+            this.usuario.apellido = this.editUsuario.apellido;
+            this.usuario.email = this.editUsuario.email;
+            this.usuario.password = this.editUsuario.password;
+            this.usuario.tipo_usuario = this.editUsuario.tipo_usuario;
+           console.log(this.usuario.nombre)
+          }, error => console.log(error)
+        );
+
+      });
     });
   }
 

@@ -36,7 +36,7 @@
       </ion-card-header>
       <ion-card-content>
         <ion-slides pager="true">
-          <ion-slide routerLink="/producto/{{producto.id_producto}}" *ngFor="let producto of topProductos" >
+          <ion-slide routerLink="/producto/{{producto.id_producto}}" *ngFor="let producto of productosRecientes" >
             <ion-card>
               <img src="{{producto.foto}}">
               <div class="card-title">{{producto.nombre}}</div>

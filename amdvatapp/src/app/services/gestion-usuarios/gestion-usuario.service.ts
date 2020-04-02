@@ -32,7 +32,7 @@ export class GestionUsuarioService {
 
   getUserByEmail(email:string, token:string){
     let headers = new HttpHeaders().set('token', token);
-    return this.http.get(`${this.env.API_URI}/usuario/buscar/email/${email}`,{headers});
+    return this.http.get(`${this.env.API_URI}usuario/buscar/email/${email}`,{headers});
   }
   
   saveUser(usuario: User){
