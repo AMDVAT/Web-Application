@@ -28,7 +28,7 @@ export class ListaUsuariosComponent implements OnInit {
     public alertController: AlertController,
     private  session: SessionService
   ) { 
-    this.presentLoading();
+
   }
 
   ngOnInit() {
