@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {Utils} from './Utils';
+import {SessionService} from './services/session/session.service';
+
 
 
 @Component({
@@ -11,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  private UtilsRef = Utils;
   public selectedIndex = 0;
   public appPages = [
     // {
@@ -18,44 +22,17 @@ export class AppComponent implements OnInit {
     //   url: '/productos',
     //   icon: 'cube'
     // },
-    {
-      title: 'Log In',
-      url: '/login',
-      icon: 'log-in'
-    },
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Categorias',
-      url: '/categorias',
-      icon: 'apps'
-    },
-    {
-      title: 'Usuarios',
-      url: 'gestion/usuario/lista',
-      icon: 'person'
-    },
-    {
-      title: 'Productos',
-      url: 'gestion/producto/lista',
-      icon: 'rocket'
-    },
-    {
-      title: 'Sucursales',
-      url: 'gestion/sucursal/lista',
-      icon: 'business'
-    }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private sessionService: SessionService
   ) {
     this.initializeApp();
+    this.sessionService.setRoutes();
+    this.appPages = this.UtilsRef.routes;
   }
 
   initializeApp() {

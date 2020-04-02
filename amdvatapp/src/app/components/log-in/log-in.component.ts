@@ -4,6 +4,9 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import {LogInService} from '../../services/log-in/log-in.service';
 import { Platform } from '@ionic/angular';
 import {SessionService} from '../../services/session/session.service';
+import { AlertController } from '@ionic/angular';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-log-in',
@@ -24,11 +27,15 @@ export class LogInComponent implements OnInit {
       private nativeStorage: NativeStorage,
       private loginService: LogInService,
       private sessionService: SessionService,
-      public platform: Platform
-  ) { }
+      private alertController: AlertController,
+      public platform: Platform,
+      private router: Router
+  ) { 
+  }
 
 
   ngOnInit() {
+    
 
   }
 
@@ -41,13 +48,53 @@ export class LogInComponent implements OnInit {
         );*/
     this.loginService.login(this.user.email,this.user.password).subscribe(
         res => {
+          this.sessionService.setRoutes();
+          this.messageSave();
           this.sessionService.setUser(res);
-        },err => console.log(err)
+          this.sessionService.setUserEmail(this.user.email);
+          location.href = 'home';
+        },err => {
+          this.errorMessageSave();
+          console.log(err)
+        }
     );
   }
 
   ionViewWillEnter() {
     console.log('hola');
   }
+
+  async messageSave() {
+    const alert = await this.alertController.create({
+      header: 'ACEPTADO',
+      message: '<strong>Inicio de sesión exitoso </strong>',
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async errorMessageSave() {
+    const alert = await this.alertController.create({
+      header: 'DENEGADO',
+      message: '<strong> No se ha logrado iniciar sesion. Revise los datos </strong>',
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
 
 }

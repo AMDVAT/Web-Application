@@ -1,0 +1,43 @@
+import { Component, OnInit } from '@angular/core';
+import {User} from '../../models/user';
+import {GestionUsuarioService} from '../../services/gestion-usuarios/gestion-usuario.service'
+import { AlertController } from '@ionic/angular';
+import {Router} from '@angular/router';
+import {SessionService} from '../../services/session/session.service';
+import {LogInService} from '../../services/log-in/log-in.service';
+
+@Component({
+  selector: 'app-usuario-perfil',
+  templateUrl: './usuario-perfil.component.html',
+  styleUrls: ['./usuario-perfil.component.scss'],
+})
+export class UsuarioPerfilComponent implements OnInit {
+
+  usuario: User = {
+    nombre: '',
+    apellido: '',
+    email: '',
+    password: '',
+    tipo_usuario: 5
+  }
+
+  constructor(
+      private usuarioService: GestionUsuarioService,
+      private loginService: LogInService,
+      private alertController: AlertController,
+      private router: Router,
+      private sessionService: SessionService
+  ) { }
+
+  ngOnInit() {
+    this.mostrarPerfil();
+  }
+
+
+  mostrarPerfil() {
+    this.sessionService.getUserEmail(email => {
+      console.log(email);
+    });
+  }
+
+}

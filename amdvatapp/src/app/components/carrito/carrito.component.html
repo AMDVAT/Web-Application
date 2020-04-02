@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Mi Carrito</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div *ngIf="UtilsRef.products.length > 0">
+        <ion-row>
+            <ion-col style="text-align: center" size="6">
+                <ion-button style="background-color: #2dd36f"><ion-icon name="card"></ion-icon> Comprar</ion-button>
+            </ion-col>
+            <ion-col style="text-align: center" size="6">
+                <ion-button style="background-color: #5d58e0"><ion-icon name="color-wand"></ion-icon> Reservar</ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-card *ngFor="let productoRef of UtilsRef.products">
+            <ion-card-header style="cursor: pointer" routerDirection="forward" lines="none" detail="false"
+                             [routerLink]="['/', 'producto', productoRef.producto.id_producto]">
+                <ion-card-title>{{productoRef.producto.nombre}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-row>
+                    <ion-col size="4">
+                        <ion-img [src]="productoRef.producto.foto"></ion-img>
+                    </ion-col>
+                    <ion-col size="8">
+                        <p>{{productoRef.producto.descripcion}}</p>
+                        <br>
+                        Valoracion
+                        <app-valoration [valoration]="productoRef.producto.calificacion"></app-valoration>
+                    </ion-col>
+                </ion-row>
+                <div>
+                    <div style="float: left">
+                        <ion-button (click)="sub(productoRef)">
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </ion-button>
+                        <span style="font-size: 2em">{{productoRef.cantidad}}</span>
+                        <ion-button (click)="add(productoRef)">
+                            <ion-icon name="add"></ion-icon>
+                        </ion-button>
+                    </div>
+                    <div style="float: right">
+                        <ion-button color="danger" (click)="delete(productoRef)">
+                            <ion-icon name="trash"></ion-icon>
+                        </ion-button>
+                    </div>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <div *ngIf="UtilsRef.products.length === 0">
+        <ion-img src="https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585780813/CarroVacio_oozqcg.png"></ion-img>
+        <ion-text color="dark" class="ion-text-center">
+            <h4> Tu carrito de MyApp está vacío</h4>
+        </ion-text>
+        <div class="ion-text-center">
+            <h6> <a href="home"> Adquiere nuestros productos</a>  </h6>
+        </div>
+    </div>
+
+
+</ion-content>
+

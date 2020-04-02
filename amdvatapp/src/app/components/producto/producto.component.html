@@ -15,9 +15,28 @@
           class="valoration"
           [valoration]="producto.calificacion"
   ></app-valoration>
+  <div style="text-align: center">
+    <ion-button (click)="AddProduct(producto)"><ion-icon name="cart"></ion-icon>Añadir</ion-button>
+  </div>
   <p
-    class="p-center"
+          class="p-center"
   >
     {{producto.descripcion}}
+  </p>
+</ion-content>
+
+<ion-content *ngIf="!producto" [fullscreen]="true">
+  <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+  <ion-skeleton-text style="height: 50%;" class="img-center"></ion-skeleton-text>
+  <br>
+  <ion-skeleton-text style="height: 5%; width: 250px; margin: auto"></ion-skeleton-text>
+  <p
+          class="p-center"
+  >
+    <ion-skeleton-text style="height: 1em"></ion-skeleton-text>
+    <ion-skeleton-text style="height: 1em"></ion-skeleton-text>
+    <ion-skeleton-text style="height: 1em"></ion-skeleton-text>
+    <ion-skeleton-text style="height: 1em"></ion-skeleton-text>
+    <ion-skeleton-text style="height: 1em; width: 32%"></ion-skeleton-text>
   </p>
 </ion-content>

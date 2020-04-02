@@ -11,10 +11,13 @@
   <ion-card *ngFor="let producto of resProductos" routerDirection="forward" lines="none" detail="false" [routerLink]="['/', 'producto', producto.id_producto]">
     <ion-card-header>
       <ion-card-title>{{producto.nombre}}</ion-card-title>
-      <ion-card-subtitle>
+      <ion-card-subtitle *ngIf="producto.precio_oferta != 0">
         <span style="color: red; font-size: 1.4em">Ahora: ${{producto.precio_oferta}}</span>
         <br>
         Antes: $<span style="text-decoration: line-through">{{producto.precio}}</span>
+      </ion-card-subtitle>
+      <ion-card-subtitle *ngIf="producto.precio_oferta == 0">
+        <span style="font-size: 1.4em">Precio: ${{producto.precio}}</span>
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>

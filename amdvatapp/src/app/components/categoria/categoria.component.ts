@@ -5,6 +5,8 @@ import {CategoriaService} from '../../services/categoria/categoria.service';
 import {Categoria} from '../../models/Categoria';
 import {Producto} from '../../models/Producto';
 import {ProductoService} from '../../services/producto/producto.service';
+import {CarritoService} from '../../services/carrito/carrito.service';
+import {ToastController} from '@ionic/angular';
 
 @Component({
     selector: 'app-categoria',
@@ -14,12 +16,15 @@ import {ProductoService} from '../../services/producto/producto.service';
 export class CategoriaComponent implements OnInit {
     categoria: Categoria;
     productos: Array<Producto>;
+    productosSkeleton = [1, 2, 3, 4, 5];
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
         private categoriaService: CategoriaService,
-        private productoService: ProductoService
+        private productoService: ProductoService,
+        private carritoService: CarritoService,
+        private toastController: ToastController
     ) {
     }
 
@@ -37,4 +42,16 @@ export class CategoriaComponent implements OnInit {
             });
     }
 
+    async presentToast() {
+        const toast = await this.toastController.create({
+            message: 'Producto añadido con exito!',
+            duration: 2000
+        });
+        toast.present();
+    }
+
+    AddProduct(producto: Producto) {
+        this.carritoService.UpdateCart(producto, 1);
+        this.presentToast();
+    }
 }

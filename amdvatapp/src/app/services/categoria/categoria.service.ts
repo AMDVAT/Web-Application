@@ -20,6 +20,6 @@ export class CategoriaService {
 
 
     getCategorias(): Observable<Categoria[]> {
-        return this.http.get<Categoria[]>(`${this.env.API_URI}producto/listaCategorias`);
+        return this.http.get<Categoria[]>(`${this.env.API_URI}producto/categoria/listar`);
     }
 }

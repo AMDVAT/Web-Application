@@ -17,6 +17,12 @@ import {NeedAuthUser} from './auths/validations/NeedAuthUser';
 import {NeedAuthAdmin} from './auths/validations/NeedAuthAdmin';
 import {NeedAuthAdminPageComponent} from './auths/pages/need-auth-admin-page/need-auth-admin-page.component';
 import {NeedAuthUserPageComponent} from './auths/pages/need-auth-user-page/need-auth-user-page.component';
+import {CategoriaListaComponent} from './components/categoria-lista/categoria-lista.component';
+import {CategoriaSimpleComponent} from './components/categoria-simple/categoria-simple.component';
+import {CarritoComponent} from './components/carrito/carrito.component';
+import { UsuarioRegistroComponent } from './components/usuario-registro/usuario-registro.component';
+import { PestanaMantenimientoComponent } from './components/pestana-mantenimiento/pestana-mantenimiento.component';
+import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perfil.component';
 
 
 const routes: Routes = [
@@ -32,6 +38,9 @@ const routes: Routes = [
         path: 'login',
         component: LogInComponent
     }, {
+        path: 'registro',
+        component: UsuarioRegistroComponent
+    },{
         path: 'categorias',
         component: CategoriasComponent
     }, {
@@ -43,32 +52,75 @@ const routes: Routes = [
     },{
         path: 'gestion/usuario/lista',
         component: ListaUsuariosComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/usuario/lista/datos',
         component: UsuarioSimpleComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/usuario/perfil/:id',
+        component: UsuarioPerfilComponent,
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/usuario/lista/editar/:id',
+        component: UsuarioSimpleComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista',
         component: ProductoListaComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/producto/lista/datos',
-        component: ProductoSimpleComponent,
-        canActivate: [NeedAuthAdmin]
-
+        //component: ProductoSimpleComponent,
+        component: PestanaMantenimientoComponent
+       //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/producto/lista/editar/:id',
+        //component: ProductoSimpleComponent
+        component: PestanaMantenimientoComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista',
         component: SucursalListaComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista/datos',
         component: SucursalSimpleComponent,
-        canActivate: [NeedAuthAdmin]
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/sucursal/lista/editar/:id',
+        component: SucursalSimpleComponent
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'productos/:producto',
         component: ProductosComponent,
         canActivate: [NeedAuthAdmin]
+    },{
+        path: 'needAuthAdmin',
+        component: NeedAuthAdminPageComponent,
+    },{
+        path: 'needAuthUser',
+        component: NeedAuthUserPageComponent,
+    },{
+        path: 'gestion/categoria/lista',
+        component: CategoriaListaComponent,
+        // canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/categoria/lista/datos',
+        component: CategoriaSimpleComponent,
+        // canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/categoria/lista/editar/:id',
+        component: CategoriaSimpleComponent,
+        // canActivate: [NeedAuthAdmin]
+    },{
+        path: 'cart',
+        component: CarritoComponent,
+        // canActivate: [NeedAuthAdmin]
+    }
+    ,{
+        path: 'mantenimiento',
+        component: PestanaMantenimientoComponent
     }
 ];
 
