@@ -16,7 +16,7 @@ import {ToastController} from '@ionic/angular';
 export class CategoriaComponent implements OnInit {
     categoria: Categoria;
     productos: Array<Producto>;
-
+z
     constructor(
         private route: ActivatedRoute,
         private router: Router,
