@@ -28,9 +28,13 @@
           <ion-card-header>
             <ion-card-title>{{producto.nombre}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content *ngIf="producto.precio_oferta != 0">
             PRECIO: {{producto.precio}} <br>
             PRECIO OFERTA: {{producto.precio_oferta}} 
+          </ion-card-content>
+          <ion-card-content *ngIf="producto.precio_oferta == 0">
+            PRECIO: {{producto.precio}} <br>
+            PRECIO OFERTA: - 
           </ion-card-content>
           <ion-card-content>
             CATEGORIA: {{producto.nombre_categoria}}
