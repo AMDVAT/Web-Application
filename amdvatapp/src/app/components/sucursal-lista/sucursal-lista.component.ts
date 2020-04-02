@@ -27,7 +27,7 @@ export class SucursalListaComponent implements OnInit {
     public actionSheetController: ActionSheetController,
     public alertController: AlertController,
     private  session: SessionService) { 
-      this.presentLoading();
+
     }
 
 

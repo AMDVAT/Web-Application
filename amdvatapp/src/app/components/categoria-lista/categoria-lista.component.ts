@@ -22,7 +22,7 @@ export class CategoriaListaComponent implements OnInit {
       private gestionCategoriaService: GestionCategoriaService,
       private router: Router
   ) {
-    this.presentLoading();
+
   }
 
   async presentLoading() {

@@ -9,29 +9,38 @@
 
 <ion-content [fullscreen]="true">
 
-<ion-content>
 
-  <div id="container">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title >
-          Listado de Categorias Existentes
-        </ion-card-title>
-      </ion-card-header>
-    </ion-card>
-  </div>
-
-    <ion-list *ngIf="categorias">
+<!--  <div id="container">-->
+<!--    <ion-card>-->
+<!--      <ion-card-header>-->
+<!--        <ion-card-title >-->
+<!--          Listado de Categorias Existentes-->
+<!--        </ion-card-title>-->
+<!--      </ion-card-header>-->
+<!--    </ion-card>-->
+<!--  </div>-->
+    <div *ngIf="categorias">
+      <ion-list>
+        <ion-list-header>
+          <h2>Listado de Categorias Existentes</h2>
+        </ion-list-header>
       <ion-item *ngFor="let cat  of categorias">
         <ion-label (click)="presentActionSheet(cat.nombre, cat.id_categoria,cat.descripcion,cat.categoria_id_categoria)" >{{cat.nombre}}</ion-label>
       </ion-item>
-    </ion-list>
+      </ion-list>
+    </div>
 
-    <ion-list *ngIf="!categorias">
+    <div *ngIf="!categorias">
+      <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+      <ion-list>
+        <ion-list-header>
+          <h2>Listado de Categorias Existentes</h2>
+        </ion-list-header>
       <ion-item *ngFor="let cat  of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
-        <ion-skeleton-text width='300%'> </ion-skeleton-text>
+        <ion-skeleton-text style="width: 65%; height: 14px;"> </ion-skeleton-text>
       </ion-item>
-    </ion-list>
+      </ion-list>
+    </div>
     
 
   <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
