@@ -23,6 +23,7 @@
   >
     {{producto.descripcion}}
   </p>
+  <app-comentarios></app-comentarios>
 </ion-content>
 
 <ion-content *ngIf="!producto" [fullscreen]="true">
@@ -40,3 +41,4 @@
     <ion-skeleton-text style="height: 1em; width: 32%"></ion-skeleton-text>
   </p>
 </ion-content>
+

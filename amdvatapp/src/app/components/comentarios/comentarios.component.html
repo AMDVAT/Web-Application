@@ -1,0 +1,48 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <ion-title>Comentarios</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-list>
+
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Anadir Comentario</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-label>Comment</ion-label>
+          <ion-textarea clearOnEdit="true"></ion-textarea>
+          <hr>
+          <ion-item>
+            <ion-label>Puntuacion</ion-label>
+            <ion-select interface="popover">
+              <ion-select-option value="1">1</ion-select-option>
+              <ion-select-option value="2">2</ion-select-option>
+              <ion-select-option value="3">3</ion-select-option>
+              <ion-select-option value="4">4</ion-select-option>
+              <ion-select-option value="5">5</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-button>Añadir Comentario</ion-button>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-list-header>
+        Comentarios Recientes
+    </ion-list-header>
+
+
+    <ion-item *ngFor="let comentario of comentarios">
+        <ion-avatar slot="start">
+            <img src="https://t4.ftcdn.net/jpg/00/64/67/63/240_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg">
+        </ion-avatar>
+        <ion-label>
+            <h2>{{comentario.first_name}} {{comentario.last_name}}</h2>
+            <p>{{comentario.comment}}</p>
+            <h3>{{comentario.rating}}</h3>
+        </ion-label>
+    </ion-item>
+</ion-list>

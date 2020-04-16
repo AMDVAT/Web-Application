@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ProductoService} from '../../services/producto/producto.service';
 import {CarritoService} from '../../services/carrito/carrito.service';
 import {ToastController} from '@ionic/angular';
+import {ComentariosComponent} from '../../components/comentarios/comentarios.component';
 
 @Component({
     selector: 'app-producto',
