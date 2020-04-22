@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gestion de Categorias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+<!--  <div id="container">-->
+<!--    <ion-card>-->
+<!--      <ion-card-header>-->
+<!--        <ion-card-title >-->
+<!--          Listado de Categorias Existentes-->
+<!--        </ion-card-title>-->
+<!--      </ion-card-header>-->
+<!--    </ion-card>-->
+<!--  </div>-->
+    <div *ngIf="categorias">
+      <ion-list>
+        <ion-list-header>
+          <h2>Listado de Categorias Existentes</h2>
+        </ion-list-header>
+      <ion-item *ngFor="let cat  of categorias">
+        <ion-label (click)="presentActionSheet(cat.nombre, cat.id_categoria,cat.descripcion,cat.categoria_id_categoria)" >{{cat.nombre}}</ion-label>
+      </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="!categorias">
+      <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+      <ion-list>
+        <ion-list-header>
+          <h2>Listado de Categorias Existentes</h2>
+        </ion-list-header>
+      <ion-item *ngFor="let cat  of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
+        <ion-skeleton-text style="width: 65%; height: 14px;"> </ion-skeleton-text>
+      </ion-item>
+      </ion-list>
+    </div>
+    
+
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
+    <ion-fab-button routerLink = "datos" >
+      <ion-icon name = "add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gestion de Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-content>
+
+<!--  <div id="container">-->
+<!--    <ion-card>-->
+<!--      <ion-card-header>-->
+<!--        <ion-card-title >-->
+<!--          Listado de Productos Existentes-->
+<!--        </ion-card-title>-->
+<!--      </ion-card-header>-->
+<!--    </ion-card>-->
+<!--  </div>-->
+
+  <div *ngIf="productoList">
+    <ion-list>
+      <ion-list-header>
+        <h2>Listado de Productos Existentes</h2>
+      </ion-list-header>
+    <div *ngFor="let producto of productoList">
+      <div class = "card text-center" *ngIf="producto.estado == 1" >
+        <ion-card (click)="presentActionSheet(producto.id_producto, producto)">
+          <ion-card-header>
+            <ion-card-title>{{producto.nombre}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content *ngIf="producto.precio_oferta != 0">
+            PRECIO: {{producto.precio}} <br>
+            PRECIO OFERTA: {{producto.precio_oferta}} 
+          </ion-card-content>
+          <ion-card-content *ngIf="producto.precio_oferta == 0">
+            PRECIO: {{producto.precio}} <br>
+            PRECIO OFERTA: - 
+          </ion-card-content>
+          <ion-card-content>
+            CATEGORIA: {{producto.nombre_categoria}}
+           </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+    </ion-list>
+  </div>
+
+  <div *ngIf="!productoList">
+    <ion-progress-bar type="indeterminate" reversed="true"></ion-progress-bar>
+    <ion-list>
+      <ion-list-header>
+        <h2>Listado de Productos Existentes</h2>
+      </ion-list-header>
+    <div *ngFor="let sucursal of [1,1,1,1,1,1,1,1,1,1,1]">
+      <div class = "card text-center" >
+        <ion-card>
+          <ion-card-header style="padding-bottom: 1em">
+            <ion-card-title>
+              <ion-skeleton-text style="width: 85%; height: 22px"> </ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-skeleton-text animated style="width: 20%; height: 13px"> </ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 32%; height: 13px"> </ion-skeleton-text>
+          </ion-card-content>
+          <ion-card-content>
+            <ion-skeleton-text animated style="width: 38%"> </ion-skeleton-text>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+    </ion-list>
+  </div>
+
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed">
+    <ion-fab-button routerLink = "datos" >
+      <ion-icon name = "add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
