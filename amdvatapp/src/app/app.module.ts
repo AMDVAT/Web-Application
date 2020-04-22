@@ -34,6 +34,7 @@ import {CarritoComponent} from './components/carrito/carrito.component';
 import {UsuarioRegistroComponent} from './components/usuario-registro/usuario-registro.component';
 import {PestanaMantenimientoComponent} from './components/pestana-mantenimiento/pestana-mantenimiento.component';
 import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perfil.component';
+import {ComentariosComponent} from './components/comentarios/comentarios.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perf
     CarritoComponent,
     UsuarioRegistroComponent,
     PestanaMantenimientoComponent,
-    UsuarioPerfilComponent
+    UsuarioPerfilComponent,
+    ComentariosComponent
   ],
   entryComponents: [],
   imports: [
