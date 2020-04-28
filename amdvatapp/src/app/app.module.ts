@@ -5,6 +5,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { IonicRatingModule } from 'ionic-rating';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -61,6 +62,7 @@ import {ComentariosComponent} from './components/comentarios/comentarios.compone
     PestanaMantenimientoComponent,
     UsuarioPerfilComponent,
     ComentariosComponent
+
   ],
   entryComponents: [],
   imports: [
@@ -69,7 +71,8 @@ import {ComentariosComponent} from './components/comentarios/comentarios.compone
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    IonicRatingModule
   ],
   providers: [
     NeedAuthUser,

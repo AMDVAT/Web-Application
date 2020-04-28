@@ -8,25 +8,21 @@
 
     <ion-card>
         <ion-card-header>
-          <ion-card-title>Anadir Comentario</ion-card-title>
+            <ion-card-title>Anadir Comentario</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
-          <ion-label>Comment</ion-label>
-          <ion-textarea clearOnEdit="true"></ion-textarea>
-          <hr>
-          <ion-item>
-            <ion-label>Puntuacion</ion-label>
-            <ion-select interface="popover">
-              <ion-select-option value="1">1</ion-select-option>
-              <ion-select-option value="2">2</ion-select-option>
-              <ion-select-option value="3">3</ion-select-option>
-              <ion-select-option value="4">4</ion-select-option>
-              <ion-select-option value="5">5</ion-select-option>
-            </ion-select>
-          </ion-item>
+            <ion-textarea clearOnEdit="true" [(ngModel)]="cometario"></ion-textarea>
+            <hr>
+            <ion-item>
+                <ion-label>Puntuacion</ion-label>
+                <ion-rating [(ngModel)]="rate" size="default" (ngModelChange)="onModelChange($event)">
+                </ion-rating>
 
-          <ion-button>Añadir Comentario</ion-button>
+            </ion-item>
+
+
+            <ion-button expand="full" (click)="enviarComentario()">Añadir Comentario</ion-button>
         </ion-card-content>
     </ion-card>
 
@@ -42,7 +38,8 @@
         <ion-label>
             <h2>{{comentario.first_name}} {{comentario.last_name}}</h2>
             <p>{{comentario.comment}}</p>
-            <h3>{{comentario.rating}}</h3>
+            <ion-rating rate="{{comentario.rating}}" readonly="true" resettable="true" size="small">
+            </ion-rating>
         </ion-label>
     </ion-item>
 </ion-list>
