@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class EnviromentService {
 
-  API_URI = `https://amdvat-be.herokuapp.com/`;
+  API_URI = `http://64.225.24.183:9250/`;
   constructor() { }
 }

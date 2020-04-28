@@ -48,7 +48,11 @@ export class GestionProductoService {
       return this.http.put(`${this.env.API_URI}producto/editar/${id}`, updateProducto,{headers});
     }
 
-
+    getReservar(token: string){
+      let headers = new HttpHeaders().set('token', token);
+      return this.http.get(`${this.env.API_URI}reserva`, {headers});
+      
+    }
 
 
 }

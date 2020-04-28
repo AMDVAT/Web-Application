@@ -23,6 +23,8 @@ import {CarritoComponent} from './components/carrito/carrito.component';
 import { UsuarioRegistroComponent } from './components/usuario-registro/usuario-registro.component';
 import { PestanaMantenimientoComponent } from './components/pestana-mantenimiento/pestana-mantenimiento.component';
 import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perfil.component';
+import { ProductoOfertadoComponent } from './components/producto-ofertado/producto-ofertado.component';
+import { ReservaListaComponent } from './components/reserva-lista/reserva-lista.component';
 
 
 const routes: Routes = [
@@ -74,6 +76,10 @@ const routes: Routes = [
         component: UsuarioSimpleComponent,
         canActivate: [NeedAuthAdmin]
     },{
+        path: 'usuario/reserva',
+        component: ReservaListaComponent,
+        //canActivate: [NeedAuthAdmin]
+    },{
         path: 'gestion/producto/lista',
         component: ProductoListaComponent,
         //canActivate: [NeedAuthAdmin]
@@ -87,6 +93,10 @@ const routes: Routes = [
         //component: ProductoSimpleComponent
         component: PestanaMantenimientoComponent,
         canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/producto/oferta',
+        component: ProductoOfertadoComponent,
+        //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista',
         component: SucursalListaComponent,
