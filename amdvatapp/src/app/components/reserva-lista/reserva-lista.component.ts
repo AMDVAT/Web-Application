@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GestionProductoService } from 'src/app/services/gestion-producto/gestion-producto.service';
 import { SessionService } from 'src/app/services/session/session.service';
 import { ActivatedRoute } from '@angular/router';
+import { Reserva } from 'src/app/models/reserva';
 
 @Component({
   selector: 'app-reserva-lista',
@@ -11,14 +12,20 @@ import { ActivatedRoute } from '@angular/router';
 export class ReservaListaComponent implements OnInit {
 
   constructor(
+    private route: ActivatedRoute,
     private productoService: GestionProductoService,
     private session: SessionService,
     private activeRoute: ActivatedRoute
   ) { }
 
   reservasExistentes: any;
+  
+  reserva: Array<Reserva>;
+  idUsuario: string;
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.idUsuario = id;
     this.getReservas();
   }
 

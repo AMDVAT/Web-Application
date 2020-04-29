@@ -76,7 +76,7 @@ const routes: Routes = [
         component: UsuarioSimpleComponent,
         canActivate: [NeedAuthAdmin]
     },{
-        path: 'usuario/reserva',
+        path: 'usuario/reserva/:id',
         component: ReservaListaComponent,
         //canActivate: [NeedAuthAdmin]
     },{

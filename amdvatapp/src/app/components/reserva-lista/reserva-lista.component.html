@@ -7,5 +7,30 @@
   </ion-toolbar>
 </ion-header>
 
-<p>
-{{reservasExistentes}}</p>
+<ion-content [fullscreen]="true">
+  <div *ngFor = "let reserva of reservasExistentes ">
+    <div class = "card text-center" *ngIf="reserva.estado == 3" >
+      <!-- <ion-card (click)="presentActionSheet(producto.id_producto, producto)"> -->
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title> ID RESERVA: {{reserva.idReserva}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <b>FECHA RESERVA:</b>{{reserva.fecha}} <br>
+        </ion-card-content>
+        <ion-card-content *ngFor= "let detalle of reserva.detalleReserva">
+          <b>PRODUCTO:</b> 
+          <span style="color: red; font-size: 1.1em"> {{ detalle.producto.nombre }}</span> 
+          <br>
+          <b>CANTIDAD:</b> 
+          <span style="color: blue; font-size: 1.1em"> {{ detalle.cantidad }}</span>
+          <br>
+          <b>PASAR A TRAER A:</b> 
+          <span style="color: blue; font-size: 1.1em"> {{ detalle.idSucursal }}</span>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
+
+
