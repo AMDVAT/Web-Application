@@ -21,7 +21,7 @@ export class UsuarioPerfilComponent implements OnInit {
     tipo_usuario: 5
   }
 
-
+  idUsuario: number;
   usuarioP: User;
   editUsuario: any = [];
 
@@ -49,12 +49,17 @@ export class UsuarioPerfilComponent implements OnInit {
             this.usuario.email = this.editUsuario.email;
             this.usuario.password = this.editUsuario.password;
             this.usuario.tipo_usuario = this.editUsuario.tipo_usuario;
-           console.log(this.usuario.nombre)
+            this.idUsuario = this.editUsuario.id_usuario;
+           console.log(this.editUsuario.id_usuario)
           }, error => console.log(error)
         );
 
       });
     });
+  }
+
+  async VerReserva(){
+    this.router.navigate([`usuario/reserva/${this.idUsuario}`]);
   }
 
 }

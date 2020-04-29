@@ -157,6 +157,10 @@ export class SessionService {
                         title: 'Categorias',
                         url: '/categorias',
                         icon: 'apps'
+                    },{
+                        title: 'OFERTAS',
+                        url: '/gestion/producto/oferta',
+                        icon: 'book'
                     },
                     {
                         title: 'Gestion usuarios',
@@ -199,7 +203,11 @@ export class SessionService {
                         title: 'Categorias',
                         url: '/categorias',
                         icon: 'apps'
-                    },
+                    },{
+                        title: 'OFERTAS',
+                        url: '/gestion/producto/oferta',
+                        icon: 'book'
+                    }
                 ];
             }
             fun();

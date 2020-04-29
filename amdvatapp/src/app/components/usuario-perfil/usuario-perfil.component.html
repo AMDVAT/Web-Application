@@ -17,7 +17,7 @@
           </ion-card-title>
   
           <ion-card-content>
-            <form #formulario = "ngForm" (ngSubmit)= "saveUser()">
+            <form #formulario = "ngForm" (ngSubmit)= "VerReserva()">
               <ion-item>
                 <img
                 class="img-center"
@@ -41,6 +41,12 @@
                 <ion-label position="floating">Password</ion-label>
                 <ion-input type="password" name="password" [(ngModel)]= "usuario.password" required></ion-input>
               </ion-item>
+
+              <ion-item>
+                <ion-button color="success" expand= "full" type="submit" > 
+                    Ver Reservas
+                </ion-button>
+              </ion-item>
               
             <!--              
               <ion-label position="floating" *ngIf="formulario.valid"> Los datos ingresados son los solicitados</ion-label>
@@ -51,6 +57,7 @@
                   Registrar
               </ion-button>
             --> 
+            
             </form> 
           </ion-card-content>
   
