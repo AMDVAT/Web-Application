@@ -1,45 +1,50 @@
-<ion-header translucent>
-    <ion-toolbar>
-        <ion-title>Comentarios</ion-title>
-    </ion-toolbar>
-</ion-header>
+<div *ngIf="isLogin">
 
-<ion-list>
+    <ion-header translucent>
+        <ion-toolbar>
+            <ion-title>Comentarios</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-    <ion-card>
-        <ion-card-header>
-            <ion-card-title>Anadir Comentario</ion-card-title>
-        </ion-card-header>
+    <ion-list>
 
-        <ion-card-content>
-            <ion-textarea clearOnEdit="true" [(ngModel)]="cometario"></ion-textarea>
-            <hr>
-            <ion-item>
-                <ion-label>Puntuacion</ion-label>
-                <ion-rating [(ngModel)]="rate" size="default" (ngModelChange)="onModelChange($event)">
-                </ion-rating>
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>Anadir Comentario</ion-card-title>
+            </ion-card-header>
 
+            <ion-card-content>
+                <ion-textarea clearOnEdit="true" [(ngModel)]="cometario"></ion-textarea>
+                <hr>
+                <ion-item>
+                    <ion-label>Puntuacion</ion-label>
+                    <ion-rating [(ngModel)]="rate" size="default" (ngModelChange)="onModelChange($event)">
+                    </ion-rating>
+
+                </ion-item>
+
+
+                <ion-button expand="full" (click)="enviarComentario()">Añadir Comentario</ion-button>
+            </ion-card-content>
+        </ion-card>
+
+        <div *ngIf="resenas">
+            <ion-list-header>
+                Comentarios Recientes
+            </ion-list-header>
+
+
+            <ion-item *ngFor="let comentario of resenas">
+                <ion-avatar slot="start">
+                    <img src="https://t4.ftcdn.net/jpg/00/64/67/63/240_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg">
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{comentario.nombre_usuario}}</h2>
+                    <p>{{comentario.comentario}}</p>
+                    <ion-rating rate="{{comentario.valoracion}}" readonly="true" resettable="true" size="small">
+                    </ion-rating>
+                </ion-label>
             </ion-item>
-
-
-            <ion-button expand="full" (click)="enviarComentario()">Añadir Comentario</ion-button>
-        </ion-card-content>
-    </ion-card>
-
-    <ion-list-header>
-        Comentarios Recientes
-    </ion-list-header>
-
-
-    <ion-item *ngFor="let comentario of comentarios">
-        <ion-avatar slot="start">
-            <img src="https://t4.ftcdn.net/jpg/00/64/67/63/240_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg">
-        </ion-avatar>
-        <ion-label>
-            <h2>{{comentario.first_name}} {{comentario.last_name}}</h2>
-            <p>{{comentario.comment}}</p>
-            <ion-rating rate="{{comentario.rating}}" readonly="true" resettable="true" size="small">
-            </ion-rating>
-        </ion-label>
-    </ion-item>
-</ion-list>
+        </div>
+    </ion-list>
+</div>

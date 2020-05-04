@@ -15,7 +15,7 @@
           class="valoration"
           [valoration]="producto.calificacion"
   ></app-valoration>
-  <div style="text-align: center">
+  <div style="text-align: center" *ngIf="isLogin">
     <ion-button (click)="AddProduct(producto)"><ion-icon name="cart"></ion-icon>Añadir</ion-button>
   </div>
   <p
