@@ -9,6 +9,7 @@ import {Utils} from '../../Utils';
 })
 export class SessionService {
 
+
     constructor(
         private nativeStorage: NativeStorage,
         public platform: Platform
@@ -135,9 +136,9 @@ export class SessionService {
             if (token !== null && token !== undefined) {
                 Utils.routes = [
                     {
-                        title: 'Log In',
-                        url: '/login',
-                        icon: 'log-in'
+                        title: 'Log Out',
+                        url: '/logout',
+                        icon: 'log-out'
                     },
                     {
                         title: 'Perfil',

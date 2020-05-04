@@ -44,7 +44,7 @@ export class SucursalSimpleComponent implements OnInit {
               this.sucursal.nombre = this.editSucursal.nombre;
               this.sucursal.direccion = this.editSucursal.direccion;
               this.sucursal.numero = this.editSucursal.numero;
-              console.log(this.sucursal.nombre)
+              console.log(this.sucursal.nombre);
               console.log(res);
             }, error => console.log(error)
         );

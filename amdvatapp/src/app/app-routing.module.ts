@@ -25,6 +25,7 @@ import { PestanaMantenimientoComponent } from './components/pestana-mantenimient
 import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perfil.component';
 import { ProductoOfertadoComponent } from './components/producto-ofertado/producto-ofertado.component';
 import { ReservaListaComponent } from './components/reserva-lista/reserva-lista.component';
+import {LogOutComponent} from "./components/log-out/log-out.component";
 
 
 const routes: Routes = [
@@ -143,6 +144,9 @@ const routes: Routes = [
     ,{
         path: 'mantenimiento',
         component: PestanaMantenimientoComponent
+    },{
+        path: 'logout',
+        component: LogOutComponent
     }
 ];
 
