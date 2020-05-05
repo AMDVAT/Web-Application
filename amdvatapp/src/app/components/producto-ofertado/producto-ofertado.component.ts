@@ -6,6 +6,7 @@ import { ToastController } from '@ionic/angular';
 import { GestionProductoService } from 'src/app/services/gestion-producto/gestion-producto.service';
 import { Producto } from 'src/app/models/Producto';
 import { CarritoService } from 'src/app/services/carrito/carrito.service';
+import { SessionService } from 'src/app/services/session/session.service';
 
 @Component({
   selector: 'app-producto-ofertado',
@@ -16,17 +17,29 @@ export class ProductoOfertadoComponent implements OnInit {
 
   productos: any;
   productosSkeleton = [1, 2, 3, 4, 5];
+  isLogin = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private productService: GestionProductoService,
     private toastController: ToastController,
-    private carritoService: CarritoService
+    private carritoService: CarritoService,
+    private sessionService: SessionService
   ) { }
 
   ngOnInit() {
+    this.sessionService.getUserToken(token => {
+      if (token === undefined) {
+
+      } else {
+          this.isLogin = true;
+      }
+
+    });
+
     this.obtenerProductos();
+
   }
 
 

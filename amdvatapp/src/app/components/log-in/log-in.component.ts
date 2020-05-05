@@ -52,6 +52,7 @@ export class LogInComponent implements OnInit {
           this.messageSave();
           this.sessionService.setUser(res);
           this.sessionService.setUserEmail(this.user.email);
+          alert('Bienvenido a AMDVAT')
           location.href = 'home';
         },err => {
           this.errorMessageSave();

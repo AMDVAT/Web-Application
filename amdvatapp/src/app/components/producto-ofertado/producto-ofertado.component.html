@@ -34,7 +34,7 @@
         <p>{{producto.descripcion}}</p>
         <br>
         Valoracion <app-valoration [valoration]="producto.calificacion"></app-valoration>
-        <div style="float: right">
+        <div style="float: right" *ngIf="isLogin">
           <ion-button (click)="AddProduct(producto)"><ion-icon name="cart"></ion-icon>Añadir</ion-button>
         </div>
       </ion-card-content>

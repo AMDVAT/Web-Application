@@ -42,6 +42,7 @@ export class UsuarioRegistroComponent implements OnInit {
             res => {
               // this.messageSave();
               this.sessionService.setUser(res);
+              alert('Bienvenido AMDVAT')
               this.router.navigate(['home']);
             },err => {
               this.errorMessageSave();

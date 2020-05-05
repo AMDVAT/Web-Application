@@ -7,6 +7,7 @@ import {Producto} from '../../models/Producto';
 import {ProductoService} from '../../services/producto/producto.service';
 import {CarritoService} from '../../services/carrito/carrito.service';
 import {ToastController} from '@ionic/angular';
+import { SessionService } from 'src/app/services/session/session.service';
 
 @Component({
     selector: 'app-categoria',
@@ -17,6 +18,7 @@ export class CategoriaComponent implements OnInit {
     categoria: Categoria;
     productos: Array<Producto>;
     productosSkeleton = [1, 2, 3, 4, 5];
+    isLogin = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -24,11 +26,20 @@ export class CategoriaComponent implements OnInit {
         private categoriaService: CategoriaService,
         private productoService: ProductoService,
         private carritoService: CarritoService,
-        private toastController: ToastController
+        private toastController: ToastController,
+        private sessionService: SessionService
     ) {
     }
 
     ngOnInit() {
+
+        this.sessionService.getUserToken(token => {
+            if (token === undefined) {
+            } else {
+                this.isLogin = true;
+            }
+        });
+
         const id = this.route.snapshot.paramMap.get('id');
         this.categoriaService.getCategorias()
             .subscribe(categorias => {

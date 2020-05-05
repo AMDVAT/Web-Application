@@ -198,11 +198,7 @@ export class SessionService {
                         title: 'Home',
                         url: '/home',
                         icon: 'home'
-                    }, {
-                        title: 'Carrito',
-                        url: 'cart',
-                        icon: 'cart'
-                    },
+                    }, 
                     {
                         title: 'Categorias',
                         url: '/categorias',
