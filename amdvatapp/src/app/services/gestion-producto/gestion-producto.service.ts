@@ -7,6 +7,9 @@ import {delay} from 'rxjs/operators'
 import {Producto} from '../../models/Producto';
 import { Abastecer } from 'src/app/models/Abastecer';
 import { Suscribe } from 'src/app/models/Suscribe';
+import { Compra } from 'src/app/models/compra';
+import { Reservar } from 'src/app/models/detalleReserva';
+
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +65,16 @@ export class GestionProductoService {
     suscribirProducto(token: string, sus: Suscribe){
       let headers = new HttpHeaders().set('token', token);
       return this.http.post(`${this.env.API_URI}producto/suscribir`, sus, {headers});
+    }
+
+    buyProducto(token: string, detalle: Compra){
+      let headers = new HttpHeaders().set('token', token);
+      return this.http.post(`${this.env.API_URI}producto/comprar`, detalle, {headers});
+    }
+
+    reservarProducto(token: string, detalle: Reservar){
+      let headers = new HttpHeaders().set('token', token);
+      return this.http.post(`${this.env.API_URI}reserva`, detalle, {headers});
     }
 
 }
