@@ -38,8 +38,9 @@ import {UsuarioPerfilComponent} from './components/usuario-perfil/usuario-perfil
 import {ComentariosComponent} from './components/comentarios/comentarios.component';
 import {ProductoOfertadoComponent} from './components/producto-ofertado/producto-ofertado.component';
 import {ReservaListaComponent} from './components/reserva-lista/reserva-lista.component';
-import {LogOutComponent} from "./components/log-out/log-out.component";
+import {LogOutComponent} from './components/log-out/log-out.component';
 import { ProductoAbastecerComponent } from './components/producto-abastecer/producto-abastecer.component';
+import {FirebaseX} from '@ionic-native/firebase-x/ngx';
 
 @NgModule({
     declarations: [
@@ -87,6 +88,7 @@ import { ProductoAbastecerComponent } from './components/producto-abastecer/prod
         StatusBar,
         SplashScreen,
         NativeStorage,
+        FirebaseX,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]
