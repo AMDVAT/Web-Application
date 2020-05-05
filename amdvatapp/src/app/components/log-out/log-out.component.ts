@@ -19,6 +19,7 @@ export class LogOutComponent implements OnInit {
       } else {
         this.sessionService.removeUser();
         this.sessionService.removeUserEmail();
+        alert('Gracias por utilizar la AMDVAT')
         location.href = 'home';
       }
 
