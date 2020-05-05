@@ -14,7 +14,7 @@
                 <ion-button style="background-color: #2dd36f" (click)="comprarProducto()" ><ion-icon name="card"></ion-icon> Comprar</ion-button>
             </ion-col>
             <ion-col style="text-align: center" size="6">
-                <ion-button style="background-color: #5d58e0"><ion-icon name="color-wand"></ion-icon> Reservar</ion-button>
+                <ion-button style="background-color: #5d58e0" (click)="reservarProducto()"><ion-icon name="color-wand"></ion-icon> Reservar</ion-button>
             </ion-col>
         </ion-row>
         <ion-card *ngFor="let productoRef of UtilsRef.products">
