@@ -144,7 +144,7 @@ const routes: Routes = [
     },{
         path: 'cart',
         component: CarritoComponent,
-         canActivate: [NeedAuthAdmin]
+        canActivate: [NeedAuthAdmin]
     }
     ,{
         path: 'mantenimiento',
