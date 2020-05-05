@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {Utils} from './Utils';
 import {SessionService} from './services/session/session.service';
-
+import {FirebaseX} from '@ionic-native/firebase-x/ngx';
 
 
 
@@ -29,7 +29,8 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private firebaseX: FirebaseX
   ) {
     this.initializeApp();
     this.sessionService.setRoutes(() => {
@@ -41,6 +42,13 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.firebaseX.getToken()
+          .then(token => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
+          .catch(error => console.error('Error getting token', error));
+
+      this.firebaseX.onMessageReceived()
+          .subscribe(data => console.log(`User opened a notification ${data}`));
     });
   }
 
