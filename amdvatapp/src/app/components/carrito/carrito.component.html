@@ -11,7 +11,7 @@
     <div *ngIf="UtilsRef.products.length > 0">
         <ion-row>
             <ion-col style="text-align: center" size="6">
-                <ion-button style="background-color: #2dd36f"><ion-icon name="card"></ion-icon> Comprar</ion-button>
+                <ion-button style="background-color: #2dd36f" (click)="comprarProducto()" ><ion-icon name="card"></ion-icon> Comprar</ion-button>
             </ion-col>
             <ion-col style="text-align: center" size="6">
                 <ion-button style="background-color: #5d58e0"><ion-icon name="color-wand"></ion-icon> Reservar</ion-button>
