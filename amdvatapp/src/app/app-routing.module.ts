@@ -26,6 +26,7 @@ import { UsuarioPerfilComponent } from './components/usuario-perfil/usuario-perf
 import { ProductoOfertadoComponent } from './components/producto-ofertado/producto-ofertado.component';
 import { ReservaListaComponent } from './components/reserva-lista/reserva-lista.component';
 import {LogOutComponent} from "./components/log-out/log-out.component";
+import { ProductoAbastecerComponent } from './components/producto-abastecer/producto-abastecer.component';
 
 
 const routes: Routes = [
@@ -97,6 +98,10 @@ const routes: Routes = [
     },{
         path: 'gestion/producto/oferta',
         component: ProductoOfertadoComponent,
+        //canActivate: [NeedAuthAdmin]
+    },{
+        path: 'gestion/producto/abastecer',
+        component: ProductoAbastecerComponent,
         //canActivate: [NeedAuthAdmin]
     },{
         path: 'gestion/sucursal/lista',

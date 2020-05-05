@@ -39,6 +39,7 @@ import {ComentariosComponent} from './components/comentarios/comentarios.compone
 import {ProductoOfertadoComponent} from './components/producto-ofertado/producto-ofertado.component';
 import {ReservaListaComponent} from './components/reserva-lista/reserva-lista.component';
 import {LogOutComponent} from "./components/log-out/log-out.component";
+import { ProductoAbastecerComponent } from './components/producto-abastecer/producto-abastecer.component';
 
 @NgModule({
     declarations: [
@@ -67,8 +68,8 @@ import {LogOutComponent} from "./components/log-out/log-out.component";
         ComentariosComponent,
         ProductoOfertadoComponent,
         ReservaListaComponent,
-        LogOutComponent
-
+        LogOutComponent,
+        ProductoAbastecerComponent
     ],
     entryComponents: [],
     imports: [

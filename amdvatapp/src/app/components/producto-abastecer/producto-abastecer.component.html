@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Abastecer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-card >
+      <ion-card-header >
+        <ion-card-title >
+          Datos del producto
+        </ion-card-title>
+
+        <ion-card-content >
+          <form #formulario = "ngForm" (ngSubmit)= "menuAccion()">
+            <div class="ion-padding">
+              <ion-item>
+                <ion-label>Producto</ion-label>
+                <ion-select  [(ngModel)]="producto.idProducto" 
+                             [ngModelOptions]="{standalone: true}"
+                             (ionChange)="OnChange($event)" placeholder= "Seleccione categoria del producto">
+                  <ion-select-option *ngFor="let categoria of productosList" [value]="categoria.id_producto" >
+                    {{categoria.nombre}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+            </div>
+            <ion-item>
+              <ion-label position="floating">Cantidad</ion-label>
+              <ion-input required type="text" name="descripcion" [(ngModel)]= "producto.cantidad"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Precio</ion-label>
+              <ion-input required type="text" name="precio" [(ngModel)]= "producto.precio_unitario"></ion-input>
+            </ion-item>
+
+
+            <ion-label position="floating" *ngIf="formulario.valid"> Los datos ingresados son los solicitados</ion-label>
+            <ion-label position="floating" *ngIf="formulario.valid==false"> Faltan campos requeridos</ion-label>
+
+            <ion-button color = "success" expand= "full" type="submit"
+                        [disabled]="formulario.invalid" *ngIf="!edit"> 
+              Registrar
+            </ion-button>
+            <ion-button color = "success" expand= "full" type="submit"
+                        [disabled]="formulario.invalid" *ngIf="edit"> 
+              Editar
+            </ion-button>
+
+          </form> 
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+  
+  </div>
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger" *ngIf="edit" >
+    <ion-fab-button color = "primary" routerLink = "../.." >
+      <ion-icon name = "arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical = "bottom" horizontal ="end" slot="fixed" color = "danger" *ngIf="!edit">
+    <ion-fab-button color = "primary" routerLink = ".." >
+      <ion-icon name = "arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> 
+
+</ion-content>
