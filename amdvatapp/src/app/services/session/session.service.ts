@@ -162,8 +162,11 @@ export class SessionService {
                         title: 'OFERTAS',
                         url: '/gestion/producto/oferta',
                         icon: 'book'
-                    },
-                    {
+                    },{
+                        title: 'Abastecer productos',
+                        url: 'gestion/producto/abastecer',
+                        icon: 'list'
+                    },{
                         title: 'Gestion usuarios',
                         url: 'gestion/usuario/lista',
                         icon: 'people'

@@ -5,6 +5,7 @@ import {SessionService} from '../session/session.service';
 import {delay} from 'rxjs/operators'
 
 import {Producto} from '../../models/Producto';
+import { Abastecer } from 'src/app/models/Abastecer';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,10 @@ export class GestionProductoService {
       let headers = new HttpHeaders().set('token', token);
       return this.http.get(`${this.env.API_URI}reserva`, {headers});
       
+    }
+    
+    postAbastecer(producto: Abastecer){
+      return this.http.post(`${this.env.API_URI}producto/entrada`, producto);
     }
 
 
