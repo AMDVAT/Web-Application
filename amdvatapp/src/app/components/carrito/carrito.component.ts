@@ -72,11 +72,16 @@ export class CarritoComponent implements OnInit {
         console.log('Elementos')
         
         const prueba: Array<any> = [];
+        const it: ProductoC = {
+            id_producto: 0,
+            cantidad: 0
+        };
+        console.log('Compra')
         this.UtilsRef.products.forEach(element => {
-            this.item.cantidad = element.cantidad;
-            this.item.id_producto =+ element.producto.id_producto;
-            console.log(this.item);
-            prueba.push(this.item);
+            it.cantidad = element.cantidad;
+            it.id_producto =+ element.producto.id_producto;
+            console.log(it);
+            prueba.push(it);
         });
         this.detalleCompra.detalle_compra = prueba;
         console.log(this.detalleCompra)
