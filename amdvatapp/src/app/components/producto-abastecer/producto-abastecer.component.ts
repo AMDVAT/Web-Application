@@ -54,7 +54,8 @@ export class ProductoAbastecerComponent implements OnInit {
   actualizarStock(){
     this.productService.postAbastecer(this.producto).subscribe(
       res =>{
-        alert(res);
+        console.log(res)
+        alert('Se actualizo el stock del producto');
       }, error => console.log('Ocurrio el siguiente error',error)
     );
   }
