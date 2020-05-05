@@ -56,6 +56,7 @@ export class ProductoAbastecerComponent implements OnInit {
       res =>{
         console.log(res)
         alert('Se actualizo el stock del producto');
+        location.href = 'gestion/producto/abastecer';
       }, error => console.log('Ocurrio el siguiente error',error)
     );
   }
